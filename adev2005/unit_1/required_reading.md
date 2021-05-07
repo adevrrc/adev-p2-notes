@@ -1,3 +1,8 @@
+---
+title: Unit 1 - Required Reading
+layout: basic-page
+---
+
 # Unit 1 - Required Reading
 
 - Something
