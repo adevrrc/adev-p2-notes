@@ -1,6 +1,6 @@
 ---
 title: Unit 1 - Required Reading
-layout: basic-page
+layout: default
 ---
 
 # Unit 1 - Required Reading
