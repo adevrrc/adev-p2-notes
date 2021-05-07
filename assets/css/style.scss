@@ -2,6 +2,9 @@
 ---
 
 //@import "{{ site.theme }}";
+@import "https://learn.rrc.ca/shared/2019_HTML_Templates_FINAL/module_templates/../assets/thirdpartylib/bootstrap-3.3.6/css/bootstrap.min.css";
+@import "https://learn.rrc.ca/shared/2019_HTML_Templates_FINAL/module_templates/../assets/css/main.min.css";
+@import "https://learn.rrc.ca/shared/2019_HTML_Templates_FINAL/module_templates/../assets/css/RRC_fixes.css";
 
 .main-content {
   max-width: none;
