@@ -1,5 +1,6 @@
 ---
 title: Home
+nav_order: 1
 ---
 
 # Programming 1 and 2 Course Notes
