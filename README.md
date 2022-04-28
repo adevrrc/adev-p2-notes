@@ -12,4 +12,4 @@ title: Home
 
 ## Other Resources
 
-Check out the course on (Learn)[https://learn.rrc.ca] for projects, assignments and other learning material.
+Check out the course on [Learn](https://learn.rrc.ca) for projects, assignments and other learning material.
