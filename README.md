@@ -1,8 +1,15 @@
-# adevrrc.github.io
+---
+title: Home
+---
 
-## RRC/ACE/ADEV
+# Programming 1 and 2 Course Notes
 
-### Courses
+## Programming 1
 
-- ADEV-1003
-- ADEV-2005
+
+## Programming 2
+
+
+## Other Resources
+
+Check out the course on (Learn)[https://learn.rrc.ca] for projects, assignments and other learning material.
