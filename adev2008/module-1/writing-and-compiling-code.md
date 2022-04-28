@@ -1,9 +1,10 @@
 ---
-title: Unit 1 - Required Reading
-layout: basic-page
+title: Writing and Compiling Code
+parent: Introduction to Programming
+nav_order: 2
 ---
 
-# Unit 1 - Required Reading
+# Writing and Compiling Code
 
 - Something
 - Something else

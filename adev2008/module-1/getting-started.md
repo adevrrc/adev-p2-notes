@@ -1,4 +1,10 @@
-# Unit 1 - Exercises
+---
+title: Getting Started
+parent: Introduction to Programming
+nav_order: 1
+---
+
+# Getting Started
 
 ## Setup
 
