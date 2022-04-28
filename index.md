@@ -1,6 +1,7 @@
 ---
 title: Home
 nav_order: 1
+has_children: false
 ---
 
 # Programming 1 and 2 Course Notes
