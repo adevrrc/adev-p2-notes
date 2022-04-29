@@ -17,11 +17,16 @@ The following are the features of this course manual:
 
 ## Documentation Conventions
 
-NOTE {: .label .label-blue} 
+<br />
+
+NOTE 
+{: .label .label-blue} 
+
 A note of important information about the topic.
 
 BEST PRACTICES
 {: .label .label-green}
+
 Calls attention to techniques that will help you produce code that is cleaner, more understandable and more maintainable.
 
 COMMON PROGRAMMING ERRORS
@@ -57,4 +62,4 @@ internal class HelloWorld
 
 ## Help Improve These Notes
 
-If you find a typo, buggy code example, or find an explanation could be done better, contact Damien @ [daltenburg@rrc.ca](mailto:daltenburg@rrc.ca).
+If you find a typo, buggy code example, or find an explanation that could be done better, contact Damien @ [daltenburg@rrc.ca](mailto:daltenburg@rrc.ca).
