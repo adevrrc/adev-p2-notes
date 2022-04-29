@@ -17,7 +17,7 @@ The following are the features of this course manual:
 
 ## Documentation Conventions
 
-<br />
+You will see the following marker throughout this manual:
 
 NOTE 
 {: .label .label-blue} 
@@ -62,4 +62,8 @@ internal class HelloWorld
 
 ## Help Improve These Notes
 
-If you find a typo, buggy code example, or find an explanation that could be done better, contact Damien @ [daltenburg@rrc.ca](mailto:daltenburg@rrc.ca).
+You can help improve this manual in three ways:
+
+1. If you find any problems with this manual, alert your instructor.
+2. Contact the lead instructor by email [daltenburg@rrc.ca](mailto:daltenburg@rrc.ca).
+3. You can submit a pull request to fix typos, debug code samples, and update explanations using the “Edit this page on Github” link at the bottom of every page.
