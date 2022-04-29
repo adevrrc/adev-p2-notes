@@ -8,9 +8,14 @@ has_children: false
 
 The following are the features of this course manual:
 
+{: .no_toc }
+
 ## Table of Contents
 
 {: .no_toc .text-delta }
+
+1. TOC
+   {:toc}
 
 ## Documentation Conventions
 
