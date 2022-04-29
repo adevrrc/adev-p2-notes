@@ -10,7 +10,7 @@ has_children: false
 The following are the features of this course manual:
 
 ## Table of Contents
-{:.text-delta }
+{: .no_toc .text-delta }
 
 1. TOC
 {:toc}
@@ -36,7 +36,6 @@ WARNING
 {: .label .label-yellow}
 
 Tips for exposing and removing defects in your code.
-
 
 FUTURE LESSON
 {: .label .label-purple}
