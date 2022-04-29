@@ -5,17 +5,15 @@ has_children: false
 ---
 
 # Manual Features
+{: .no_toc }
 
 The following are the features of this course manual:
 
-{: .no_toc }
-
 ## Table of Contents
-
-{: .no_toc .text-delta }
+{:.text-delta }
 
 1. TOC
-   {:toc}
+{:toc}
 
 ## Documentation Conventions
 
@@ -35,13 +33,13 @@ COMMON PROGRAMMING ERRORS
 Highlights common errors to help reduce the likeliness that you'll make them.
 
 WARNING
-{: .label .label-red}
+{: .label .label-yellow}
 
 Tips for exposing and removing defects in your code.
 
 
 FUTURE LESSON
-{: .label .label-red}
+{: .label .label-purple}
 
 A concept that needs to be mentioned now, but will be discussed deeper in a future lesson.
 
