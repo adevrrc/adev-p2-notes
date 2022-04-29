@@ -17,11 +17,11 @@ The following are the features of this course manual:
 
 ## Documentation Conventions
 
-NOTE {: .label .label-blue} A note of important information about the topic.
+NOTE {: .label .label-blue} 
+A note of important information about the topic.
 
 BEST PRACTICES
 {: .label .label-green}
-
 Calls attention to techniques that will help you produce code that is cleaner, more understandable and more maintainable.
 
 COMMON PROGRAMMING ERRORS
