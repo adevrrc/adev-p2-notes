@@ -1,5 +1,10 @@
 remote_theme: just-the-docs/just-the-docs
 
+title: ADEV Programming
+description: A manual for ADEV Programming
+baseurl: "/adevrrc.github.io" # the subpath of your site, e.g. /blog
+url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
 # Enable or disable the site search
 # Supports true (default) or false
 search_enabled: true
