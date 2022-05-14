@@ -17,7 +17,7 @@ permalink: /
 5. Demonstrate debugging and testing strategies including unit testing.
 6. Develop event driven Windows applications.
 7. Develop applications using various types of collections.
-8. Process data from a variety of sources
+8. Process data from a variety of sources.
 
 ## Other Resources
 
