@@ -1,7 +1,7 @@
 remote_theme: just-the-docs/just-the-docs
 #theme: just-the-docs
 
-title: ADEV Programming
+title: ADEV P2 Notes
 description: Course notes for the Programming 2 course.
 baseurl: "/adev-p2-notes" # the subpath of your site, e.g. /blog
 #url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -35,7 +35,7 @@ search:
   # Supports true or false (default)
   button: false
 
-footer_content: "Copyright &copy; 2022 Thirsty Cod3r."
+footer_content: "Copyright &copy; 2022 RRCP (Thirsty Cod3r)."
 
 kramdown:
   toc_levels: 1..2
