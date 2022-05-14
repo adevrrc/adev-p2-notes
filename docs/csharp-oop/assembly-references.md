@@ -6,13 +6,6 @@ nav_order: 6
 ---
 
 # Assembly References
-{: .no_toc }
-
-## Table of Contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 To use types defined within class library assemblies, your project must contain a reference to the assembly. 
 

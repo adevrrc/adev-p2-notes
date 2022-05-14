@@ -3,7 +3,6 @@ layout: default
 title: C# OOP
 nav_order: 4
 has_children: true
-permalink: /adev2008/csharp-oop
 ---
 
 # C# Object-Oriented Programming

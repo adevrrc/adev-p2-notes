@@ -160,12 +160,12 @@ Before you really dive into developing your unit tests, keep the following best 
 
 ## Test Method Examples
 
-The following unit test method examples will follow the [sample test plan](/adev2008/unit-testing/sample-test-plan). Not every test case will be demonstrated here, as some of the test cases will produce similar unit test method implementation.
+The following unit test method examples will follow the [sample test plan]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/sample-test-plan). Not every test case will be demonstrated here, as some of the test cases will produce similar unit test method implementation.
 
-- [Constructor Tests](/adev2008/unit-testing/constructor-tests)
-- [Property Tests](/adev2008/unit-testing/property-tests)
-- [Method Tests](/adev2008/unit-testing/method-tests)
-- [Accessing Base Class Fields](/adev2008/unit-testing/accessing-base-class-fields)
+- [Constructor Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/constructor-tests)
+- [Property Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/property-tests)
+- [Method Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/method-tests)
+- [Accessing Base Class Fields]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/accessing-base-class-fields)
 
 ## Further Reading
 

@@ -3,7 +3,6 @@ layout: default
 title: Intro to .NET, C# & VS
 nav_order: 3
 has_children: true
-permalink: /adev2008/intro-to-dotnet-csharp-vs
 ---
 
 # Introduction to .NET, C# and Visual Studio

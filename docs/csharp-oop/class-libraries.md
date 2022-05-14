@@ -18,7 +18,7 @@ A **Class Library** is a project that contains types and methods used by applica
 
 ## Creating a New Project
 
-Creating a Class Library project follows the [same steps as a Console Application](/adev2008/intro-to-dotnet-csharp-vs/console-application-project/#create-a-new-project), except that you will choose a different project template.
+Creating a Class Library project follows the [same steps as a Console Application]({{ site.url }}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/console-application-project/#create-a-new-project), except that you will choose a different project template.
 
 When you get to the **Create a new project** window, the project type you want to choose is called "Class Library (.NET Framework)". You can use the search to filter the list.
 
@@ -74,7 +74,7 @@ In a future topic, you will learn how to add references to other class libraries
 
 ## Building the Project
 
-[Building (Compile) a Project](../visual-studio-ide.html#building-compiling-a-project) was discussed in a previous topic.
+[Building (Compile) a Project]({{ site.url }}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/visual-studio-ide/#building-compiling-a-project) was discussed in a previous topic.
 
 On a successful build of a Console Application Project, the following files will be generated in the **bin\Debug** directory within the Project directory.
 

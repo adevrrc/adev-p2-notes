@@ -110,7 +110,7 @@ In a future topic, you will learn how to add references to other class libraries
 
 ## Building a Console Application Project
 
-[Building (Compile) a Project](visual-studio-ide.html#building-compiling-a-project) was discussed in a previous topic.
+[Building (Compile) a Project]({{ site.url }}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/visual-studio-ide/#building-compiling-a-project) was discussed in a previous topic.
 
 On a successful build of a Console Application Project, the following files will be generated in the **bin\Debug** directory within the Project directory.
 

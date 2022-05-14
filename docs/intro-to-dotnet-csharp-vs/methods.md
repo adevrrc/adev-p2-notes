@@ -60,4 +60,4 @@ Because the `IsValidName()` method is within the same class, dot-notation is not
 
 ## Methods For Objects
 
-Check out the [Classes](classes.html) section of these notes.
+Check out the [Classes]({{ site.url }}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/classes/) section of these notes.

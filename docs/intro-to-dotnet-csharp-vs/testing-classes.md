@@ -139,7 +139,6 @@ For each method you are testing, the test program will print a heading indicatin
 
 ```csharp
 GetAge() : int
-</pre>
 ```
 
 Leave one blank line before printing the method being tested, except for the first method.
@@ -155,11 +154,11 @@ Each unit test will output the following information:
 
 **Format**
 
-<pre>
+```text
 Test #{test number} - Description of the test.
 Expected: {expected value}
 Actual: {actual value}
-</pre>
+```
 
 **Example**
 

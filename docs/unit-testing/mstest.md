@@ -1,11 +1,11 @@
 ---
 layout: default
-title: MSTest
+title: MSTest Project
 parent: Unit Testing
 nav_order: 1
 ---
 
-# MSTest
+# MSTest Project
 {: .no_toc }
 
 ## Table of Contents
@@ -35,7 +35,7 @@ These techniques are acceptable when you are beginning your developer journey. B
 
 ## Creating an MSTest Project
 
-Creating a Class Library project follows the [same steps as a Console Application](/adev2008/intro-to-dotnet-csharp-vs/console-application-project/#create-a-new-project), except that you will choose a different project template.
+Creating a Class Library project follows the [same steps as a Console Application]({{ site.url }}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/console-application-project/#create-a-new-project), except that you will choose a different project template.
 
 When you get to the **Create a new project** window, the project type you want to choose is called "Unit Test Project (.NET Framework)". You can use the search to filter the list.
 

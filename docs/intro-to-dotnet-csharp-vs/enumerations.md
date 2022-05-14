@@ -57,7 +57,7 @@ In this course, each enumeration you define will be coded within its own file. L
 
 ## Documentation
 
-Documentation is required for each enumeration and all of the enumeration members. Check out [a sample of how an enumeration is documented](/adev2008/appendixes/documentation-samples.html#enumeration).
+Documentation is required for each enumeration and all of the enumeration members. Check out [a sample of how an enumeration is documented]({{ site.url }}{{ site.baseurl }}/docs/appendixes/documentation-samples/#enumeration).
 
 ## Enumeration Values
 

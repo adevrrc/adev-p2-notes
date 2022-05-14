@@ -41,7 +41,7 @@ An exception is an object. This means that an exception is an instance of a clas
 When an exception happens, two things take place:
 
 1. An instance of an exception is created.
-2. The exception is thrown down the [Execution Call Stack](#method-call-stack).
+2. The exception is thrown down the **Execution Call Stack**.
 
 When an exception is thrown down the method call stack, the normal flow of the code does not happen. This means that when a exception occurs, no code will execute. As the exception traverses down the call stack, the run-time is looking for the exception to be handled.  If the exception is handled at some point in the execution call stack, they flow of code is regained. If run-time makes it to the bottom of the execution call stack and does not find code to handle the exception, the program will terminate.
 
