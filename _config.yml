@@ -2,11 +2,9 @@ remote_theme: just-the-docs/just-the-docs
 #theme: just-the-docs
 
 title: ADEV Programming
-description: A manual for ADEV2008 Programming
+description: Course notes for the Programming 2 course.
 baseurl: "/adev-p2-notes" # the subpath of your site, e.g. /blog
-url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-#baseurl: "/"
-#url: "http://localhost:8888" # dev url
+#url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
 
@@ -39,15 +37,16 @@ search:
 
 footer_content: "Copyright &copy; 2022 Thirsty Cod3r."
 
+kramdown:
+  toc_levels: 1..2
+
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
-
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
 gh_edit_repository: "https://github.com/adevrrc/adevrrc.github.io" # the github URL for your repo
 gh_edit_branch: "master" # the branch that your docs is served from
-# gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
