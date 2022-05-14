@@ -1,5 +1,5 @@
-#remote_theme: just-the-docs/just-the-docs
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
+#theme: just-the-docs
 
 title: ADEV Programming
 description: A manual for ADEV2008 Programming
