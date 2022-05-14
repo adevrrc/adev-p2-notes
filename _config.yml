@@ -4,7 +4,7 @@ remote_theme: just-the-docs/just-the-docs
 title: ADEV Programming
 description: A manual for ADEV2008 Programming
 baseurl: "/adevrrc.github.io" # the subpath of your site, e.g. /blog
-#url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #baseurl: "/"
 #url: "http://localhost:8888" # dev url
 
