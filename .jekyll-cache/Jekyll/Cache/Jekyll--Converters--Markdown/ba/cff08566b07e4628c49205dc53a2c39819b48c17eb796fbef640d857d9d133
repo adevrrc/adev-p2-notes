@@ -1,0 +1,111 @@
+I"U<h1 class="no_toc" id="running-unit-tests">Running Unit Tests</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#test-explorer" id="markdown-toc-test-explorer">Test Explorer</a></li>
+  <li><a href="#running-tests" id="markdown-toc-running-tests">Running Tests</a></li>
+  <li><a href="#test-results" id="markdown-toc-test-results">Test Results</a></li>
+  <li><a href="#tests-that-fail" id="markdown-toc-tests-that-fail">Tests That Fail</a></li>
+  <li><a href="#tests-that-pass" id="markdown-toc-tests-that-pass">Tests That Pass</a></li>
+</ol>
+
+<h2 id="test-explorer">Test Explorer</h2>
+
+<p>The <strong>Test Explorer</strong> is a panel within Visual Studio. It is used to run unit tests. The Test Explorer is not usually visible by default. To open the panel, go to <strong>View &gt; Test Explorer</strong> on the menu strip or use the keyboard shortcut <kbd>Ctrl + E, T</kbd>. While you are unit testing, you may want to pin the Test Explorer panel so it is always visible.</p>
+
+<p><img src="images/running-tests/blank-test-explorer.png" alt="Blank Test Explorer" class="large" /></p>
+
+<p class="d-block">Like the Solution Explorer, the Test Explorer is populated with nodes. The first node represents a test project. All the namespaces within the test project will be child nodes of the test project. Test class nodes are child nodes of the namespace nodes. Unit test nodes are child nodes of test class nodes.</p>
+
+<p><img src="images/running-tests/populated-test-explorer.png" alt="Populated Test Explorer" class="large inline" /></p>
+
+<p>Test Explorer Hierarchy</p>
+
+<ul>
+  <li>Project
+    <ul>
+      <li>Namespace
+        <ul>
+          <li>Unit Test Class
+            <ul>
+              <li>Unit Test Method</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p class="alert alert-warning d-inline-block">If the Test Explorer is not populating with your Unit Test Class or Unit Test Methods, ensure you have used the <code class="language-plaintext highlighter-rouge">TestClass</code> and <code class="language-plaintext highlighter-rouge">TestMethod</code> attributes. Also, the test class must build. Syntax errors may prevent the Test Explorer from populating.</p>
+
+<h2 id="running-tests">Running Tests</h2>
+
+<p>It is recommended that after completing a unit test method you will run it. To run a unit test, right-click the unit test method node in the Test Explorer and choose <strong>Run</strong> from the context menu.</p>
+
+<p><img src="images/running-tests/run-unit-test.png" alt="Run Unit Test" class="large" /></p>
+
+<p>You can execute all tests or a grouping of tests. It is recommended to execute tests individually. When a test fails, you will want to fix the defect until the test passes before moving on with your testing.</p>
+
+<h2 id="test-results">Test Results</h2>
+
+<p>After running a test, the icons next to the Project, Namespace, Class, and Method will show you the result of tests in that grouping.</p>
+
+<p><img src="https://docs.microsoft.com/en-us/visualstudio/test/media/testex-hierarchy-icons.png?view=vs-2022" alt="Test Explorer Icons" class="large" /></p>
+
+<p>If you select a unit test node in the Test Explorer, the <strong>Test Detail Summary</strong> panel will populate information about the results of the test. It is important to read this information carefully when a test fails. It is this information that will help you figure out why the test if failing.</p>
+
+<p><img src="images/running-tests/test-detail-summary.png" alt="Test Detail Summary" class="large" /></p>
+
+<h2 id="tests-that-fail">Tests That Fail</h2>
+
+<p>A unit test method results in a Failed status when an exception occurs during the execution of the unit test method. Exceptions will occur in two cases:</p>
+
+<ol>
+  <li>The <code class="language-plaintext highlighter-rouge">Assert</code> method used to evaluate the result of the test throws an <code class="language-plaintext highlighter-rouge">AssertFailedException</code>.</li>
+  <li>An unexpected exception of any other type is thrown.</li>
+</ol>
+
+<p class="alert alert-error">You should not handle exceptions you are not intentionally throwing in your test just to make the test pass. An exception is telling you something is wrong.</p>
+
+<p>When a unit test method fails, it doesn’t necessarily mean the unit you are testing has a defect. If you wrote a statement in your unit test that is causing an exception, it will cause the unit test method to fail.</p>
+
+<p>To avoid making unnecessary changes to your code, follow these steps:</p>
+
+<ol>
+  <li>Read the test details carefully. In most cases, you can figure out where the problem is from this information.</li>
+  <li>If the test details are not helping, read through you unit test method code looking for an error. This may require you to trace the code.</li>
+  <li>If the unit test code looks good, read through the unit’s code that you are testing. This may require you to trace the code.</li>
+</ol>
+
+<p class="alert alert-best-practices">If you are not able to solve a failed test, reach out to your instructor for assistance.</p>
+
+<h2 id="tests-that-pass">Tests That Pass</h2>
+
+<p>A unit test method that completes successfully will result an a Passed status.</p>
+
+<p><img src="images/running-tests/test-passed.png" alt="Test Passed" class="large" /></p>
+
+<p>Writing a unit test method and getting a Passed status after running it is a great feeling. You want to also be mindful that a Passed status does not necessarily mean the unit doesn’t have a defect.</p>
+
+<p>Consider the following unit test method:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.UnitTesting</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">TestClass</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PersonTests</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TestMethod1</span><span class="p">()</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Remember that the only criteria for producing a Passed status is for the unit test method to complete successfully. The unit test method above contains no code and will result in a Passed status.</p>
+
+<p><img src="images/running-tests/test-passed-no-code.png" alt="Poor Test Passed Status" class="large" /></p>
+:ET

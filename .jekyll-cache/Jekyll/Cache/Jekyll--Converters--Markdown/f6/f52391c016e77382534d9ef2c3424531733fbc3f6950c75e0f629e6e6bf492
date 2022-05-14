@@ -1,0 +1,18 @@
+I";<h1 id="events">Events</h1>
+
+<p>The section will help you answer the following questions:</p>
+
+<ul>
+  <li>How can I reserve a part of my code to be implemented by someone else at a later time?</li>
+  <li>Is it possible to store a method, like I can with other data types?</li>
+  <li>How can object’s interact more efficiently?</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Declare and use a Delegate.</li>
+  <li>Develop classes that are defined with events.</li>
+  <li>Develop an application that handles an object’s event.</li>
+</ul>
+:ET

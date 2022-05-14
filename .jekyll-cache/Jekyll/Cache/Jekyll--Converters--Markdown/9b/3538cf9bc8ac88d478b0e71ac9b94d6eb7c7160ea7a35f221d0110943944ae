@@ -1,0 +1,236 @@
+I"?<h1 class="no_toc" id="properties">Properties</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#declaring-and-defining-properties" id="markdown-toc-declaring-and-defining-properties">Declaring and Defining Properties</a>    <ol>
+      <li><a href="#get-accessor" id="markdown-toc-get-accessor"><code class="language-plaintext highlighter-rouge">get</code> Accessor</a></li>
+      <li><a href="#set-accessor" id="markdown-toc-set-accessor"><code class="language-plaintext highlighter-rouge">set</code> Accessor</a></li>
+      <li><a href="#expression-body-definition" id="markdown-toc-expression-body-definition">Expression Body Definition</a></li>
+      <li><a href="#read-only-properties" id="markdown-toc-read-only-properties">Read-only Properties</a></li>
+    </ol>
+  </li>
+  <li><a href="#using-properties" id="markdown-toc-using-properties">Using Properties</a></li>
+  <li><a href="#auto-implemented-properties" id="markdown-toc-auto-implemented-properties">Auto-Implemented Properties</a></li>
+  <li><a href="#class-diagram" id="markdown-toc-class-diagram">Class Diagram</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>In the previous level of programming, you learned that:</p>
+
+<ul>
+  <li>fields define the attributes of objects of the type.</li>
+  <li>fields are declared with <code class="language-plaintext highlighter-rouge">private</code> access, following the Object-Oriented Programming principle of <strong>Encapsulation</strong>.</li>
+  <li>reading, writing and computing field values (<em>object state</em>) happens in <strong>accessor</strong> and <strong>mutator</strong> methods.</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">identificationNumber</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">GetIdentificationNumber</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">SetIdentificationNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">identificationNumber</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span> <span class="p">=</span> <span class="n">identificationNumber</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>A C# property is a class member that provides a mechanism to read, write or compute the value of a private field. In many cases, properties eliminates the need for accessor and mutator methods.</p>
+
+<h2 id="declaring-and-defining-properties">Declaring and Defining Properties</h2>
+
+<p>A property is defined using <code class="language-plaintext highlighter-rouge">get</code> and <code class="language-plaintext highlighter-rouge">set</code> accessors:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">identificationNumber</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">IdentificationNumber</span>
+    <span class="p">{</span>
+        <span class="k">get</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">set</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="get-accessor"><code class="language-plaintext highlighter-rouge">get</code> Accessor</h3>
+
+<p>To access an object’s state, a properties must include a <code class="language-plaintext highlighter-rouge">get</code> accessor. A <code class="language-plaintext highlighter-rouge">get</code> accessor can include any type of statements, but must have a <code class="language-plaintext highlighter-rouge">return</code>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">get</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="set-accessor"><code class="language-plaintext highlighter-rouge">set</code> Accessor</h3>
+
+<p>To modify an object’s state, a property must include a <code class="language-plaintext highlighter-rouge">set</code> accessor. A <code class="language-plaintext highlighter-rouge">set</code> accessor can include any type or number of statements. Like an mutator method, to update the state, the field of the class will be assigned a new value. Because properties are not methods, there is no parameter to store the value to assign to the field. Rather, the keyword <code class="language-plaintext highlighter-rouge">value</code> is used to store the value assigned to the property.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span>
+<span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="expression-body-definition">Expression Body Definition</h3>
+
+<p>The implementation of a property’s accessor is often a single-line expression. When the accessor implementation is a single-line expression, the accessor can be defined using a <code class="language-plaintext highlighter-rouge">=&gt;</code> symbol followed by the expression to assign or retrieve from the property.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">identificationNumber</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">IdentificationNumber</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span><span class="p">;</span>
+        <span class="k">set</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">identificationNumber</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-note">The <code class="language-plaintext highlighter-rouge">return</code> keyword is not used with an Expression Body Definition.</p>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>Properties can be defined with one or two accessors:</p>
+
+<ol>
+  <li>Read and Write: Access to both accessors.</li>
+  <li>Read-only: Only access to the <code class="language-plaintext highlighter-rouge">get</code> accessor.</li>
+  <li>Write-only: Only access to the <code class="language-plaintext highlighter-rouge">set</code> accessor.</li>
+</ol>
+
+<p>In the examples above, you seen how properties can be defined with both <code class="language-plaintext highlighter-rouge">get</code> and <code class="language-plaintext highlighter-rouge">set</code> accessors. If one of the accessors is not required, it can be omitted.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This example defines the <code class="language-plaintext highlighter-rouge">Name</code> property as a <em>read-only</em> property. The property is considered read-only because without the <code class="language-plaintext highlighter-rouge">set</code> accessor a new state cannot be written to the object. Defining the property this way, the class itself won’t be able to <code class="language-plaintext highlighter-rouge">set</code> the property.</p>
+
+<p>If an accessor is only required within the class, the <code class="language-plaintext highlighter-rouge">private</code> accessor modifier can be used.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+        <span class="k">private</span> <span class="k">set</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This example also defines the <code class="language-plaintext highlighter-rouge">Name</code> property as read-only, but the class itself will be able to set the property.</p>
+
+<p class="alert alert-note">It is very rare for a property to be Write-only.</p>
+
+<h2 id="using-properties">Using Properties</h2>
+
+<p>Using properties is like using a public field. Assigning a value to the property invokes the <code class="language-plaintext highlighter-rouge">set</code> accessor. Using the property in all other expressions will invoke the <code class="language-plaintext highlighter-rouge">get</code> accessor.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Employee</span> <span class="n">employee</span><span class="p">;</span>
+
+        <span class="n">employee</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Employee</span><span class="p">();</span>
+
+        <span class="c1">// Invokes the set accessor</span>
+        <span class="n">employee</span><span class="p">.</span><span class="n">IdentificationNumber</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+        <span class="c1">// Invokes the get accessor</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">employee</span><span class="p">.</span><span class="n">IdentificationNumber</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="auto-implemented-properties">Auto-Implemented Properties</h2>
+
+<p>When the implementation of a property is only to assign a value or retrieve a value from a field without any additional logic, the property can be <em>auto-implemented</em>. An auto-implemented property’s accessors will not have a block. Also, a field (called a <em>Backing Field</em>) is automatically created for the class. When the class is compiled, a backing field and implementation is created for the property.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span><span class="p">;</span>
+        <span class="k">set</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-warning">You do not have access to the Backing Field.</p>
+
+<p class="alert alert-error">If you are required to declare a field within the class, you will not be able to auto-implement the associated property.</p>
+
+<p>The previous example is equivalent to:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">set</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="class-diagram">Class Diagram</h2>
+
+<p>When a class is defined with properties, a property is indicated in a UML Class Diagram with the <code class="language-plaintext highlighter-rouge">&lt;&lt;Property&gt;&gt;</code> notation.</p>
+
+<div class="uml">
+<pre class="class-name">
+Employee
+</pre>
+<pre>
+- identificationNumber : int
+- name : string
+
++ &lt;&lt;Property&gt;&gt; IdentificationNumber : int
++ &lt;&lt;Property&gt;&gt; Name : string
+</pre>
+<pre>
++ Employee(identificationNumber : int, name : string)
++ Employee(identificationNumber : int)
+</pre>
+</div>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties" target="_blank">Properties</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties" target="_blank">Using Properties</a></li>
+</ul>
+:ET

@@ -1,0 +1,127 @@
+I"'#<h1 class="no_toc" id="constructor-tests">Constructor Tests</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when name is null</td>
+      <td style="text-align: left">Parameter name: null, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">ArgumentNullException, Parameter: name, Message: The argument must reference a string object.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: The goal of this test is to cause the expected exception to be thrown and the exception should have the expected state.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Constructor_NameNull_Exception</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">500</span><span class="p">;</span>
+
+    <span class="c1">// Act &amp; Assert</span>
+    <span class="n">ArgumentNullException</span> <span class="n">exception</span> <span class="p">=</span> <span class="n">Assert</span><span class="p">.</span><span class="n">ThrowsException</span><span class="p">&lt;</span><span class="n">ArgumentNullException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">));</span>
+
+    <span class="c1">// Assert exception state</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="n">ParamName</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"The argument must reference a string object."</span><span class="p">,</span> <span class="nf">GetExceptionMessage</span><span class="p">(</span><span class="n">exception</span><span class="p">.</span><span class="n">Message</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>The <em>act</em> part of the test is <code class="language-plaintext highlighter-rouge">new Person(name, amountOfMoney)</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">Assert.ThrowsException&amp;lt;T&amp;gt;()</code> method generates a <code class="language-plaintext highlighter-rouge">AssertFailedException</code> if the type of exception is not thrown. If the type of exception is thrown, a reference to the exception object is returned.</li>
+  <li>The <em>assert</em> part of the test includes verifying the parameter and message of the exception.</li>
+</ul>
+
+<h3 class="no_toc" id="non-test-methods">Non-Test Methods</h3>
+
+<p>Unit test class can also contain methods that aren’t unit test methods. These methods do not have the <code class="language-plaintext highlighter-rouge">TestMethod</code> attribute.</p>
+
+<p>The test above calls a method called <code class="language-plaintext highlighter-rouge">GetExceptionMessage</code> which extracts only the message from the Exception’s Message property.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Utility method to obtain only the message from an Exception object.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="c1">/// &lt;param name="exceptionMessage"&gt;The Exception's Message state.&lt;/param&gt;</span>
+<span class="c1">/// &lt;returns&gt;The Exception's message with the parameter omitted.&lt;/returns&gt;</span>
+<span class="c1">/// &lt;remarks&gt;</span>
+<span class="c1">/// The Exception.Message property returns the Exception's message on line 1 and</span>
+<span class="c1">/// the parameter name on line 2. This method reads the first line and returns</span>
+<span class="c1">/// the message.</span>
+<span class="c1">/// &lt;/remarks&gt;</span>
+<span class="k">private</span> <span class="kt">string</span> <span class="nf">GetExceptionMessage</span><span class="p">(</span><span class="kt">string</span> <span class="n">exceptionMessage</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="nf">StringReader</span><span class="p">(</span><span class="n">exceptionMessage</span><span class="p">).</span><span class="nf">ReadLine</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Feel free to include this method in your test class.</p>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left">Initialize the amount of money to positive value</td>
+      <td style="text-align: left">Parameter name: “Kenny”, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">500</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: The goal of this test is initialize the state of the object and verify it did so correctly.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Constructor_AmountOfMoney_Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">500</span><span class="p">;</span>
+
+    <span class="c1">// Act</span>
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="c1">// Reflection</span>
+    <span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+
+    <span class="c1">// Obtain object state</span>
+    <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">decimal</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"amountOfMoney"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">amountOfMoney</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>Because the state is stored in a private field, the <code class="language-plaintext highlighter-rouge">PrivateObject</code> class is used to gain access to the class private class member.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">GetField()</code> method returns an <code class="language-plaintext highlighter-rouge">object</code> type. Because fields can be any type, the method uses this polymorphic reference to the value of the field. A type cast is necessary to store the value in the <code class="language-plaintext highlighter-rouge">decimal</code> variable.</li>
+</ul>
+:ET

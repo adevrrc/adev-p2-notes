@@ -1,0 +1,655 @@
+I"��<h1 class="no_toc" id="writing-unit-tests">Writing Unit Tests</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#unit-test-classes" id="markdown-toc-unit-test-classes">Unit Test Classes</a>    <ol>
+      <li><a href="#naming-convention" id="markdown-toc-naming-convention">Naming Convention</a></li>
+    </ol>
+  </li>
+  <li><a href="#unit-test-methods" id="markdown-toc-unit-test-methods">Unit Test Methods</a>    <ol>
+      <li><a href="#naming-convention-1" id="markdown-toc-naming-convention-1">Naming Convention</a></li>
+    </ol>
+  </li>
+  <li><a href="#aaa-pattern" id="markdown-toc-aaa-pattern">AAA Pattern</a></li>
+  <li><a href="#assert-class" id="markdown-toc-assert-class">Assert Class</a></li>
+  <li><a href="#reflection" id="markdown-toc-reflection">Reflection</a>    <ol>
+      <li><a href="#privateobject-class" id="markdown-toc-privateobject-class">PrivateObject Class</a></li>
+      <li><a href="#privatetype-class" id="markdown-toc-privatetype-class">PrivateType Class</a></li>
+    </ol>
+  </li>
+  <li><a href="#best-practices-for-writing-tests" id="markdown-toc-best-practices-for-writing-tests">Best Practices For Writing Tests</a></li>
+  <li><a href="#test-method-examples" id="markdown-toc-test-method-examples">Test Method Examples</a>    <ol>
+      <li><a href="#constructor" id="markdown-toc-constructor">Constructor</a></li>
+      <li><a href="#property-tests" id="markdown-toc-property-tests">Property Tests</a></li>
+      <li><a href="#methods" id="markdown-toc-methods">Methods</a>        <ol>
+          <li><a href="#void-methods" id="markdown-toc-void-methods">Void Methods</a></li>
+          <li><a href="#non-void-methods" id="markdown-toc-non-void-methods">Non-Void Methods</a></li>
+        </ol>
+      </li>
+      <li><a href="#auto-implemented-property-tests" id="markdown-toc-auto-implemented-property-tests">Auto-Implemented Property Tests</a></li>
+      <li><a href="#accessing-base-class-fields" id="markdown-toc-accessing-base-class-fields">Accessing Base Class Fields</a></li>
+    </ol>
+  </li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>After creating the test plan, you are now ready to start developing your unit tests.</p>
+
+<h2 id="unit-test-classes">Unit Test Classes</h2>
+
+<p>Declaring a unit test class is similar to declaring a regular class. The use of the <code class="language-plaintext highlighter-rouge">TestClass</code> attribute denotes the class as contain unit tests.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.UnitTesting</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">TestClass</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PersonTests</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-error">If your unit test class is missing the <code class="language-plaintext highlighter-rouge">TestClass</code> attribute, the Test Explorer will not recognize the class as containing unit tests.</p>
+
+<h3 id="naming-convention">Naming Convention</h3>
+
+<p>Unit test class identifiers are named by using the class name of the class you are testing followed by the word “Tests”. The test class above is testing a class named <code class="language-plaintext highlighter-rouge">Person</code>, because the test class identifier is <code class="language-plaintext highlighter-rouge">PersonTests</code>.</p>
+
+<h2 id="unit-test-methods">Unit Test Methods</h2>
+
+<p>You will code unit test methods within the a class with the <code class="language-plaintext highlighter-rouge">TestClass</code> attribute. As a general guideline, you will write one unit test method per test case in your test plan.</p>
+
+<p>Unit test methods are declared and defined like other methods. The use of the <code class="language-plaintext highlighter-rouge">TestMethod</code> attribute denotes the method is a unit test method.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.UnitTesting</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">TestClass</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PersonTests</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">TestMethod1</span><span class="p">()</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-error">If your unit test method is missing the <code class="language-plaintext highlighter-rouge">TestMethod</code> attribute, the Test Explorer will not recognize the method as a unit tests method.</p>
+
+<h3 id="naming-convention-1">Naming Convention</h3>
+
+<p>Unit test method identifiers will follow this general naming format: <code class="language-plaintext highlighter-rouge">UnitDescription_Data_Result</code></p>
+
+<p>Example:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.UnitTesting</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">TestClass</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">class</span> <span class="nc">PersonTests</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Constructor_NameNull_Exception</span><span class="p">()</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="aaa-pattern">AAA Pattern</h2>
+
+<p>The AAA (Arrange, Act, Assert) is a common pattern for writing unit test methods.</p>
+
+<ul>
+  <li>The <strong>Arrange</strong> part of the unit test defines test data and initializes an object used for the test.</li>
+  <li>The <strong>Act</strong> part of the test invokes the unit being tested under the conditions of the test case.</li>
+  <li>The <strong>Assert</strong> part of the test verifies that the unit being tested behaved as expected.</li>
+</ul>
+
+<h2 id="assert-class">Assert Class</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Assert</code> class contains a collection of methods to determine the result of a test. If the condition being tested is not met, an <code class="language-plaintext highlighter-rouge">AssertFailedException</code> is thrown.</p>
+
+<p>Common Method</p>
+
+<ul>
+  <li><strong>AreEqual(Object, Object)</strong> - Tests whether the specified objects are equal and throws an exception if the two objects are not equal.</li>
+  <li><strong>AreNotEqual(Object, Object)</strong> - Tests whether the specified values are unequal and throws an exception if the two values are equal.</li>
+  <li><strong>IsTrue(Boolean)</strong> - Tests whether the specified condition is <code class="language-plaintext highlighter-rouge">true</code> and throws an exception if the condition is <code class="language-plaintext highlighter-rouge">false</code>.</li>
+  <li><strong>IsFalse(Boolean)</strong> - Tests whether the specified condition is <code class="language-plaintext highlighter-rouge">false</code> and throws an exception if the condition is <code class="language-plaintext highlighter-rouge">true</code>.</li>
+  <li><strong>ThrowsException&lt;T&gt;()</strong> - Tests whether the code specified by delegate action throws exact given exception of type <code class="language-plaintext highlighter-rouge">T</code> (and not of derived type) and throws <code class="language-plaintext highlighter-rouge">AssertFailedException</code> if code does not throws exception or throws exception of type other than <code class="language-plaintext highlighter-rouge">T</code>. This method returns a reference to the exception the exception if one is thrown.</li>
+</ul>
+
+<p class="alert alert-note">All <code class="language-plaintext highlighter-rouge">Assert</code> methods will throw an <code class="language-plaintext highlighter-rouge">AssertFailedException</code> when the condition is not met. The result of the test is a fail.</p>
+
+<h2 id="reflection">Reflection</h2>
+
+<p>Many of the tests you will develop will involve verifying the state of an object. State is stored in <code class="language-plaintext highlighter-rouge">private</code> fields in the class. To verify test cases where the result deals with object state, you will need to use a concept called <strong>Reflection</strong>.  Reflection is the ability to retrieve data that is normally not accessible at run-time.</p>
+
+<p>In the testing you did prior to this topic, you would have normally called an accessor method to verify changes to state. This is no longer satisfactory, as one of your unit testing goals is to isolate the unit your are testing. This means you do not want to invoke other units of the class while testing a specific unit.</p>
+
+<h3 id="privateobject-class">PrivateObject Class</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">PrivateObject</code> class represents a <code class="language-plaintext highlighter-rouge">public</code> “version” of an object. The class contains methods to accesses <code class="language-plaintext highlighter-rouge">private</code> fields, methods, and properties.</p>
+
+<p>To gain access to an object’s <code class="language-plaintext highlighter-rouge">private</code> members, construct an instance of <code class="language-plaintext highlighter-rouge">PrivateObject</code>, initializing it with a reference to the object you wish access its <code class="language-plaintext highlighter-rouge">private</code> members.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+<span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Use the following methods of the <code class="language-plaintext highlighter-rouge">PrivateObject</code> class:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GetField(String) : Object</code> - Returns the value of the specified field.</li>
+  <li><code class="language-plaintext highlighter-rouge">SetField(String, Object) : void</code> - Sets the specified field to the specified value.</li>
+  <li><code class="language-plaintext highlighter-rouge">Invoke(String, Object[]) : Object</code> - Invokes the specified method. The <code class="language-plaintext highlighter-rouge">Object[]</code> represents the arguments. Returns the result of the method.</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+
+<span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">decimal</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"amountOfMoney"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="privatetype-class">PrivateType Class</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">PrivateType</code> class is used like <code class="language-plaintext highlighter-rouge">PrivateObject</code>, but is used for Static Classes.</p>
+
+<p class="alert alert-future-lesson">The <code class="language-plaintext highlighter-rouge">PrivateType</code> class is also used when gaining access to <code class="language-plaintext highlighter-rouge">base</code> class members.</p>
+
+<h2 id="best-practices-for-writing-tests">Best Practices For Writing Tests</h2>
+
+<p>Before you really dive into developing your unit tests, keep the following best practices in mind:</p>
+
+<ol>
+  <li>A unit test should only test a single outcome. Do not combine multiple outcomes into a single test method.</li>
+  <li>A unit is tested in isolation of other units in the class (with the exception of the constructor).</li>
+  <li>Always test constructor methods first.</li>
+  <li>Complete all the tests for a unit before moving onto another unit.</li>
+  <li>Group tests in your test class by unit, not by test type.</li>
+  <li>Keep the code in your unit test method simple.</li>
+  <li>Try to order your tests in order of dependency (when known or possible).</li>
+  <li>No unit is too insignificant to test.</li>
+</ol>
+
+<h2 id="test-method-examples">Test Method Examples</h2>
+
+<p>The following unit test method examples will follow the <a href="/adev2008/unit-testing/sample-test-plan">sample test plan</a>. Not every test case will be demonstrated here, as some of the test cases will produce similar unit test method implementation.</p>
+
+<h3 id="constructor">Constructor</h3>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when name is null</td>
+      <td style="text-align: left">Parameter name: null, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">ArgumentNullException, Parameter: name, Message: The argument must reference a string object.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: The goal of this test is to cause the expected exception to be thrown and the exception should have the expected state.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Constructor_NameNull_Exception</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">500</span><span class="p">;</span>
+
+    <span class="c1">// Act &amp; Assert</span>
+    <span class="n">ArgumentNullException</span> <span class="n">exception</span> <span class="p">=</span> <span class="n">Assert</span><span class="p">.</span><span class="n">ThrowsException</span><span class="p">&lt;</span><span class="n">ArgumentNullException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">));</span>
+
+    <span class="c1">// Assert exception state</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="n">ParamName</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"The argument must reference a string object."</span><span class="p">,</span> <span class="nf">GetExceptionMessage</span><span class="p">(</span><span class="n">exception</span><span class="p">.</span><span class="n">Message</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>The <em>act</em> part of the test is <code class="language-plaintext highlighter-rouge">new Person(name, amountOfMoney)</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">Assert.ThrowsException&amp;lt;T&amp;gt;()</code> method generates a <code class="language-plaintext highlighter-rouge">AssertFailedException</code> if the type of exception is not thrown. If the type of exception is thrown, a reference to the exception object is returned.</li>
+  <li>The <em>assert</em> part of the test includes verifying the parameter and message of the exception.</li>
+</ul>
+
+<h3 class="no_toc" id="non-test-methods">Non-Test Methods</h3>
+
+<p>Unit test class can also contain methods that aren’t unit test methods. These methods do not have the <code class="language-plaintext highlighter-rouge">TestMethod</code> attribute.</p>
+
+<p>The test above calls a method called <code class="language-plaintext highlighter-rouge">GetExceptionMessage</code> which extracts only the message from the Exception’s Message property.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Utility method to obtain only the message from an Exception object.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="c1">/// &lt;param name="exceptionMessage"&gt;The Exception's Message state.&lt;/param&gt;</span>
+<span class="c1">/// &lt;returns&gt;The Exception's message with the parameter omitted.&lt;/returns&gt;</span>
+<span class="c1">/// &lt;remarks&gt;</span>
+<span class="c1">/// The Exception.Message property returns the Exception's message on line 1 and</span>
+<span class="c1">/// the parameter name on line 2. This method reads the first line and returns</span>
+<span class="c1">/// the message.</span>
+<span class="c1">/// &lt;/remarks&gt;</span>
+<span class="k">private</span> <span class="kt">string</span> <span class="nf">GetExceptionMessage</span><span class="p">(</span><span class="kt">string</span> <span class="n">exceptionMessage</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="nf">StringReader</span><span class="p">(</span><span class="n">exceptionMessage</span><span class="p">).</span><span class="nf">ReadLine</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Feel free to include this method in your test class.</p>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left">Initialize the amount of money to positive value</td>
+      <td style="text-align: left">Parameter name: “Kenny”, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">500</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: The goal of this test is initialize the state of the object and verify it did so correctly.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Constructor_AmountOfMoney_Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">500</span><span class="p">;</span>
+
+    <span class="c1">// Act</span>
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="c1">// Reflection</span>
+    <span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+
+    <span class="c1">// Obtain object state</span>
+    <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">decimal</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"amountOfMoney"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">amountOfMoney</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>Because the state is stored in a private field, the <code class="language-plaintext highlighter-rouge">PrivateObject</code> class is used to gain access to the class private class member.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">GetField()</code> method returns an <code class="language-plaintext highlighter-rouge">object</code> type. Because fields can be any type, the method uses this polymorphic reference to the value of the field. A type cast is necessary to store the value in the <code class="language-plaintext highlighter-rouge">decimal</code> variable.</li>
+</ul>
+
+<h3 id="property-tests">Property Tests</h3>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when the value is a negative value</td>
+      <td style="text-align: left">Value: -1</td>
+      <td style="text-align: left">ArgumentOutOfRangeException, Parameter: value, Message: The value must be zero or greater., State is not updated.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: Set the property to an invalid value.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetAmountOfMoney_NegativeAmount_Exception</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="c1">// Act &amp; Assert</span>
+    <span class="n">ArgumentOutOfRangeException</span> <span class="n">exception</span> <span class="p">=</span> <span class="n">Assert</span><span class="p">.</span><span class="n">ThrowsException</span><span class="p">&lt;</span><span class="n">ArgumentOutOfRangeException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="n">person</span><span class="p">.</span><span class="n">AmountOfMoney</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">);</span>
+
+    <span class="c1">// Assert exception state</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"value"</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="n">ParamName</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"The value must be zero or greater."</span><span class="p">,</span> <span class="nf">GetExceptionMessage</span><span class="p">(</span><span class="n">exception</span><span class="p">.</span><span class="n">Message</span><span class="p">));</span>
+
+    <span class="c1">// Reflection</span>
+    <span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+
+    <span class="c1">// Obtain object state</span>
+    <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">decimal</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"amountOfMoney"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">amountOfMoney</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">Assert.ThrowsException()</code> method is used since an exception is expected to occur and the state of the exception is verified.</li>
+  <li>In most cases, when an exception is thrown in a <code class="language-plaintext highlighter-rouge">set</code> accessor, the state should not change to the invalid value. The final <code class="language-plaintext highlighter-rouge">Assert</code> statement verifies this.</li>
+</ul>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Sets the amount of money to zero</td>
+      <td style="text-align: left">Initial amount of money: 100, Value: 0</td>
+      <td style="text-align: left">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: Sets the property to a valid value and verifies the state changed.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetAmountOfMoney_ZeroAmount_UpdateState</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="kt">decimal</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="c1">// Act</span>
+    <span class="n">person</span><span class="p">.</span><span class="n">AmountOfMoney</span> <span class="p">=</span> <span class="n">expected</span><span class="p">;</span>
+
+    <span class="c1">// Reflection</span>
+    <span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+
+    <span class="c1">// Obtain object state</span>
+    <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">decimal</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"amountOfMoney"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>When testing a modification in state, the value you choose to change the state should be different than the initial value.</li>
+  <li>The variable <code class="language-plaintext highlighter-rouge">expected</code> is a recommended practice as it makes the <code class="language-plaintext highlighter-rouge">Assert</code> statement clearer.</li>
+  <li>Due to the result of the unit changing the state, accessing the <code class="language-plaintext highlighter-rouge">private</code> field is required to verify the test.</li>
+</ul>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">Gets the amount of money</td>
+      <td style="text-align: left">Initial amount of money: 100</td>
+      <td style="text-align: left">100</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: Initialize the object and obtain its state.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">GetAmountOfMoney_ReturnsState</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+    
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="c1">// Act</span>
+    <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="n">AmountOfMoney</span><span class="p">;</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">amountOfMoney</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PrivateObject</code> should not be used in this test as no <code class="language-plaintext highlighter-rouge">private</code> member is accessed.</li>
+</ul>
+
+<h3 id="methods">Methods</h3>
+
+<h4 id="void-methods">Void Methods</h4>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Add money</td>
+      <td style="text-align: left">Initial amount of money: 100, Parameter amount: 60</td>
+      <td style="text-align: left">Amount of money state: 160</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: Invoke the method and verify the object’s state.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">AddMoney_PositiveAmount_StateUpdated</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="c1">// Act</span>
+    <span class="n">person</span><span class="p">.</span><span class="nf">AddMoney</span><span class="p">(</span><span class="m">60</span><span class="p">);</span>
+
+    <span class="kt">decimal</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">160</span><span class="p">;</span>
+
+    <span class="c1">// Reflection</span>
+    <span class="n">PrivateObject</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>
+
+    <span class="c1">// Obtain object state</span>
+    <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">decimal</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"amountOfMoney"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>The outcome of this method is to change the state and is verified by using <code class="language-plaintext highlighter-rouge">PrivateObject</code>.</li>
+</ul>
+
+<h4 id="non-void-methods">Non-Void Methods</h4>
+
+<p><strong>Test Case</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Return string representation of the Person</td>
+      <td style="text-align: left">Initial name: Kenny, Initial amount of money: 123.45M</td>
+      <td style="text-align: left">“Kenny - $123.45”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testing Goal</strong>: Obtain the value returned from the method.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">ToString_ReturnsResult</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+    <span class="kt">decimal</span> <span class="n">amountOfMoney</span> <span class="p">=</span> <span class="m">123.45</span><span class="n">M</span><span class="p">;</span>
+
+    <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">amountOfMoney</span><span class="p">);</span>
+
+    <span class="c1">// Act</span>
+    <span class="kt">string</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">person</span><span class="p">.</span><span class="nf">ToString</span><span class="p">();</span>
+
+    <span class="kt">string</span> <span class="n">expected</span> <span class="p">=</span> <span class="s">"Kenny - $123.45"</span><span class="p">;</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
+  <li>When a method returns a value, that value is captured to verify the test.</li>
+</ul>
+
+<h3 id="auto-implemented-property-tests">Auto-Implemented Property Tests</h3>
+
+<p>When a property is auto-implemented, it will not have a field you can access. When you are in this situation, you will use the <code class="language-plaintext highlighter-rouge">GetProperty()</code> method of the <code class="language-plaintext highlighter-rouge">PrivateObject</code> class.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Shape</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">XCoordinate</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SetXCoordinate_ModifyState</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">color</span> <span class="p">=</span> <span class="s">"Black"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">77.7</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">xCoordinate</span> <span class="p">=</span> <span class="m">123.4</span><span class="p">;</span>
+
+    <span class="n">Circle</span> <span class="n">circle</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Circle</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+
+    <span class="c1">// Act</span>
+    <span class="n">circle</span><span class="p">.</span><span class="n">XCoordinate</span> <span class="p">=</span> <span class="n">xCoordinate</span><span class="p">;</span>
+
+    <span class="n">PrivateObject</span> <span class="n">target</span><span class="p">;</span>
+    <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">circle</span><span class="p">);</span>
+
+    <span class="kt">double</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetProperty</span><span class="p">(</span><span class="s">"XCoordinate"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">xCoordinate</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="accessing-base-class-fields">Accessing Base Class Fields</h3>
+
+<p>Derived classes inherit the attributes of its base class. If you coded the base class, part of your testing will include verifying that an object’s entire state is set.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Shape</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Circle</span> <span class="p">:</span> <span class="n">Shape</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="n">TestMethod</span><span class="p">]</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">Constructor_Color_Initialized</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Arrange</span>
+    <span class="kt">string</span> <span class="n">color</span> <span class="p">=</span> <span class="s">"Black"</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">77.7</span><span class="p">;</span>
+
+    <span class="c1">// Act</span>
+    <span class="n">Circle</span> <span class="n">circle</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Circle</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+
+    <span class="n">PrivateObject</span> <span class="n">target</span><span class="p">;</span>
+    <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">PrivateObject</span><span class="p">(</span><span class="n">circle</span><span class="p">,</span> <span class="k">new</span> <span class="nf">PrivateType</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">Shape</span><span class="p">)));</span>
+
+    <span class="kt">string</span> <span class="n">actual</span> <span class="p">=</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span><span class="n">target</span><span class="p">.</span><span class="nf">GetField</span><span class="p">(</span><span class="s">"color"</span><span class="p">);</span>
+
+    <span class="c1">// Assert</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert?view=visualstudiosdk-2022" target="_blank">Assert Class</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.privateobject?view=visualstudiosdk-2022" target="_blank">PrivateObject Class</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.privatetype?view=visualstudiosdk-2022" target="_blank">PrivateType Class</a></li>
+</ul>
+:ET

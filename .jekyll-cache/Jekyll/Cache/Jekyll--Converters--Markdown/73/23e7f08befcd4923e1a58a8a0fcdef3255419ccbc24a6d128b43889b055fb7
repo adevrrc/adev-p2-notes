@@ -1,0 +1,44 @@
+I"ô<h1 class="no_toc" id="microsoft-developer-network">Microsoft Developer Network</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#access-api-documentation-in-visual-studio" id="markdown-toc-access-api-documentation-in-visual-studio">Access API Documentation in Visual Studio</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>The <strong>Microsoft Developer Network (MSDN)</strong> is a developer community providing API information and documentation. There are two ways you can access the MSDN:</p>
+
+<ol>
+  <li>Using the link: <a href="https://docs.microsoft.com/en-us/dotnet/api/" target="_blank">The .NET API Browser</a></li>
+  <li>Directly from Visual Studio</li>
+</ol>
+
+<h2 id="access-api-documentation-in-visual-studio">Access API Documentation in Visual Studio</h2>
+
+<ol>
+  <li>
+    <p>Click your cursor on a reference to the class you wish to read the documentation about.</p>
+
+    <p><img src="images/msdn/cursor_screenshot.png" alt="Placing Cursor" /></p>
+  </li>
+  <li>
+    <p>Press the <kbd>F1</kbd> key.</p>
+
+    <p>This will open an instance of your default browser and load the documentation page within it.</p>
+
+    <p class="alert alert-warning">Depending on your keyboard, you may need to hold down the <kbd>fn</kbd> (Function) key when you press the <kbd>F1</kbd> key.</p>
+
+    <p>This method of looking up documentation works for more than just classes.  You can put your cursor on anything, like a method, and when you click <kbd>F1</kbd> it will open the documentation for that item.</p>
+  </li>
+</ol>
+
+<p class="alert alert-note">Using <kbd>F1</kbd> to jump to documentation will only work for Framework APIs.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/index" target="_blank">The .NET Framework</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a></li>
+</ul>
+:ET

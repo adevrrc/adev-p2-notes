@@ -1,0 +1,297 @@
+I"A<h1 class="no_toc" id="the-visual-studio-ide">The Visual Studio IDE</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#visual-studio-community" id="markdown-toc-visual-studio-community">Visual Studio Community</a>    <ol>
+      <li><a href="#note-to-mac-users" id="markdown-toc-note-to-mac-users">Note to Mac Users</a></li>
+    </ol>
+  </li>
+  <li><a href="#download" id="markdown-toc-download">Download</a></li>
+  <li><a href="#installing" id="markdown-toc-installing">Installing</a></li>
+  <li><a href="#first-launch-of-visual-studio" id="markdown-toc-first-launch-of-visual-studio">First Launch of Visual Studio</a></li>
+  <li><a href="#configure-visual-studio" id="markdown-toc-configure-visual-studio">Configure Visual Studio</a>    <ol>
+      <li><a href="#recommended-option-changes" id="markdown-toc-recommended-option-changes">Recommended Option Changes</a></li>
+      <li><a href="#optional-option-changes" id="markdown-toc-optional-option-changes">Optional Option Changes</a></li>
+      <li><a href="#required-extension-install" id="markdown-toc-required-extension-install">Required Extension Install</a></li>
+      <li><a href="#recommended-extension-install" id="markdown-toc-recommended-extension-install">Recommended Extension Install</a></li>
+    </ol>
+  </li>
+  <li><a href="#the-environment" id="markdown-toc-the-environment">The Environment</a>    <ol>
+      <li><a href="#solution-explorer" id="markdown-toc-solution-explorer">Solution Explorer</a></li>
+      <li><a href="#adding-source-code-files" id="markdown-toc-adding-source-code-files">Adding Source Code Files</a></li>
+      <li><a href="#removing-source-code-files" id="markdown-toc-removing-source-code-files">Removing Source Code Files</a></li>
+    </ol>
+  </li>
+  <li><a href="#building-compiling-a-project" id="markdown-toc-building-compiling-a-project">Building (Compiling) a Project</a></li>
+  <li><a href="#running-a-application" id="markdown-toc-running-a-application">Running a Application</a></li>
+  <li><a href="#opening-an-existing-project" id="markdown-toc-opening-an-existing-project">Opening An Existing Project</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<h2 id="visual-studio-community">Visual Studio Community</h2>
+
+<p>There are many code editors you can use to develop .NET applications. In this course, you will use the <a href="https://visualstudio.microsoft.com/vs/community/" target="-blank">Visual Studio Community</a> <strong>Integrated Development Environment (IDE)</strong>.</p>
+
+<p class="alert alert-note">For the purposes of these course notes, Visual Studio Community will simply be referred to as <strong>Visual Studio</strong> or <strong>VS</strong>.</p>
+
+<p>Visual Studio is a free IDE for developing .NET applications. The install is modular, allowing you to install the things you need to develop the type of applications you want.</p>
+
+<p class="alert alert-warning">Visual Studio is a very complex tool and is not really intended for beginner programmers. That being said, Visual Studio is the best and most efficient IDE for developing Windows applications. Take time early in this course to practice using Visual Studio.</p>
+
+<h3 id="note-to-mac-users">Note to Mac Users</h3>
+
+<p>Although there is a version of Visual Studio for Mac, you will not be able to complete this course with it. You will require a Windows OS to complete this course. You can:</p>
+
+<ul>
+  <li>Use Boot Camp (or equivalent software) to run Windows on your Mac.</li>
+</ul>
+
+<h2 id="download">Download</h2>
+
+<ol>
+  <li>
+    <p>Navigate to <a href="https://visualstudio.microsoft.com/vs/community/" target="-blank">https://visualstudio.microsoft.com/vs/community/</a> using a browser on your computer.</p>
+  </li>
+  <li>
+    <p>Click the <strong>Download Visual Studio</strong> link to download the installer executable file.</p>
+
+    <p><img src="../images/visual-studio/vs-website.png" alt="Visual Studio Community Download Page" title="Visual Studio Community Download Page" /></p>
+
+    <p>Depending on your browser settings, the install file may download automatically to the default download directory.</p>
+
+    <p><img src="../images/visual-studio/vs-download.png" alt="Windows Explorer Download Directory" title="Windows Explorer Download Directory" /></p>
+  </li>
+</ol>
+
+<h2 id="installing">Installing</h2>
+
+<ol>
+  <li>
+    <p>Run the installer by double-clicking on the installer executable file.</p>
+  </li>
+  <li>
+    <p>It is very likely the installer will need to do some configuration before the install process happens.</p>
+
+    <p><img src="../images/visual-studio/vs-installer-configuration.png" alt="Installer Configuration" title="Installer Configuration" /></p>
+
+    <p>Click the <strong>Continue</strong> button.</p>
+
+    <p>When the installer application loads, you will be presented a window where you will choose the development tools you wish to install. The initial page should display <strong>Workloads</strong>. If not, click <strong>Workloads</strong>.</p>
+
+    <p><a href="../images/visual-studio/vs-install.png"><img src="../images/visual-studio/vs-install.png" alt="Installation Details" title="Installation Details" /></a></p>
+  </li>
+  <li>
+    <p>Check only the following item(s):</p>
+
+    <ul>
+      <li>.NET desktop development</li>
+    </ul>
+
+    <p class="alert alert-note">You can change the directory that Visual Studio will get installed to in the bottom left corner of the window.</p>
+  </li>
+  <li>
+    <p>Click the <strong>Install</strong> button located in the bottom right corner.</p>
+
+    <p>The installation could take more than an hour to download and install the selected tools, depending on your system and internet connection.</p>
+  </li>
+</ol>
+
+<p>When the installation completes, you can close the installer.</p>
+
+<h2 id="first-launch-of-visual-studio">First Launch of Visual Studio</h2>
+
+<p>When you launch Visual Studio for the first time, you will be prompted to sign in using a Microsoft account. You must sign in, in order to unlock the IDE. It will also enable you to use services like Git.</p>
+
+<ul>
+  <li>If you have a Red River College account, you can sign in with your Red River College credentials.</li>
+  <li>If you have a Microsoft account, you can sign in with your Microsoft account.</li>
+  <li>If you don’t have a Microsoft account, and would like to sign in, you can click the <strong>Sign up</strong> link.</li>
+  <li>If you don’t wish to sign in, click the <strong>Not now, maybe later</strong> link.</li>
+</ul>
+
+<p>If you do not sign in, the application will prompt you for a license. You will need to sign in to unblock yourself. For more information about signing in to Visual Studio click <a href="https://docs.microsoft.com/en-us/visualstudio/ide/signing-in-to-visual-studio" target="_blank">here</a>.</p>
+
+<h2 id="configure-visual-studio">Configure Visual Studio</h2>
+
+<ol>
+  <li>Launch Visual Studio Community.</li>
+  <li>
+    <p>Open Visual Studio without Code.</p>
+
+    <p><img src="images/visual-studio/vs-comm-open-no-code.png" alt="Open Visual Studio without Code" title="Open Visual Studio without Code" /></p>
+  </li>
+  <li>
+    <p>Go to <strong>Tools &gt; Options</strong> in the menu strip. This will open the Options dialog window.</p>
+
+    <p><img src="images/visual-studio/vs-comm-options.png" alt="Tools &gt; Options" title="Tools &gt; Options" /></p>
+
+    <p><img src="images/visual-studio/vs-comm-options-dialog.png" alt="Options Dialog Window" title="Options Dialog Window" /></p>
+  </li>
+</ol>
+
+<h3 id="recommended-option-changes">Recommended Option Changes</h3>
+
+<ol>
+  <li>
+    <p>Disable line completion.</p>
+
+    <p><img src="images/visual-studio/vs-comm-options-completions.png" alt="Options Dialog Window" title="Options Dialog Window" /></p>
+
+    <p>Disabling line completions disables IntelliCode from prompting you for completion suggestions. These completion suggestions sound like they would be a great thing, but they are usually not what you want to do.  They can be very tempting to use and will most likely lead to mistakes.  Also, it is not a good learning tool.</p>
+
+    <p><img src="images/visual-studio/vs-comm-completions-example.webp" alt="Completion Example" title="Completion Example" /></p>
+  </li>
+</ol>
+
+<h3 id="optional-option-changes">Optional Option Changes</h3>
+
+<ol>
+  <li>
+    <p>Update the color theme of the Visual Studio user interface.</p>
+
+    <p><img src="images/visual-studio/vs-comm-options-color-theme.png" alt="Color Theme" title="Color Theme" /></p>
+  </li>
+  <li>
+    <p>Update the default save location for projects.</p>
+
+    <p><img src="images/visual-studio/vs-comm-options-save-location.png" alt="Default Save Location" title="Default Save Location" /></p>
+  </li>
+  <li>
+    <p>Disable CodeLens.</p>
+
+    <p><img src="images/visual-studio/vs-comm-options-codelens.png" alt="Disable CodeLens" title="Disable CodeLens" /></p>
+
+    <p>Disabling CodeLens removes the reference count above the declaration of classes and its members.</p>
+
+    <p><img src="images/visual-studio/vs-comm-codelens-example.png" alt="CodeLens Examples" title="CodeLens Examples" /></p>
+  </li>
+</ol>
+
+<p class="alert alert-note">You may be required to close all Visual Studio Community instances in order for the option changes to be applied.</p>
+
+<p class="alert alert-error">It is not recommended to make any other options changes.</p>
+
+<h2 class="no_toc" id="visual-studio-extensions">Visual Studio Extensions</h2>
+
+<p>Extensions are tools that extend the functionality of Visual Studio.</p>
+
+<p><img src="images/visual-studio/vs-comm-manage-extensions.png" alt="Manage Extensions" title="Manage Extensions" /></p>
+
+<p>To install an extension, you’ll need to open the <strong>Manage Extension</strong> dialog window, search for an extension in the <strong>Online</strong> catalogue and click the <strong>Download</strong> button to download and install the extension.</p>
+
+<h3 id="required-extension-install">Required Extension Install</h3>
+
+<ol>
+  <li>
+    <p>Live Share</p>
+
+    <p><img src="images/visual-studio/vs-comm-live-share.png" alt="Live Share Extension" title="Live Share Extension" /></p>
+
+    <p class="alert alert-note">The Live Share extension may have be installed during your Visual Studio Community install. If there is a green check mark icon in the top right corner of the extension in the search result list, this means the extension is already installed. If you don’t see the green check mark, you will need to download and install this extension.</p>
+  </li>
+</ol>
+
+<h3 id="recommended-extension-install">Recommended Extension Install</h3>
+
+<ol>
+  <li>
+    <p>Spell Checker</p>
+
+    <p><img src="images/visual-studio/vs-comm-spell-checker.png" alt="Spell Checker Extension" title="Spell Checker Extension" /></p>
+
+    <p class="alert alert-note">You may be required to close all Visual Studio Community instances in order for the option changes to be applied.</p>
+
+    <p class="alert alert-error">It is not recommended to install any other extensions.</p>
+  </li>
+</ol>
+
+<h2 id="the-environment">The Environment</h2>
+
+<p>The first step to learning the Visual Studio tool is to explore the layout of the interface.</p>
+
+<p><img src="images/visual-studio-ide/default-layout.png" alt="Visual Studio Default Layout" /></p>
+
+<ol>
+  <li>Menu Strip - Where you can find all the functionality of Visual Studio.</li>
+  <li>Toolbar - Where you can find common Visual Studio functions.</li>
+  <li>Toolbox Panel - You will use this panel later in the course.</li>
+  <li>File Editor - Where you edit source code.</li>
+  <li>Solution Explorer - Where you manage solutions and projects.</li>
+  <li>Properties Panel - Where you can find and modify information about items selected in Visual Studio.</li>
+  <li>Error List/Output Panel - Where errors and the results of building a project are listed.</li>
+</ol>
+
+<h3 id="solution-explorer">Solution Explorer</h3>
+
+<p>The Solution Explorer, typically docked to the top right of the Visual Studio environment, is the most convenient way to manage your Visual Studio Solution and Projects.</p>
+
+<p><img src="images/console-application-project/solution-explorer.png" alt="Solution Explorer" /></p>
+
+<p>The Solution Explorer displays the solution, projects, and project files and resources as a tree. Each item in the tree is a node. The root node (top item), is the Solution Node. The nodes attached to Solution Node are the Project Nodes. The nodes attached to the Project Nodes represent resources for the project they are attached to.</p>
+
+<h3 id="adding-source-code-files">Adding Source Code Files</h3>
+
+<p>To add a new file to a project, Right-click the Project Node and choose “Add &gt; New Item…” from the context menu.</p>
+
+<p><img src="images/console-application-project/add-new-item.png" alt="Add New Item" /></p>
+
+<p>This will launch the Add New Item dialog window. This window will list many templates for items you can add to the project.</p>
+
+<p><img src="images/console-application-project/add-new-item-dialog.png" alt="Add New Item Dialog Window" /></p>
+
+<p>It is recommended that at the beginning of your training to choose the “Code File” template. This template is really just a blank file.</p>
+
+<p class="alert alert-warning">Don’t forget to name the file at the bottom of the dialog window and ensure you keep the .cs file extension.</p>
+
+<h3 id="removing-source-code-files">Removing Source Code Files</h3>
+
+<p>To remove an item from a project, Right-click the Item Node you wish to remove and choose “Delete” from the context menu.</p>
+
+<p><img src="images/console-application-project/delete-item.png" alt="Delete Item" /></p>
+
+<p class="alert alert-error">It is common for Visual Studio beginners to delete a file using Windows File Explorer. If you do this, the file node will still show up in Visual Studio, but will be represented as a broken link.</p>
+
+<p class="alert alert-best-practices">Always manage your Visual Studio Project files and resources using Visual Studio’s Solution Explorer.</p>
+
+<h2 id="building-compiling-a-project">Building (Compiling) a Project</h2>
+
+<p>In the previous level of programming, you were accustom to compiling each source code file. On a successful compilation, a <strong>.class</strong> file was created. In Visual Studio, source code is compiled by building the project. This will produce a single file called an <strong>assembly</strong>.</p>
+
+<p>To build (compile) a project, right-click the <strong>Project Node</strong> and choose <strong>Build</strong> from the context menu.</p>
+
+<p><img src="images/console-application-project/project-build.png" alt="Project Build" /></p>
+
+<p>If any of the items within the project cause an error, typically syntax related, those errors will show up in the <strong>Error List</strong>.</p>
+
+<p><img src="images/console-application-project/error-list.png" alt="Error List" /></p>
+
+<p>On a successful build, the <strong>Output Panel</strong> will indicate a successful build.</p>
+
+<p><img src="images/console-application-project/output-panel.png" alt="Output Panel" /></p>
+
+<p>A new version of the assembly and other files will be generated in the <strong>bin\Debug</strong> directory within the Project directory.</p>
+
+<h2 id="running-a-application">Running a Application</h2>
+
+<p>There are two ways to run a application:</p>
+
+<ol>
+  <li>Execute the Executable Assembly (.exe) file within the <strong>bin\Debug</strong> directory.</li>
+  <li>Execute the program within Visual Studio. Go to <strong>Debug &gt; Start Debugging</strong> in the Visual Studio menu strip.</li>
+</ol>
+
+<p class="alert alert-error">Class Library Projects do not build to an Executable Assembly (.exe). Therefore, running it will not work.</p>
+
+<h2 id="opening-an-existing-project">Opening An Existing Project</h2>
+
+<p>To open an existing project, locate the Solution File (.sln) for the solution the project is apart of. Double-clicking the solution file will launch Visual Studio and load the solution and all the solutions projects within Visual Studio.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio" target="_blank">Visual Studio Projects and Solutions</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file" target="_blank">.SLN File</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/visualstudio/ide/use-solution-explorer" target="_blank">Solution Explorer</a></li>
+</ul>
+:ET

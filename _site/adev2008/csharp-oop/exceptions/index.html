@@ -1,0 +1,315 @@
+<!DOCTYPE html> <html lang="en-US"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <title>Exceptions - ADEV Programming</title> <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> <link rel="stylesheet" href="/assets/css/just-the-docs-default.css"> <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script> <script type="text/javascript" src="/assets/js/just-the-docs.js"></script> <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Begin Jekyll SEO tag v2.8.0 --> <title>Exceptions | ADEV Programming</title> <meta name="generator" content="Jekyll v4.2.2" /> <meta property="og:title" content="Exceptions" /> <meta property="og:locale" content="en_US" /> <meta name="description" content="A manual for ADEV2008 Programming" /> <meta property="og:description" content="A manual for ADEV2008 Programming" /> <link rel="canonical" href="http://localhost:8888/adev2008/csharp-oop/exceptions/" /> <meta property="og:url" content="http://localhost:8888/adev2008/csharp-oop/exceptions/" /> <meta property="og:site_name" content="ADEV Programming" /> <meta property="og:type" content="website" /> <meta name="twitter:card" content="summary" /> <meta property="twitter:title" content="Exceptions" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","description":"A manual for ADEV2008 Programming","headline":"Exceptions","url":"http://localhost:8888/adev2008/csharp-oop/exceptions/"}</script> <!-- End Jekyll SEO tag --> <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" /> <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script> <link rel="stylesheet" href="/assets/css/captionjs.min.css" /> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <script type="text/javascript" src="/assets/js/jquery.caption.min.js"></script> <script type="text/javascript" src="/assets/js/custom.js"></script> --> </head> <body> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> <symbol id="svg-link" viewBox="0 0 24 24"> <title>Link</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"> <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"> <title>Search</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"> <title>Menu</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"> <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"> <title>Expand</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"> <polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"> <title>Document</title> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"> <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> </svg> <div class="side-bar"> <div class="site-header"> <a href="http://localhost:8888/" class="site-title lh-tight"> ADEV Programming </a> <a href="#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg> </a> </div> <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav"> <ul class="nav-list"><li class="nav-list-item"><a href="http://localhost:8888/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="http://localhost:8888/read-me/" class="nav-list-link">README</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs" class="nav-list-link">Intro to .NET, C# & VS</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/introduction-to-dotnet/" class="nav-list-link">Introduction to .NET</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/visual-studio-ide/" class="nav-list-link">The Visual Studio IDE</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/console-application-project/" class="nav-list-link">Console Application Project</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/csharp-fundamentals/" class="nav-list-link">C# Fundamentals</a><ul class="nav-list"><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/namespaces/" class="nav-list-link">Namespaces</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/data-types/" class="nav-list-link">Data Types</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/console-io/" class="nav-list-link">Console I/O</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/math/" class="nav-list-link">Math</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/selections/" class="nav-list-link">Selections</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/loops/" class="nav-list-link">Loops</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/methods/" class="nav-list-link">Methods</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/classes/" class="nav-list-link">Classes</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/testing-classes/" class="nav-list-link">Testing Classes</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/enumerations/" class="nav-list-link">Enumerations</a> </li></ul></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/msdn/" class="nav-list-link">Microsoft Developer Network</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/intro-to-dotnet-csharp-vs/coding-conventions-standards/" class="nav-list-link">Coding Conventions and Standards</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/csharp-oop" class="nav-list-link">C# OOP</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/csharp-oop/class-libraries/" class="nav-list-link">Class Libraries</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/csharp-oop/properties/" class="nav-list-link">Properties</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/csharp-oop/inheritance/" class="nav-list-link">Inheritance</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/csharp-oop/static-classes/" class="nav-list-link">Static Classes</a></li><li class="nav-list-item active"><a href="http://localhost:8888/adev2008/csharp-oop/exceptions/" class="nav-list-link active">Exceptions</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/csharp-oop/assembly-references/" class="nav-list-link">Assembly References</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/csharp-oop/object-browser/" class="nav-list-link">Object Browser</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/unit-testing/unit-testing/" class="nav-list-link">Unit Testing</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/unit-testing/mstest/" class="nav-list-link">MSTest</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/unit-testing/test-planning/" class="nav-list-link">Test Planning</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/unit-testing/running-unit-tests/" class="nav-list-link">Running Unit Tests</a></li><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/unit-testing/writing-unit-tests/" class="nav-list-link">Writing Unit Tests</a><ul class="nav-list"><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/unit-testing/constructor-tests/" class="nav-list-link">Constructor Tests</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/unit-testing/property-tests/" class="nav-list-link">Property Tests</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/unit-testing/method-tests/" class="nav-list-link">Method Tests</a> </li><li class="nav-list-item "> <a href="http://localhost:8888/adev2008/unit-testing/accessing-base-class-fields/" class="nav-list-link">Accessing Base Class Fields</a> </li></ul></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/events/events/" class="nav-list-link">Events</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/events/delegates/" class="nav-list-link">Delegates</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/events/event-members/" class="nav-list-link">Event Class Members</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/events/event-handling/" class="nav-list-link">Event Handling</a></li></ul></li><li class="nav-list-item"><a href="http://localhost:8888/adev2008/data-structures/data-structures/" class="nav-list-link">Data Structures</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/windows-forms-apps/windows-forms-apps/" class="nav-list-link">Windows Forms Apps</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/windows-forms-apps/winform-basics/" class="nav-list-link">Winform Basics</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/windows-forms-apps/winform-control-classes/" class="nav-list-link">Winform Control Classes</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/windows-forms-apps/messagebox-class/" class="nav-list-link">Messagebox Class</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/windows-forms-apps/about-box-form/" class="nav-list-link">About Box Form</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/windows-forms-apps/debugging/" class="nav-list-link">Debugging</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/data-binding/data-binding/" class="nav-list-link">Data Binding</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/data-binding/data-binding-basics/" class="nav-list-link">Data Binding Basics</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/data-binding/simple-data-binding/" class="nav-list-link">Simple Data Binding</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/data-binding/complex-data-binding/" class="nav-list-link">Complex Data Binding</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/data-binding/combobox-data-binding/" class="nav-list-link">ComboBox Data Binding</a></li><li class="nav-list-item "><a href="http://localhost:8888/adev2008/data-binding/advanced-techniques/" class="nav-list-link">Advanced Techniques</a></li></ul></li><li class="nav-list-item"><a href="http://localhost:8888/adev2008/text-file-io/text-file-io/" class="nav-list-link">Text File IO</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/adonet/adonet/" class="nav-list-link">ADO.NET</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/adonet/ado-net-basics/" class="nav-list-link">ADO.NET Basics</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:8888/adev2008/appendixes/appendixes/" class="nav-list-link">Appendixes</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:8888/adev2008/appendixes/documentation-samples/" class="nav-list-link">Documentation Samples</a></li></ul></li></ul> </nav> <footer class="site-footer"> This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll. </footer> </div> <div class="main" id="top"> <div id="main-header" class="main-header"> <div class="search"> <div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search ADEV Programming" aria-label="Search ADEV Programming" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label> </div> <div id="search-results" class="search-results"></div> </div> </div> <div id="main-content-wrap" class="main-content-wrap"> <nav aria-label="Breadcrumb" class="breadcrumb-nav"> <ol class="breadcrumb-nav-list"> <li class="breadcrumb-nav-list-item"><a href="http://localhost:8888/adev2008/csharp-oop">C# OOP</a></li> <li class="breadcrumb-nav-list-item"><span>Exceptions</span></li> </ol> </nav> <div id="main-content" class="main-content" role="main"> <h1 class="no_toc" id="exceptions"> <a href="#exceptions" class="anchor-heading" aria-labelledby="exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Exceptions </h1> <h2 class="no_toc text-delta" id="table-of-contents"> <a href="#table-of-contents" class="anchor-heading" aria-labelledby="table-of-contents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Table of Contents </h2> <ol id="markdown-toc"> <li><a href="#understanding-exceptions" id="markdown-toc-understanding-exceptions">Understanding Exceptions</a> <ol> <li><a href="#what-is-an-exception" id="markdown-toc-what-is-an-exception">What is an Exception?</a></li> <li><a href="#flow-of-code" id="markdown-toc-flow-of-code">Flow of Code</a></li> <li><a href="#execution-call-stack" id="markdown-toc-execution-call-stack">Execution Call Stack</a></li> </ol> </li> <li><a href="#unhandled-exceptions" id="markdown-toc-unhandled-exceptions">Unhandled Exceptions</a> <ol> <li><a href="#unhandled-exceptions-in-visual-studio" id="markdown-toc-unhandled-exceptions-in-visual-studio">Unhandled Exceptions In Visual Studio</a></li> </ol> </li> <li><a href="#handling-exceptions" id="markdown-toc-handling-exceptions">Handling Exceptions</a></li> <li><a href="#referencing-handled-exceptions" id="markdown-toc-referencing-handled-exceptions">Referencing Handled Exceptions</a></li> <li><a href="#anticipating-exceptions" id="markdown-toc-anticipating-exceptions">Anticipating Exceptions</a></li> <li><a href="#common-net-exception-types" id="markdown-toc-common-net-exception-types">Common .NET Exception Types</a></li> <li><a href="#generating-exceptions" id="markdown-toc-generating-exceptions">Generating Exceptions</a></li> <li><a href="#documentation" id="markdown-toc-documentation">Documentation</a></li> <li><a href="#testing-exceptions" id="markdown-toc-testing-exceptions">Testing Exceptions</a></li> <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li> </ol> <p>It is inevitable that at some point in the process of developing an application an error will occur. No matter how good of a programmer you are, errors will happen.</p> <p><strong>Exceptions</strong> are special types of errors, generated by the operating system or by using someone else’s code. Newer programmers view exceptions as a negative part of programming, because when an exception is not handled your program will abnormally end. Exceptions are similar to compiler errors in that they aid a programmer into developing better code. To debug and fix exceptions, you must understand:</p> <ul> <li>what exceptions are.</li> <li>how they affect the flow of code.</li> <li>how to gain information from the exception.</li> <li>how to handle an exception.</li> <li>the requirements for how the exception should be handled.</li> </ul> <h2 id="understanding-exceptions"> <a href="#understanding-exceptions" class="anchor-heading" aria-labelledby="understanding-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Understanding Exceptions </h2> <p>Although exceptions are a tool for programmers to make their code better, they are not desired. Having your program end abnormally will never be a requirement of any application you develop.</p> <p>Exceptions are errors that only occur during the execution of a program. As previously mentioned, if an exception is not handled, the execution of the program will abnormally end.</p> <p>Exceptions are generated when an illegal operation takes place. An example of this would be to perform division by zero. Exceptions also occur when invoking methods. Usually methods written by another programmer. An example of this would be trying to parse non-numeric data to a numeric type.</p> <h3 id="what-is-an-exception"> <a href="#what-is-an-exception" class="anchor-heading" aria-labelledby="what-is-an-exception"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What is an Exception? </h3> <p>An exception is an object. This means that an exception is an instance of a class. All exceptions derive from the base class <code class="language-plaintext highlighter-rouge">System.Exception</code>. There are many exception types that are defined in the framework of most OOP languages. All these exceptions types will derive directly or indirectly from the <code class="language-plaintext highlighter-rouge">Exception</code> class.</p> <h3 id="flow-of-code"> <a href="#flow-of-code" class="anchor-heading" aria-labelledby="flow-of-code"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Flow of Code </h3> <p>When an exception happens, two things take place:</p> <ol> <li>An instance of an exception is created.</li> <li>The exception is thrown down the <a href="#method-call-stack">Execution Call Stack</a>.</li> </ol> <p>When an exception is thrown down the method call stack, the normal flow of the code does not happen. This means that when a exception occurs, no code will execute. As the exception traverses down the call stack, the run-time is looking for the exception to be handled. If the exception is handled at some point in the execution call stack, they flow of code is regained. If run-time makes it to the bottom of the execution call stack and does not find code to handle the exception, the program will terminate.</p> <h3 id="execution-call-stack"> <a href="#execution-call-stack" class="anchor-heading" aria-labelledby="execution-call-stack"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Execution Call Stack </h3> <p>The <strong>Execution Call Stack</strong>, or just <em>call stack</em>, keeps track of each active method and where a method should return to when it finishes executing. When a method is invoked (called), it is added (pushed on) to the call stack. The first method on the call stack is always the <em>Main</em> method. When a method completes, the method is removed from (popped off) the call stack, and execution continues where the previous method left off. The program ends when the last method (Main) is removed from the call stack.</p> <p>This sample program has several methods. Each method has at least two statements. The first statement prints a message to indicate the method has been added to the stack. The last statement prints a message to indicate the method has been removed from the stack.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span> 
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Main - Added to the call stack."</span><span class="p">);</span>
+
+        <span class="nf">MethodB</span><span class="p">();</span>
+
+        <span class="nf">MethodC</span><span class="p">();</span>
+
+        <span class="nf">MethodD</span><span class="p">();</span>
+
+        <span class="nf">MethodE</span><span class="p">();</span>
+
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Main - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodA</span><span class="p">(</span><span class="n">String</span> <span class="n">message</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodA - Added to the call stack."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodA - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodB</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Added to the call stack."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodC</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodC - Added to the call stack."</span><span class="p">);</span>
+        
+        <span class="nf">MethodB</span><span class="p">();</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodC - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">MethodD</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodD - Added to the call stack."</span><span class="p">);</span>
+        
+        <span class="nf">MethodC</span><span class="p">();</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodD - Removed from the call stack."</span><span class="p">);</span>
+        <span class="k">return</span> <span class="s">"Hello World"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodE</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodE - Added to the call stack."</span><span class="p">);</span>
+        
+        <span class="nf">MethodA</span><span class="p">(</span><span class="nf">MethodD</span><span class="p">());</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodE - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>This simple application demonstrates the call stack. You can see that the main method is the first method in the call stack and is not removed until the very end.</p> <p>Each time a method is invoked, it becomes active and is added to the call stack and is not removed until all other active methods added after it have been completed and removed.</p> <p>Output:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Main - Added to the call stack.
+MethodB - Added to the call stack.
+MethodB - Removed from the call stack.
+MethodC - Added to the call stack.
+MethodB - Added to the call stack.
+MethodB - Removed from the call stack.
+MethodC - Removed from the call stack.
+MethodD - Added to the call stack.
+MethodC - Added to the call stack.
+MethodB - Added to the call stack.
+MethodB - Removed from the call stack.
+MethodC - Removed from the call stack.
+MethodD - Removed from the call stack.
+MethodE - Added to the call stack.
+MethodD - Added to the call stack.
+MethodC - Added to the call stack.
+MethodB - Added to the call stack.
+MethodB - Removed from the call stack.
+MethodC - Removed from the call stack.
+MethodD - Removed from the call stack.
+MethodA - Added to the call stack.
+MethodA - Removed from the call stack.
+MethodE - Removed from the call stack.
+Main - Removed from the call stack.
+</code></pre></div></div> <h2 id="unhandled-exceptions"> <a href="#unhandled-exceptions" class="anchor-heading" aria-labelledby="unhandled-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Unhandled Exceptions </h2> <p>When an exception occurs, it will be generated (thrown) in the method currently at the top of the stack. Execution of the code will stop. The run-time will evaluate each method in the call stack to determine if the exception is handled. If it is handled, execution of code will continue at that point in the call stack. If the exception is not handled at any point in the call stack, the program will terminate.</p> <p><img src="../images/exceptions/exception-call-stack.png" alt=".NET Call Stack" class="large my-md-3 mx-auto" /></p> <p>If the implementation of <code class="language-plaintext highlighter-rouge">MethodB()</code> is updated:</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodB</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Added to the call stack."</span><span class="p">);</span>
+
+    <span class="c1">// This line will generate an exception</span>
+    <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Removed from the call stack."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>Output:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Main - Added to the call stack.
+MethodB - Added to the call stack.
+
+Unhandled Exception: System.FormatException: Input string was not in a correct format.
+   at System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   at System.Double.Parse(String s)
+   at ADEV.Module2.App.Program.MethodB() in C:\source\ADEV.Module2.App\Program.cs:line 41
+   at ADEV.Module2.App.Program.Main(String[] args) in C:\source\ADEV.Module2.App\Program.cs:line 15
+</code></pre></div></div> <p>You can see from the output of this program, that the program does not end properly. Had it ended properly, you would see the <code class="language-plaintext highlighter-rouge">Main()</code> method removed from the call stack. You can also see that <code class="language-plaintext highlighter-rouge">MethodB()</code> also did not complete properly, as it too was not removed from the call stack.</p> <p>Exceptions interrupt the normal flow a program.</p> <p>The program ends with information printed about the exception that was generated. This information can be intimidating to read at first. The more you mistakes you make, the more times you’ll read it. The more you read it, the better you’ll get at understanding it.</p> <p>You can see that the type of exception was <code class="language-plaintext highlighter-rouge">FormatException</code>. The data that caused the exception was the String <code class="language-plaintext highlighter-rouge">"Hello"</code>. The text after this line displays the <strong>stack trace</strong>. The stack trace shows us the methods that were called, in the order they were added to the call stack, from main to the method where the exception was generated.</p> <p>As your programs become more complicated, the stack trace is essential information for fixing defects.</p> <h3 id="unhandled-exceptions-in-visual-studio"> <a href="#unhandled-exceptions-in-visual-studio" class="anchor-heading" aria-labelledby="unhandled-exceptions-in-visual-studio"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Unhandled Exceptions In Visual Studio </h3> <p>When executing your program in Visual Studio, unhandled exceptions will stop the execution of the program and the statement that caused the exception is highlighted.</p> <p><img src="../images/exceptions/vs-unhandled-exception.png" alt="Unhandled Exceptions In Visual Studio" class="large" /></p> <p>The callout box seen in the image above, shows the type of exception, exception message, and the stack trace. Read all of this before stopping the execution of the program.</p> <h2 id="handling-exceptions"> <a href="#handling-exceptions" class="anchor-heading" aria-labelledby="handling-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Handling Exceptions </h2> <p>An exception is handled using a <code class="language-plaintext highlighter-rouge">try...catch</code> structure. Generally speaking, you would put the statement that would potentially generate the exception within a <code class="language-plaintext highlighter-rouge">try</code> block. If the exception is generated, the exception is caught by the <code class="language-plaintext highlighter-rouge">catch</code> statement and execution of the code continues from the catch block.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodB</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Added to the call stack."</span><span class="p">);</span>
+
+    <span class="k">try</span>
+    <span class="p">{</span>
+        <span class="c1">// This line will generate an exception</span>
+        <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Failed to parse the data to a double."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Removed from the call stack."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p class="alert alert-best-practices">In almost all cases, it is necessary to include the exception type in the <code class="language-plaintext highlighter-rouge">catch</code> statement. Although it can be omitted, it would catch all exceptions. This may sound great in theory, but would hide potential problems in your code.</p> <p>Output:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Main - Added to the call stack.
+MethodB - Added to the call stack.
+Failed to parse the data to a double.
+MethodB - Removed from the call stack.
+MethodC - Added to the call stack.
+MethodB - Added to the call stack.
+Failed to parse the data to a double.
+MethodB - Removed from the call stack.
+MethodC - Removed from the call stack.
+MethodD - Added to the call stack.
+MethodC - Added to the call stack.
+MethodB - Added to the call stack.
+Failed to parse the data to a double.
+MethodB - Removed from the call stack.
+MethodC - Removed from the call stack.
+MethodD - Removed from the call stack.
+MethodE - Added to the call stack.
+MethodD - Added to the call stack.
+MethodC - Added to the call stack.
+MethodB - Added to the call stack.
+Failed to parse the data to a double.
+MethodB - Removed from the call stack.
+MethodC - Removed from the call stack.
+MethodD - Removed from the call stack.
+MethodA - Added to the call stack.
+MethodA - Removed from the call stack.
+MethodE - Removed from the call stack.
+Main - Removed from the call stack.
+</code></pre></div></div> <p>It is important to understand the requirements of the code you are writing, as this determines where the <code class="language-plaintext highlighter-rouge">try...catch</code> block is coded. The <code class="language-plaintext highlighter-rouge">try...catch</code> block is always coded where the exception is to be handled.</p> <p>In this updated version of the program, the exception is being handled in the <code class="language-plaintext highlighter-rouge">Main()</code> method, which is lower in the call stack.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span> 
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Main - Added to the call stack."</span><span class="p">);</span>
+
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="nf">MethodB</span><span class="p">();</span>
+
+            <span class="nf">MethodC</span><span class="p">();</span>
+
+            <span class="nf">MethodD</span><span class="p">();</span>
+
+            <span class="nf">MethodE</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Failed to parse the data to a double."</span><span class="p">);</span>
+        <span class="p">}</span>  
+
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Main - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodA</span><span class="p">(</span><span class="n">String</span> <span class="n">message</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodA - Added to the call stack."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodA - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodB</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Added to the call stack."</span><span class="p">);</span>
+
+        <span class="c1">// This line will generate an exception</span>
+        <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodB - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodC</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodC - Added to the call stack."</span><span class="p">);</span>
+        
+        <span class="nf">MethodB</span><span class="p">();</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodC - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="n">String</span> <span class="nf">MethodD</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodD - Added to the call stack."</span><span class="p">);</span>
+        
+        <span class="nf">MethodC</span><span class="p">();</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodD - Removed from the call stack."</span><span class="p">);</span>
+        <span class="k">return</span> <span class="s">"Hello World"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">MethodE</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodE - Added to the call stack."</span><span class="p">);</span>
+        
+        <span class="nf">MethodA</span><span class="p">(</span><span class="nf">MethodD</span><span class="p">());</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"MethodE - Removed from the call stack."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>You can see from the output below that the result is very different from when the exception was handled in <code class="language-plaintext highlighter-rouge">MethodB()</code>.</p> <p>Output:</p> <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Main - Added to the call stack.
+MethodB - Added to the call stack.
+Failed to parse the data to a double.
+Main - Removed from the call stack.
+</code></pre></div></div> <p>If the code you are trying to execute has the potential to generate multiple types of exceptions, multiple <code class="language-plaintext highlighter-rouge">catch</code> statements can be defined beneath the <code class="language-plaintext highlighter-rouge">try</code> block.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span>
+<span class="p">{</span>
+    
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">ArgumentOutOfRangeException</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div> <h2 id="referencing-handled-exceptions"> <a href="#referencing-handled-exceptions" class="anchor-heading" aria-labelledby="referencing-handled-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Referencing Handled Exceptions </h2> <p>If you need to obtain information about a handled exception, you can declare a variable to reference the exception.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span>
+<span class="p">{</span>
+    
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="n">FormatException</span> <span class="n">exception</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Log</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">excpetion</span><span class="p">.</span><span class="n">StackTrace</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p class="alert alert-note">The scope of the variable is limited to the <code class="language-plaintext highlighter-rouge">catch</code> block.</p> <h2 id="anticipating-exceptions"> <a href="#anticipating-exceptions" class="anchor-heading" aria-labelledby="anticipating-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Anticipating Exceptions </h2> <p><a href="../images/exceptions/parse-documentation.png" target="_blank"><img src="../images/exceptions/parse-documentation.png" alt="Parse Documentation" class="medium inline" /></a></p> <p>By reading the documentation for a method you are calling, you can determine if there is a potential for an exception to occur. If a method generates an exception, a section with the heading “Exceptions” will exists. The documentation will list the type of exceptions that are thrown and what circumstances need to occur for the exception to be thrown.</p> <p>System exceptions are also documented, but can be found in explanations about how the language works. For example, the <code class="language-plaintext highlighter-rouge">DivideByZeroException</code> is generated when using the division (<code class="language-plaintext highlighter-rouge">/</code>) operator and the second operand is a zero. This exception doesn’t happen when you invoke a method.</p> <h2 id="common-net-exception-types"> <a href="#common-net-exception-types" class="anchor-heading" aria-labelledby="common-net-exception-types"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Common .NET Exception Types </h2> <p>Exceptions are types that derive from the <code class="language-plaintext highlighter-rouge">System.Exception</code> class. The .NET Framework includes many exceptions types.</p> <p>Here are some common exceptions:</p> <ul> <li><strong>ArgumentException</strong> - Thrown when any argument is invalid.</li> <li><strong>ArgumentNullException</strong> - Thrown when an argument is null.</li> <li><strong>ArgumentOutOfRangeException</strong> - Thrown when an argument value is out of the intended range.</li> <li><strong>FormatException</strong> - Thrown when an argument does not meet the format specifications intended by the method.</li> <li><strong>IndexOutOfRangeException</strong> - Thrown when you attempt to index an array using an index that is less than zero or greater than the length - 1.</li> <li><strong>InvalidCastException</strong> - Thrown when an explicit conversion from a base type or interface to a derived type fails.</li> <li><strong>NullReferenceException</strong> - Thrown when a null reference is used.</li> <li><strong>SystemException</strong> - Generated by the CLR.</li> </ul> <p>Notable exception members:</p> <ul> <li><strong>Message</strong> - Gets a message that describes the exception.</li> <li><strong>StackTrace</strong> - Gets a string representation of the frames in the call stack.</li> </ul> <h2 id="generating-exceptions"> <a href="#generating-exceptions" class="anchor-heading" aria-labelledby="generating-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Generating Exceptions </h2> <p>When developing code, mostly when developing data types, you will at some point need to generate an exception. Generating exceptions in your code helps another develop using your code by letting them know that they’ve done something incorrectly.</p> <p>To demonstration this, analyze the following code:</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">decimal</span> <span class="n">amountOfMoney</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">decimal</span> <span class="nf">AddMoney</span><span class="p">(</span><span class="kt">decimal</span> <span class="n">amount</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">amountOfMoney</span> <span class="p">+=</span> <span class="n">amount</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">amountOfMoney</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>If someone using <code class="language-plaintext highlighter-rouge">AddMoney(decimal)</code> method passes a negative numeric value as an argument, the method will not calculate the <code class="language-plaintext highlighter-rouge">amountOfMoney</code> as intended. It should be noted that there is no way for the developer coding the <code class="language-plaintext highlighter-rouge">AddMoney(decimal)</code> to prevent a negative numeric value as an argument.</p> <p>You are probably already thinking that this can be avoided by using a selection, and you wouldn’t be wrong.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">decimal</span> <span class="n">amountOfMoney</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">decimal</span> <span class="nf">AddMoney</span><span class="p">(</span><span class="kt">decimal</span> <span class="n">amount</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">amount</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">amountOfMoney</span> <span class="p">+=</span> <span class="n">amount</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">amountOfMoney</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>The question is, what do you do when you’ve determined the <code class="language-plaintext highlighter-rouge">amount</code> is a negative value?</p> <p>Newer programmers would usually want to print an error message, telling the user that something went wrong.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">amount</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Amount cannot be a negative value."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>There is a few problems with this approach:</p> <ul> <li>If the application is not a Console Application, this message would not be visible and would be overlooked.</li> <li>Seeing as though the message is being printed to the user, this message could be missed by the developer of the <code class="language-plaintext highlighter-rouge">Person</code> class.</li> <li>Because the code execution would continue after this selection, the statement <code class="language-plaintext highlighter-rouge">amount = 0;</code> would be needed to avoid a logic error.</li> </ul> <p>The correct approach would be to generate an exception. Since it is required that the <code class="language-plaintext highlighter-rouge">amount</code> parameter be a zero or positive numeric value, a <code class="language-plaintext highlighter-rouge">ArgumentOutOfRangeException</code> would be generated when the <code class="language-plaintext highlighter-rouge">amount</code> is negative.</p> <p>Generating an exception takes two steps:</p> <ol> <li>Generate an instance of an exception class.</li> <li><code class="language-plaintext highlighter-rouge">throw</code> the exception instance.</li> </ol> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="kt">decimal</span> <span class="n">amountOfMoney</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">decimal</span> <span class="nf">AddMoney</span><span class="p">(</span><span class="kt">decimal</span> <span class="n">amount</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">amount</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">ArgumentOutOfRangeException</span> <span class="n">exception</span><span class="p">;</span>
+            <span class="n">exception</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">"amount"</span><span class="p">,</span> <span class="s">"The argument cannot be less than zero."</span><span class="p">);</span>
+
+            <span class="k">throw</span> <span class="n">exception</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">amountOfMoney</span> <span class="p">+=</span> <span class="n">amount</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="n">amountOfMoney</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <p>When the code execution performs the <code class="language-plaintext highlighter-rouge">throw</code> statement, the flow of code is interrupted and the run-time will traverse the call stack to determine if the exception is handled.</p> <h2 id="documentation"> <a href="#documentation" class="anchor-heading" aria-labelledby="documentation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Documentation </h2> <p>When a method or property contains code that potentially throws an exception, information about the exception must be documented.</p> <p>When XML documentation is generated, Visual Studio does not parse the implementation of the unit, only its declaration. Therefore, you must manually add the XML to the documentation for things like exceptions.</p> <p>Exceptions are documented in an <code class="language-plaintext highlighter-rouge">&lt;exception&gt;...&lt;/exception&gt;</code> element.</p> <p>The documentation will include only one exception element per exception type generated in the method or property.The exception element will include one attribute, called <code class="language-plaintext highlighter-rouge">cref</code>, that is equal to the fully qualified name of the exception data type. The data within the element is the description of the situation(s) when that exception is thrown in the unit. The text typically starts with “Thrown when”.</p> <p><a href="/adev2008/appendixes/documentation-samples/#exceptions">Check out documentation samples</a></p> <h2 id="testing-exceptions"> <a href="#testing-exceptions" class="anchor-heading" aria-labelledby="testing-exceptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Testing Exceptions </h2> <p>The sample code below demonstrates how you can test exceptions in a command-line program.</p> <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method AddMoney(decimal)"</span><span class="p">);</span>
+
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test 1"</span><span class="p">);</span>
+        <span class="nf">AddMoney_AmountBelowZero_ExceptionThrown</span><span class="p">();</span>
+
+        <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Press any key to continue..."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">ReadKey</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">AddMoney_AmountBelowZero_ExceptionThrown</span><span class="p">()</span>
+    <span class="p">{</span>            
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected parameter: amount"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected message: The argument cannot be less than zero."</span><span class="p">);</span>
+
+        <span class="k">try</span>
+        <span class="p">{</span>
+            <span class="n">Person</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">();</span>
+            <span class="n">target</span><span class="p">.</span><span class="nf">AddMoney</span><span class="p">(-</span><span class="m">1000</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">ArgumentOutOfRangeException</span> <span class="n">exception</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual parameter: {0}"</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="n">ParamName</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual message: {0}"</span><span class="p">,</span> <span class="n">exception</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div> <h2 id="further-reading"> <a href="#further-reading" class="anchor-heading" aria-labelledby="further-reading"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Further Reading </h2> <ul> <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/" target="_blank">Exceptions and Exception Handling</a></li> </ul> <hr> <footer> <p><a href="#top" id="back-to-top">Back to top</a></p> <p class="text-small text-grey-dk-100 mb-0">Copyright &copy; 2022 Thirsty Cod3r.</p> <div class="d-flex mt-2"> <p class="text-small text-grey-dk-000 mb-0"> <a href="https://github.com/adevrrc/adevrrc.github.io/tree/main/adev2008/csharp-oop/exceptions.md" id="edit-this-page">Edit this page on GitHub</a> </p> </div> </footer> </div> </div> <div class="search-overlay"></div> </div> </body> </html>

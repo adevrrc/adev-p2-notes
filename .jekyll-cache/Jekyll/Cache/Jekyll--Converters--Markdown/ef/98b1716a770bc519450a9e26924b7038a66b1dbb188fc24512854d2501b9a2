@@ -1,0 +1,18 @@
+I"<h1 id="data-structures">Data Structures</h1>
+
+<p>The section will help you answer the following questions:</p>
+
+<ul>
+  <li>What is a data structure?</li>
+  <li>What are the commonly used data structures?</li>
+  <li>How do data structures differ from one another?</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Learn array basics.</li>
+  <li>Understand the difference between standard and generic collections.</li>
+  <li>Explore collection types: List, Dictionary, SortedList, Stack, Queue.</li>
+</ul>
+:ET

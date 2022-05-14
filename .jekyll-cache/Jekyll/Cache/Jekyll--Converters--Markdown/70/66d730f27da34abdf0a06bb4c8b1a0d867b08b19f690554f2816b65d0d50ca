@@ -1,0 +1,473 @@
+I"��<h1 class="no_toc" id="events-and-event-handling">Events and Event Handling</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#delegates" id="markdown-toc-delegates">Delegates</a>    <ol>
+      <li><a href="#declaring-delegates" id="markdown-toc-declaring-delegates">Declaring Delegates</a></li>
+      <li><a href="#creating-delegate-instances" id="markdown-toc-creating-delegate-instances">Creating Delegate Instances</a></li>
+      <li><a href="#using-delegates" id="markdown-toc-using-delegates">Using Delegates</a></li>
+      <li><a href="#multicast-delegate" id="markdown-toc-multicast-delegate">Multicast Delegate</a></li>
+    </ol>
+  </li>
+  <li><a href="#events" id="markdown-toc-events">Events</a>    <ol>
+      <li><a href="#declaring-an-event" id="markdown-toc-declaring-an-event">Declaring an Event</a></li>
+      <li><a href="#the-on-method" id="markdown-toc-the-on-method">The On Method</a></li>
+      <li><a href="#raise-the-event" id="markdown-toc-raise-the-event">Raise the Event</a></li>
+    </ol>
+  </li>
+  <li><a href="#handling-events" id="markdown-toc-handling-events">Handling Events</a>    <ol>
+      <li><a href="#defining-an-event-handler-method" id="markdown-toc-defining-an-event-handler-method">Defining An Event Handler Method</a></li>
+      <li><a href="#subscribing-to-events" id="markdown-toc-subscribing-to-events">Subscribing To Events</a></li>
+      <li><a href="#object-sender-parameter" id="markdown-toc-object-sender-parameter"><code class="language-plaintext highlighter-rouge">object sender</code> Parameter</a></li>
+      <li><a href="#eventargs-e-parameter" id="markdown-toc-eventargs-e-parameter"><code class="language-plaintext highlighter-rouge">EventArgs e</code> Parameter</a></li>
+    </ol>
+  </li>
+  <li><a href="#custom-eventargs" id="markdown-toc-custom-eventargs">Custom EventArgs</a></li>
+  <li><a href="#documentation" id="markdown-toc-documentation">Documentation</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>Windows Forms Applications are graphical user interface applications built for the Windows desktop. Before you can learn about developing Windows Forms Applications, you must understand events and how to handle them.</p>
+
+<h2 id="delegates">Delegates</h2>
+
+<p><strong>Delegates</strong> are special types of .NET classes whose instances store references to methods. Delegates allow you to pass methods as arguments to other methods. The delegate object can be passed to code which can call the referenced method, without the code knowing at compile time which method it will call.</p>
+
+<h3 id="declaring-delegates">Declaring Delegates</h3>
+
+<p>The declaration of a delegate looks more like a method than a class, but has no body.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.Events</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Represents the method that will handle an instructor action.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">InstructorAction</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Every delegate has a <strong>signature</strong>. A signature includes the identifier, number of parameters and parameter types. Unlike methods, the return type of the delegate is part of the signature.</p>
+
+<p>When you declare a delegate type, you are specifying the types of methods the delegate can represent. A delegate instance can only reference a method that matches the delegate signature.</p>
+
+<p class="alert alert-note">Delegates would be coded in their own code file. The example above would be coded in a file called <strong>InstructorAction.cs</strong>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">DisplayStudentGrades</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">grades</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the <code class="language-plaintext highlighter-rouge">Program</code> class above, the <code class="language-plaintext highlighter-rouge">AlertStudent()</code> method signature matches that of the delegate <code class="language-plaintext highlighter-rouge">InstructorAction()</code>. Therefore, a instance of the delegate could reference the <code class="language-plaintext highlighter-rouge">AlertStudent()</code> method. The <code class="language-plaintext highlighter-rouge">DisplayStudentGrades(int[])</code> method does not have a matching signature and would not be able to be referenced by a delegate of the <code class="language-plaintext highlighter-rouge">InstructorAction()</code> type.</p>
+
+<h3 id="creating-delegate-instances">Creating Delegate Instances</h3>
+
+<p>Creating a delegate instance is similar to creating other objects. The delegate constructor always takes one argument, which is the identifier of the method you want the delegate to reference.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span><span class="p">;</span>
+        <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">InstructorAction</span><span class="p">(</span><span class="n">AlertStudent</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The syntax can be simplified to:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="using-delegates">Using Delegates</h3>
+
+<p>To use the delegate, you simply use the variable as if it was the method that it references.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+
+        <span class="c1">// Invoke the method</span>
+        <span class="nf">alertStudentAction</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALERT! Your test average is below the standard.
+</code></pre></div></div>
+
+<p>The example above demonstrates how you would invoke the method a delegate references. But seems rather pointless, considering the method is in the same class. The benefit of delegates is in passing the method to another piece of code.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddTestMark</span><span class="p">(</span><span class="kt">double</span> <span class="n">mark</span><span class="p">,</span> <span class="n">InstructorAction</span> <span class="n">action</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mark</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">||</span> <span class="n">mark</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">"mark"</span><span class="p">,</span> <span class="s">"The mark must be a value of zero or greater."</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">++;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">+=</span> <span class="n">mark</span><span class="p">;</span>
+
+        <span class="kt">double</span> <span class="n">testAverage</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">/</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">action</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span> <span class="p">&gt;</span> <span class="m">3</span> <span class="p">&amp;&amp;</span> <span class="n">testAverage</span> <span class="p">&lt;</span> <span class="p">.</span><span class="m">65</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">action</span><span class="p">();</span>
+
+            <span class="c1">// or</span>
+            <span class="c1">// action.Invoke();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+
+        <span class="n">Student</span> <span class="n">student</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Student</span><span class="p">();</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">11</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">52</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">33</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">64</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALERT! Your test average is below the standard.
+</code></pre></div></div>
+
+<h3 id="multicast-delegate">Multicast Delegate</h3>
+
+<p>If delegates weren’t cool enough, they can actually reference more than one method. This is called a <strong>multicast delegate</strong>. When the delegate is used, all the methods it references are called one after another.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">+=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+
+        <span class="c1">// Adds a second method to the delegate</span>
+        <span class="n">alertStudentAction</span> <span class="p">+=</span> <span class="n">AlertGuardian</span><span class="p">;</span>
+
+        <span class="n">Student</span> <span class="n">student</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Student</span><span class="p">();</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">11</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">52</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">33</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">64</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertGuardian</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your dependant's test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALERT! Your test average is below the standard.
+ALERT! Your dependant's test average is below the standard.
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">+=</code> operator adds a method to the delegates <strong>invocation list</strong>. The <code class="language-plaintext highlighter-rouge">-=</code> operator removes a method from the delegates invocation list.</p>
+
+<h2 id="events">Events</h2>
+
+<p>Events are a mechanism for object to notify other objects that something interesting happened to it. These events are typically used to notify that the object’s state has changed or an action was performed.</p>
+
+<p>Events are a special multicast delegates. An event can reference one or more methods. The class that contains the event is referred to as the <em>publisher</em>.</p>
+
+<p>Classes that need to respond to an object’s event will subscribe to the object’s event. These classes are referred to as <em>subscribers</em>.</p>
+
+<p>Microsoft has a standard pattern for setting up events in a publisher class.  It requires three steps:</p>
+
+<ol>
+  <li>Declare the event.</li>
+  <li>Declare and define an “On” method for the event.</li>
+  <li>Raise the event in the class.</li>
+</ol>
+
+<h3 id="declaring-an-event">Declaring an Event</h3>
+
+<p>Events are members of a class. They are typically declared as <code class="language-plaintext highlighter-rouge">public</code>, as the intention of the event is to be accessible outside of the class.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">AverageBelowFail</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">EventHandler</code> type is a delegate. All events in the .NET class library are based on this delegate.  It is declared as:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">EventHandler</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">EventHandler</code> delegate has two parameters. The parameters represent:</p>
+
+<ol>
+  <li>A reference to the object that raised the event.</li>
+  <li>An empty <code class="language-plaintext highlighter-rouge">EventArgs</code> object.</li>
+</ol>
+
+<p class="alert alert-future-lesson">The <code class="language-plaintext highlighter-rouge">object sender</code> and <code class="language-plaintext highlighter-rouge">EventArgs e</code> parameters will be discussed in a later topic.</p>
+
+<p class="alert alert-best-practices">Although events can be based on any delegate type, it is recommended that you base your events on the .NET pattern by using <code class="language-plaintext highlighter-rouge">EventHandler</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">event</code> keyword is used when declaring the event. The <code class="language-plaintext highlighter-rouge">event</code> keyword prevents the delegate from being invoked outside of the class the event is declared in.</p>
+
+<h3 id="the-on-method">The On Method</h3>
+
+<p>The second part of the pattern is to define a method to raise the event. The method identifier is prefixed with the word “On”, followed by the name of the event.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnAverageBelowFail</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">AverageBelowFail</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nf">AverageBelowFail</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">EventArgs</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the sample code above, the delegate invokes the methods it references. Since the <code class="language-plaintext highlighter-rouge">EventHandler</code> delegate has two parameters, to invoke the delegate, you must provide two arguments:</p>
+
+<p>You may be thinking at this point that this method is rather pointless, since the <code class="language-plaintext highlighter-rouge">AverageBelowFail(this, EventArgs.Empty);</code> statement can be coded at any point in the class. The advantage of using the “On” method is that when the class is a base class, the derived class will still be able to raise the event. Remember that events can only be invoked in the class they are declared in. The “On” method is inherited and can be called in the derived class. Also, the derived class could override this behavior if needed.</p>
+
+<h3 id="raise-the-event">Raise the Event</h3>
+
+<p>Raising the event simply means causing the delegate to invoke the methods it references. When following Microsoft’s recommended pattern, this means invoking the “On” method. Raising the event can happen in any method or property accessor.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddTestMark</span><span class="p">(</span><span class="kt">double</span> <span class="n">mark</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mark</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">||</span> <span class="n">mark</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">"mark"</span><span class="p">,</span> <span class="s">"The mark must be a value of zero or greater."</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">++;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">+=</span> <span class="n">mark</span><span class="p">;</span>
+
+        <span class="kt">double</span> <span class="n">testAverage</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">/</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span> <span class="p">&gt;</span> <span class="m">3</span> <span class="p">&amp;&amp;</span> <span class="n">testAverage</span> <span class="p">&lt;</span> <span class="p">.</span><span class="m">65</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">OnAverageBelowFail</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="handling-events">Handling Events</h2>
+
+<p>To respond to an event, a <em>Subscriber</em> class must define an <em>event handler</em> method. This method is used to subscribe to an object’s event in a process called <strong>event wiring</strong>. When the event occurs, the delegate (event) will call the subscriber’s method.</p>
+
+<h3 id="defining-an-event-handler-method">Defining An Event Handler Method</h3>
+
+<p>An event handler method is no different than any other method except that the signature of the method must match that of the event it will be used to subscribe to. Most methods that you will subscribe to will use the <code class="language-plaintext highlighter-rouge">EventHandler</code> delegate defined as <code class="language-plaintext highlighter-rouge">public delegate void EventHandler(object sender, EventArgs e);</code>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Student_AverageBelowFail</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It is common for event handler methods to be named using the format, <code class="language-plaintext highlighter-rouge">Object_EventBeingHandled</code>.</p>
+
+<h3 id="subscribing-to-events">Subscribing To Events</h3>
+
+<p>Once the event handler method is declared and defined, the <em>Subscriber</em> class can subscribe to the object’s event.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Student</span><span class="p">();</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="n">AverageBelowFail</span> <span class="p">+=</span> <span class="n">Student_AverageBelowFail</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Student_AverageBelowFail</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When the event is raised, the handler method will be invoked.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Student</span> <span class="n">student</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Student</span><span class="p">();</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="n">AverageBelowFail</span> <span class="p">+=</span> <span class="n">Student_AverageBelowFail</span><span class="p">;</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">11</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">52</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">33</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">64</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Student_AverageBelowFail</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="object-sender-parameter"><code class="language-plaintext highlighter-rouge">object sender</code> Parameter</h3>
+
+<p>As mentioned previously, the <code class="language-plaintext highlighter-rouge">sender</code> parameter references the object that raised the event. This can be used in the event handler method to determine which object called the event handler method and/or to use the object within the event handler method implementation.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Student_AverageBelowFail</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! {0}'s test average is below the standard."</span><span class="p">,</span> <span class="p">((</span><span class="n">Student</span><span class="p">)</span><span class="n">sender</span><span class="p">).</span><span class="n">Name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">sender</code> parameter is declared as <code class="language-plaintext highlighter-rouge">object</code> because it could be any type of object that uses this event handler method. This is an excellent example of using <strong>polymorphism</strong>. When you have a polymorphic reference, you are limited to accessing only members of the declared type. It is very typical for you to cast <code class="language-plaintext highlighter-rouge">sender</code> to a more specific type.</p>
+
+<h3 id="eventargs-e-parameter"><code class="language-plaintext highlighter-rouge">EventArgs e</code> Parameter</h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">e</code> parameter references an object of <code class="language-plaintext highlighter-rouge">EventArgs</code> type which can contain data about the event that took place. This allows object’s that raise events to pass data back to the event handler method. In most cases, this object will be <em>empty</em>, meaning it contains no data about the event. This is the default implementation of the <code class="language-plaintext highlighter-rouge">EventArgs</code> type.</p>
+
+<h2 id="custom-eventargs">Custom EventArgs</h2>
+
+<p>In the examples above, the event was raised using an blank <code class="language-plaintext highlighter-rouge">EventArgs</code> object. When there is no data to report about an event, an <code class="language-plaintext highlighter-rouge">EventArgs</code> instance is still required because the <code class="language-plaintext highlighter-rouge">EventHandler</code> delegate requires an argument for the <code class="language-plaintext highlighter-rouge">EventArgs</code> parameter.</p>
+
+<p>When your event requires data to send back to the handling method, you will need to define your own <code class="language-plaintext highlighter-rouge">EventArgs</code> type.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">AverageBelowFailEventArgs</span> <span class="p">:</span> <span class="n">EventArgs</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">BelowAverageDifference</span>
+    <span class="p">{</span>
+        <span class="k">get</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="nf">AverageBelowFailEventArgs</span><span class="p">(</span><span class="kt">double</span> <span class="n">belowAverageDifference</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">BelowAverageDifference</span> <span class="p">=</span> <span class="n">belowAverageDifference</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">Student</code> class would be updated to:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span><span class="p">&lt;</span><span class="n">AverageBelowFailEventArgs</span><span class="p">&gt;</span> <span class="n">AverageBelowFail</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddTestMark</span><span class="p">(</span><span class="kt">double</span> <span class="n">mark</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">mark</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">"mark"</span><span class="p">,</span> <span class="s">"The mark must be a value of zero or greater."</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">++;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">+=</span> <span class="n">mark</span><span class="p">;</span>
+
+        <span class="kt">double</span> <span class="n">testAverage</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">/</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">NumberOfTest</span> <span class="p">&gt;</span> <span class="m">3</span> <span class="p">&amp;&amp;</span> <span class="n">testAverage</span> <span class="p">&lt;</span> <span class="p">.</span><span class="m">65</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">OnAverageBelowFail</span><span class="p">(</span><span class="k">new</span> <span class="nf">AverageBelowFailEventArgs</span><span class="p">(.</span><span class="m">65</span> <span class="p">-</span> <span class="n">average</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnAverageBelowFail</span><span class="p">(</span><span class="n">AverageBelowFailEventArgs</span> <span class="n">eventArgs</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">AverageBelowFail</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">AverageBelowFail</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">eventArgs</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Student_AverageBelowFail</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">AverageBelowFailEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is {0:P} below the standard."</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">BelowAverageDifference</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li><a href="/adev2008/appendixes/documentation-samples/#delegate">Delegate</a></li>
+  <li><a href="/adev2008/appendixes/documentation-samples/#events">Events</a></li>
+  <li><a href="/adev2008/appendixes/documentation-samples/#event-handler-methods">Event Handler Methods</a></li>
+</ul>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/" target="_blank">Events</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event" target="_blank"><code class="language-plaintext highlighter-rouge">event</code> Keyword</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines" target="_blank">Publishing Events</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-raise-base-class-events-in-derived-classes" target="_blank">Raising Events</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/events/" target="_blank">Handle and Raise Events</a></li>
+</ul>
+:ET

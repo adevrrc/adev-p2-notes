@@ -1,0 +1,92 @@
+I""<h1 class="no_toc" id="class-libraries">Class Libraries</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#creating-a-new-project" id="markdown-toc-creating-a-new-project">Creating a New Project</a></li>
+  <li><a href="#solution-file-structure" id="markdown-toc-solution-file-structure">Solution File Structure</a></li>
+  <li><a href="#visual-studio-solution-explorer" id="markdown-toc-visual-studio-solution-explorer">Visual Studio Solution Explorer</a></li>
+  <li><a href="#building-the-project" id="markdown-toc-building-the-project">Building the Project</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>A <strong>Class Library</strong> is a project that contains types and methods used by applications. The compiled result of a class library is a <strong>Dynamic Link Library (DLL)</strong>.</p>
+
+<h2 id="creating-a-new-project">Creating a New Project</h2>
+
+<p>Creating a Class Library project follows the <a href="/adev2008/intro-to-dotnet-csharp-vs/console-application-project/index.html#create-a-new-project">same steps as a Console Application</a>, except that you will choose a different project template.</p>
+
+<p>When you get to the <strong>Create a new project</strong> window, the project type you want to choose is called “Class Library (.NET Framework)”. You can use the search to filter the list.</p>
+
+<p><img src="../images/class-libraries/create-class-library-project.png" alt="Create Class Library Project" /></p>
+
+<h2 id="solution-file-structure">Solution File Structure</h2>
+
+<p>If you navigate to the location you created the project to, you’ll find the solution directory for the project you created.</p>
+
+<p><img src="../images/class-libraries/save-directory.png" alt="Save Directory" /></p>
+
+<p class="alert alert-warning">At this point you may have more than one Visual Studio solution stored in this location. Read the directories careful to determine the one you are looking for.</p>
+
+<h3 class="no_toc" id="solution-directory">Solution Directory</h3>
+
+<p><img src="../images/class-libraries/solution-directory.png" alt="Solution Directory" /></p>
+
+<p>The solution directory contains:</p>
+
+<ul>
+  <li><strong>Project Directory</strong> - You will see one directory for each project in the solution. New solutions will only contain one project and thus will have one project directory.</li>
+  <li><strong>Solution File (.sln)</strong> - A file that ends with the file extension .sln. The .sln file contains information the Visual Studio environment needs to find and load the solution’s associated projects and resources.</li>
+</ul>
+
+<h3 class="no_toc" id="project-directory">Project Directory</h3>
+
+<p><img src="../images/class-libraries/project-directory.png" alt="Project Directory" /></p>
+
+<p>The project directory contains:</p>
+
+<ul>
+  <li><strong>bin Directory</strong> - Where the resulting files of a successful project build are stored.</li>
+  <li><strong>obj Directory</strong> - This directory can be ignored. We won’t be using it in this course.</li>
+  <li><strong>Properties Directory</strong> - This is another directory that can be ignored.</li>
+  <li><strong>MS Build File (.csproj) File</strong> - The MSBuild file for the Visual Studio project.</li>
+  <li><strong>Class1.cs</strong> - This file contains a class called <code class="language-plaintext highlighter-rouge">Class1</code> and is created by default because of the project template that was chosen when creating the project.</li>
+</ul>
+
+<p class="alert alert-error"><code class="language-plaintext highlighter-rouge">Class1</code> is not an appropriate name for a class. You should rename this file and the class identifier within it.</p>
+
+<h2 id="visual-studio-solution-explorer">Visual Studio Solution Explorer</h2>
+
+<p><img src="../images/class-libraries/solution-explorer.png" alt="Solution Explorer" /></p>
+
+<p>When the newly created class library project is loaded into Visual Studio, the Solution Explorer will contain the following:</p>
+
+<ul>
+  <li><strong>Properties</strong> - This node can be ignored.</li>
+  <li><strong>References</strong> - This node contains the project references to other class libraries.</li>
+  <li><strong>Class1.cs</strong> - The source code file <em>Class1.cs</em> that contains the <code class="language-plaintext highlighter-rouge">Class1</code> class.</li>
+</ul>
+
+<p class="alert alert-future-lesson">In a future topic, you will learn how to add references to other class libraries to your VS projects.</p>
+
+<h2 id="building-the-project">Building the Project</h2>
+
+<p><a href="../visual-studio-ide.html#building-compiling-a-project">Building (Compile) a Project</a> was discussed in a previous topic.</p>
+
+<p>On a successful build of a Console Application Project, the following files will be generated in the <strong>bin\Debug</strong> directory within the Project directory.</p>
+
+<p><img src="../images/class-libraries/debug-directory.png" alt="Debug Directory" /></p>
+
+<p>The files you see in the screenshot above are:</p>
+
+<ul>
+  <li><strong>Dynamic Link Library File (.dll)</strong> - The assembly file, which is the compiled version of your project.</li>
+  <li><strong>Program Database File (.pdb)</strong> - The program database file that contains debugging information about the library. You can ignore this file.</li>
+</ul>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/dynamic-link-library#the-net-framework-assembly" site="_blank">The .NET Framework Assembly</a></li>
+</ul>
+:ET

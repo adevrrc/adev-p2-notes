@@ -1,0 +1,52 @@
+I"x<h1 class="no_toc" id="methods">Methods</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#program-methods" id="markdown-toc-program-methods">Program Methods</a></li>
+  <li><a href="#methods-for-objects" id="markdown-toc-methods-for-objects">Methods For Objects</a></li>
+</ol>
+
+<p>C# methods work the same way they do in Java.</p>
+
+<h2 id="program-methods">Program Methods</h2>
+
+<p>If you are writing a method within a <code class="language-plaintext highlighter-rouge">Program</code> class:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.Module1.Methods</span>
+<span class="p">{</span>
+    <span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsValidName</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">name</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="n">name</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-warning">Like Java, C# Console programs execute from a <code class="language-plaintext highlighter-rouge">static</code> context. All methods within the <code class="language-plaintext highlighter-rouge">Program</code> class must be declared as <code class="language-plaintext highlighter-rouge">static</code>.</p>
+
+<p class="alert alert-error">It is common for C# beginners to declare and define methods outside of the <code class="language-plaintext highlighter-rouge">class</code> block. If you are getting syntax errors declaring methods, double-check you’ve declared the method within the class block and not within the namespace or <code class="language-plaintext highlighter-rouge">Main</code> method block.</p>
+
+<p>To invoke the method:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="n">studentName</span> <span class="p">=</span> <span class="s">"Kenny"</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsValidName</span><span class="p">(</span><span class="n">studentName</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Because the <code class="language-plaintext highlighter-rouge">IsValidName()</code> method is within the same class, dot-notation is not required.</p>
+
+<h2 id="methods-for-objects">Methods For Objects</h2>
+
+<p>Check out the <a href="classes.html">Classes</a> section of these notes.</p>
+:ET

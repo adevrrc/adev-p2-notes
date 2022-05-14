@@ -1,0 +1,701 @@
+I"e�<h1 id="testing-classes">Testing Classes</h1>
+
+<p>The test programs will be written in the following format:</p>
+
+<ul>
+  <li>Each test case is written in a separate method in the program class. These methods are called a <em>unit test method</em>.  Your test class will have one unit test method per test in the test plan.</li>
+  <li>Each unit test method will only test one outcome.</li>
+  <li>Each unit test method will only be invoked in the main method.</li>
+</ul>
+
+<h2 id="method-identifiers">Method Identifiers</h2>
+
+<p>Test method identifiers will generally follow this format:</p>
+
+<p><em>MethodBeingTestedIdentifier_DataUsedInTheTest_TheOutcomeBeingTested</em></p>
+
+<p>Example:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">SetMilesDriven_MilesDrivenBelowZero_StateNotUpdated</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="constructors">Constructors</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor_Model_Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If the class has more than one constructor method, you can append a number to the end of the word “Constructor”.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor2_Model_Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="accessor-method">Accessor Method</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">GetMilesDriven_ReturnsState</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="mutator-method">Mutator Method</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">SetMilesDriven_GreaterThanZero_StateUpdated</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-note">Unit test methods do not require documentation.</p>
+
+<h2 id="writing-unit-test-methods">Writing Unit Test Methods</h2>
+
+<p>The implementation of a unit test method follows a general pattern:</p>
+
+<ul>
+  <li>Setup</li>
+  <li>Invoke</li>
+  <li>Verify</li>
+</ul>
+
+<h3 id="setup">Setup</h3>
+
+<p>In the setup portion of the unit test, data required for the test is stored in variables. The number of variables will typically depend on how many arguments needed for methods invoked in the test. This section is also used to create an instance of the class you are testing, except when the test is for the constructor.</p>
+
+<h3 id="invoke">Invoke</h3>
+
+<p>To test any method, the method you are testing <strong>must</strong> be invoked.</p>
+
+<h3 id="verify">Verify</h3>
+
+<p>The last part of the unit test is to verify the outcome you are testing worked as expected. You will output the expected value along with the value that resulted out of executing the method you are testing.</p>
+
+<p>The examples below include comments where each of the three parts of the test start.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor1_Model_Initialize</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Setup</span>
+    <span class="n">String</span> <span class="n">model</span> <span class="p">=</span> <span class="s">"Honda Ridgeline"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">milesDriven</span> <span class="p">=</span> <span class="m">10000</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">gallonsOfGas</span> <span class="p">=</span> <span class="m">40.2</span><span class="p">;</span>
+    
+    <span class="c1">// Invoke</span>
+    <span class="n">Automobile</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Automobile</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">milesDriven</span><span class="p">,</span> <span class="n">gallonsOfGas</span><span class="p">);</span>
+
+    <span class="c1">// Verify</span>
+    <span class="n">String</span> <span class="n">expected</span> <span class="p">=</span> <span class="s">"Honda Ridgeline"</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">getModel</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}\nActual: {1}\n"</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="k">void</span> <span class="nf">SetModel_Model_StateUpdated</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// Setup</span>
+    <span class="n">String</span> <span class="n">model</span> <span class="p">=</span> <span class="s">"Honda Ridgeline"</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">milesDriven</span> <span class="p">=</span> <span class="m">10000</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">gallonsOfGas</span> <span class="p">=</span> <span class="m">40.2</span><span class="p">;</span>   
+    
+    <span class="n">Automobile</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Automobile</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">milesDriven</span><span class="p">,</span> <span class="n">gallonsOfGas</span><span class="p">);</span>
+
+    <span class="c1">// Invoke   </span>
+    <span class="n">target</span><span class="p">.</span><span class="nf">setModel</span><span class="p">(</span><span class="s">"Ford Focus"</span><span class="p">);</span>
+
+    <span class="c1">// Verify</span>
+    <span class="n">String</span> <span class="n">expected</span> <span class="p">=</span> <span class="s">"Ford Focus"</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">getModel</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}\nActual: {1}\n"</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-note">You’ll notice in the examples above that when you are testing the constructor method, creating the instance of the class is the <strong>Invoke</strong> portion of the test. When testing all other methods, invoking the constructor method to create the object is part of the <strong>Setup</strong>.</p>
+
+<h2 id="test-program-format">Test Program Format</h2>
+
+<p>For each method you are testing, the test program will print a heading indicating the method being tested.</p>
+
+<p><strong>Example</strong></p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GetAge</span><span class="p">()</span> <span class="p">:</span> <span class="kt">int</span>
+<span class="p">&lt;/</span><span class="n">pre</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p class="alert alert-warning">Leave one blank line before printing the method being tested, except for the first method.</p>
+
+<h3 id="unit-test-output">Unit Test Output</h3>
+
+<p>Each unit test will output the following information:</p>
+
+<ol>
+  <li>The test number and description of the test.</li>
+  <li>The expected result.</li>
+  <li>The actual result.</li>
+</ol>
+
+<p><strong>Format</strong></p>
+
+<pre>
+Test #{test number} - Description of the test.
+Expected: {expected value}
+Actual: {actual value}
+</pre>
+
+<p><strong>Example</strong></p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test #1 - Returns the current state of age.
+Expected: 34
+Actual: 34
+</code></pre></div></div>
+
+<p>Below is an output example of testing a method that has more than one outcome. Ensure to leave one blank line between unit test method output.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Person(String, int)
+Test #1 - Initializes the name.
+Expected: Kenny
+Actual: Kenny
+
+Test #2 - Initializes the age.
+Expected: 34
+Actual: 34
+</code></pre></div></div>
+
+<h2 id="executing-tests">Executing Tests</h2>
+
+<p>To execute the tests, you will run the test program.  It is recommended that you execute your tests after writing each test. Don’t wait until you write all the tests to execute the tests.</p>
+
+<h3 id="test-results">Test Results</h3>
+
+<p>Each unit test method will print the expected an actual values of the test. If the values are the same, the test is considered to have a status of <strong>pass</strong>. If the values are not the same, the test status is considered a <strong>fail</strong>.</p>
+
+<p><strong>Failed Tests</strong></p>
+
+<p>When a test fails, it is recommended that you deal with the failed test before moving on with the remainder of the testing.</p>
+
+<p>Perform these steps when your unit test method has a fail status:</p>
+
+<ol>
+  <li>
+    <p>Trace your unit test method’s implementation.</p>
+
+    <p>A failed test does not necessarily mean the code you are testing has a defect. A mistake in your unit test code can cause the test to appear as a fail.</p>
+  </li>
+  <li>
+    <p>Trace the code you are testing.</p>
+
+    <p>After you are assured the unit test was written correctly, trace the code you are testing to find the defect.</p>
+  </li>
+</ol>
+
+<p><strong>What do I do if I can’t get the test to pass?</strong></p>
+
+<p>It is recommended that you seek advice from your instructor before making major changes to your code.</p>
+
+<h2 id="sample">Sample</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+ * Name: Chris Jericho
+ * Program: Business Information Technology
+ * Course: ADEV-2008 Programming 2
+ * Created: 2021-01-01
+ * Updated: 2021-01-01
+ */</span>
+
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Module1.Demo.Library</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Module1TestingDemonstration</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// A test program for the Fan class.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// Unit Tests</span>
+            <span class="c1">// Fan(FanColor, double, decimal)</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method Fan(FanColor, double, decimal)\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor1_Color_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor1_Radius_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor1_Price_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor1_Speed_Initialize</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// Fan(FanColor, double)</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method Fan(FanColor, double)\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor2_Color_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor2_Radius_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor2_Price_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor2_Speed_Initialize</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// Fan(double)</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method Fan(double)\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor3_Color_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor3_Radius_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor3_Price_Initialize</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Constructor3_Speed_Initialize</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// Fan.MAXIMUM_SPEED</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing class constant MAXIMUM_SPEED\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">Maximum_Speed_Initialize</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// SetFanSpeed(FanSpeed)</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method SetFanSpeed(FanSpeed)\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">SetFanSpeed_Medium_ModifyState</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// IsOn()</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method IsOn()\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">IsOn_False</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">IsOn_True</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// IncreasedSpeed()</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method IncreaseSpeed()\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">IncreaseSpeed_NotAtMaximumSpeed_StateUpdated</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">IncreaseSpeed_AtMaximumSpeed_StateNotUpdated</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// DecreaseSpeed()</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method DecreaseSpeed()\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">DecreaseSpeed_NotAtMinimumSpeed_StateUpdated</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">DecreaseSpeed_AtMinimumSpeed_StateNotUpdated</span><span class="p">();</span>
+
+            <span class="n">testNumber</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="c1">// ToString()</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Testing method ToString()\n"</span><span class="p">);</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Test {0}"</span><span class="p">,</span> <span class="p">++</span><span class="n">testNumber</span><span class="p">);</span>
+            <span class="nf">ToString_Returns</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Press any key to continue..."</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">ReadKey</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Fan(FanColor, double, decimal)</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor1_Color_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="kt">decimal</span> <span class="n">price</span> <span class="p">=</span> <span class="m">15.99</span><span class="n">M</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+
+            <span class="n">FanColor</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+
+            <span class="n">FanColor</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanColor</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor1_Radius_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="kt">decimal</span> <span class="n">price</span> <span class="p">=</span> <span class="m">15.99</span><span class="n">M</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+
+            <span class="kt">double</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="kt">double</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetRadius</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor1_Price_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="kt">decimal</span> <span class="n">price</span> <span class="p">=</span> <span class="m">15.99</span><span class="n">M</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+
+            <span class="kt">decimal</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">15.99</span><span class="n">M</span><span class="p">;</span>
+
+            <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetPrice</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor1_Speed_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="kt">decimal</span> <span class="n">price</span> <span class="p">=</span> <span class="m">15.99</span><span class="n">M</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Off</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Fan(FanColor, double)</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor2_Color_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+
+            <span class="n">FanColor</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+
+            <span class="n">FanColor</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanColor</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor2_Radius_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+
+            <span class="kt">double</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="kt">double</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetRadius</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor2_Price_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+
+            <span class="kt">decimal</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetPrice</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor2_Speed_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">);</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Off</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Fan(double)</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor3_Color_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+
+            <span class="n">FanColor</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">White</span><span class="p">;</span>
+
+            <span class="n">FanColor</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanColor</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor3_Radius_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+
+            <span class="kt">double</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="kt">double</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetRadius</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor3_Price_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+
+            <span class="kt">decimal</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetPrice</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor3_Speed_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Off</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Fan()</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor_Color_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">FanColor</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">White</span><span class="p">;</span>
+
+            <span class="n">FanColor</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanColor</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor4_Radius_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="kt">double</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="kt">double</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetRadius</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor4_Price_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="kt">decimal</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+            <span class="kt">decimal</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetPrice</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Constructor4_Speed_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Off</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">Maximum_Speed_Initialize</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+
+            <span class="kt">int</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">Fan</span><span class="p">.</span><span class="n">MAXIMUM_SPEED</span><span class="p">;</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">SetFanSpeed_Medium_ModifyState</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">SetFanSpeed</span><span class="p">(</span><span class="n">FanSpeed</span><span class="p">.</span><span class="n">Medium</span><span class="p">);</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Medium</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">IsOn_False</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="kt">bool</span> <span class="n">expected</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+            <span class="kt">bool</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">IsOn</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">IsOn_True</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">SetFanSpeed</span><span class="p">(</span><span class="n">FanSpeed</span><span class="p">.</span><span class="n">Medium</span><span class="p">);</span>
+
+            <span class="kt">bool</span> <span class="n">expected</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+            <span class="kt">bool</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">IsOn</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">IncreaseSpeed_NotAtMaximumSpeed_StateUpdated</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">IncreaseSpeed</span><span class="p">();</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Slow</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">IncreaseSpeed_AtMaximumSpeed_StateNotUpdated</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">SetFanSpeed</span><span class="p">(</span><span class="n">FanSpeed</span><span class="p">.</span><span class="n">Fast</span><span class="p">);</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">IncreaseSpeed</span><span class="p">();</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Fast</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">DecreaseSpeed_NotAtMinimumSpeed_StateUpdated</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">SetFanSpeed</span><span class="p">(</span><span class="n">FanSpeed</span><span class="p">.</span><span class="n">Medium</span><span class="p">);</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">DecreaseSpeed</span><span class="p">();</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Slow</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">DecreaseSpeed_AtMinimumSpeed_StateNotUpdated</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">();</span>
+
+            <span class="n">target</span><span class="p">.</span><span class="nf">DecreaseSpeed</span><span class="p">();</span>
+
+            <span class="n">FanSpeed</span> <span class="n">expected</span> <span class="p">=</span> <span class="n">FanSpeed</span><span class="p">.</span><span class="n">Off</span><span class="p">;</span>
+
+            <span class="n">FanSpeed</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">GetFanSpeed</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">static</span> <span class="k">void</span> <span class="nf">ToString_Returns</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">FanColor</span> <span class="n">color</span> <span class="p">=</span> <span class="n">FanColor</span><span class="p">.</span><span class="n">Red</span><span class="p">;</span>
+            <span class="kt">double</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+            <span class="kt">decimal</span> <span class="n">price</span> <span class="p">=</span> <span class="m">15.99</span><span class="n">M</span><span class="p">;</span>
+
+            <span class="n">Fan</span> <span class="n">target</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Fan</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">price</span><span class="p">);</span>
+
+            <span class="n">String</span> <span class="n">expected</span> <span class="p">=</span> <span class="s">"Color: Red, Radius: 5, Speed: Off, Price: $15.99"</span><span class="p">;</span>
+
+            <span class="n">String</span> <span class="n">actual</span> <span class="p">=</span> <span class="n">target</span><span class="p">.</span><span class="nf">ToString</span><span class="p">();</span>
+
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Expected: {0}"</span><span class="p">,</span> <span class="n">expected</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Actual: {0}\n"</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

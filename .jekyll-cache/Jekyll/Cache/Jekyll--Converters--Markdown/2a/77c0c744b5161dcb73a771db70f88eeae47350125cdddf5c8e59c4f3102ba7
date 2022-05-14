@@ -1,0 +1,360 @@
+I"�U<h1 class="no_toc" id="coding-conventions-and-standards">Coding Conventions and Standards</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#layout" id="markdown-toc-layout">Layout</a></li>
+  <li><a href="#identifier-guidelines" id="markdown-toc-identifier-guidelines">Identifier Guidelines</a></li>
+  <li><a href="#documentation" id="markdown-toc-documentation">Documentation</a></li>
+  <li><a href="#code-commenting" id="markdown-toc-code-commenting">Code Commenting</a></li>
+  <li><a href="#identifier-conventions" id="markdown-toc-identifier-conventions">Identifier Conventions</a></li>
+  <li><a href="#block-style" id="markdown-toc-block-style">Block Style</a></li>
+  <li><a href="#indenting-code" id="markdown-toc-indenting-code">Indenting Code</a></li>
+  <li><a href="#whitespace" id="markdown-toc-whitespace">Whitespace</a></li>
+  <li><a href="#form-design" id="markdown-toc-form-design">Form Design</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>All programmers are required to follow standards. A standard is an accepted way of doing something. Although programming standards do not need to be followed in order for your source code to produce its expected results, there are many reasons why you should follow programming standards.</p>
+
+<p>Standards ensure that the development of source code in a specific language is done in the same way by everyone. This makes working with other’s code much easier, since it is written in a way that is already familiar to you. The problem with standards is they are not consistent. Standards can vary between organizations, organizational departments, and supervisors in an organization, schools, programs and instructors.</p>
+
+<p>In this course, instructors have developed a general set of standards that all students will be expected to follow.</p>
+
+<h2 id="layout">Layout</h2>
+
+<ul>
+  <li>Use default code editor settings (smart indenting, four-character indent, tabs saved as spaces).</li>
+  <li>Write one statement per line.</li>
+  <li>Write one declaration per line.</li>
+  <li>Add one blank line between method and property definitions.</li>
+</ul>
+
+<h2 id="identifier-guidelines">Identifier Guidelines</h2>
+
+<ul>
+  <li>Namespace:</li>
+  <li>Classes and Other User-defined types:</li>
+  <li>Fields and Variables:</li>
+  <li>Methods and Other Class Members:</li>
+  <li>Parameters:</li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>All documentation must be XML style documentation.</p>
+
+<h3 class="no_toc" id="class">Class</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Represents a Person.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+</code></pre></div></div>
+
+<p>Documentation blocks are always written on the line before the item they are documenting. Do not include a line space between the documentation and what is being documented.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Represents a Person.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Person</span>
+</code></pre></div></div>
+
+<h3 class="no_toc" id="methods">Methods</h3>
+
+<p>All methods (excluding <em>main</em>) of a class must be preceded by XML style documentation. The documentation must contain the following in this exact format:</p>
+
+<ul>
+  <li>Method Description/Purpose.</li>
+  <li>List of parameters and descriptions of their use in the method (if the method has parameters defined).</li>
+  <li>Description of what value the method returns, and it’s purpose (if the method returns a value).</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Subtracts the specified amount from the Person's amount of money.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="c1">/// &lt;param name="amount"&gt;The amount of money to be subtracted.&lt;/param&gt;</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">SubtractMoney</span><span class="p">(</span><span class="kt">decimal</span> <span class="n">amount</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Returns the String representation of a Person.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="c1">/// &lt;returns&gt;The String representation of a Person.&lt;/returns&gt;</span>
+<span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="code-commenting">Code Commenting</h2>
+
+<p>Comments are a way of annotating your source code in plain English that assists others in determining what a statement or set of statements is doing.</p>
+
+<p class="alert alert-warning"><strong>Documentation vs. Comments</strong> <br />Although documentation is written using comment syntax, the purpose of documentation and comments are very different. Comments are written for someone reading the source code. Documentation is written and published for other developers using the code.</p>
+
+<h3 class="no_toc" id="single-line-comment">Single Line Comment</h3>
+
+<p>Use single line comments (//) to explain a single statement if it is complex. These comments always precede the line of code they are describing.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Calculates the amount of tax charged to the customer.</span>
+<span class="n">tax</span> <span class="p">=</span> <span class="n">purchaseAmount</span> <span class="p">*</span> <span class="n">TaxRate</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Leave one blank line after the “//”.</li>
+  <li>Capitalize the first character of the comment.</li>
+  <li>Must be free of spelling mistakes.</li>
+</ul>
+
+<p>Comments are less formal than documentation, meaning that some grammar rules are not always followed.</p>
+
+<h3 class="no_toc" id="block-comment">Block Comment</h3>
+
+<p>Use a block comment (/*…*/) when the comment is too long to fit on a single line. These comments always precede the line(s) of code they are describing.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+Calculates the amount of tax charged to the customer.
+The tax rate based on store location.
+*/</span>
+<span class="n">tax</span> <span class="p">=</span> <span class="n">purchaseAmount</span> <span class="p">*</span> <span class="n">TaxRate</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Many programmers use single line comment syntax when commenting over multiple lines. The following is  acceptable practice:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Calculates the amount of tax charged to the customer.</span>
+<span class="c1">// The tax rate based on store location.</span>
+<span class="n">tax</span> <span class="p">=</span> <span class="n">purchaseAmount</span> <span class="p">*</span> <span class="n">TaxRate</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>No matter what type of comment you choose, they should always be preceded by a blank line (in most cases), as this makes reading the comments much easier.</p>
+
+<h2 id="identifier-conventions">Identifier Conventions</h2>
+
+<p>All identifiers (names) must be descriptive. Reading the name should give the reader an idea of what data is for. The following are naming conventions specific to each identifier type:</p>
+
+<h3 class="no_toc" id="class-identifiers">Class Identifiers</h3>
+
+<p>Must have the first letter of each word capitalized. The naming convention is called <strong>pascal-case</strong>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">HelloWorld</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 class="no_toc" id="variable-identifiers">Variable Identifiers</h3>
+
+<p>The first word in the identifier is always lowercase, all subsequent words have the first letter in uppercase. This convention is called <strong>camel-case</strong>.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">countOfItemsInCustomerTable</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 class="no_toc" id="method-identifiers">Method Identifiers</h3>
+
+<p>All method, properties and event class member identifiers start with a uppercase letter, all subsequent words have the first letter in uppercase.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">GetCustomerCount</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 class="no_toc" id="constants">Constants</h3>
+
+<p>The first letter of the identifier is uppercase, all subsequent words have the first letter in uppercase.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="kt">double</span> <span class="n">TaxRate</span> <span class="p">=</span> <span class="m">4.5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="block-style">Block Style</h2>
+
+<p>In C#, blocks of code are represented by the braces ‘{‘ and ‘}’. The standard in this course is to always start the block below the construct the block is for.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="indenting-code">Indenting Code</h2>
+
+<p>Not all statements start in the first character position of a line. Code is indented, or moved to the right, so related items can be kept together. Indenting code helps improve readability, as it is easy to see what code belongs to what block. The rules for indenting are:</p>
+
+<h3 class="no_toc" id="classes">Classes</h3>
+
+<p>Class declarations are always made in the first character position (not indented at all). The opening curly brace of a class block is coded in the first character position on the next line. All code in the class block is indented one tab (typically 4 spaces or 1 tab). The closing curly brace of a class is always on a line by itself in the first character position.</p>
+
+<h3 class="no_toc" id="methods-1">Methods</h3>
+
+<p>Method declarations are always indented inside the class they belong to. The opening curly brace is on the next line, directly under the first character of the line above. The code inside the method block is indented. The closing curly brace of a class is always on a line by itself and must align with the opening curly brace of the method block.</p>
+
+<h3 class="no_toc" id="all-other-blocks">All Other Blocks</h3>
+
+<p>Opening brace is on the next line, directly under the first character of the line above. All code in that block is indented to the right. The closing curly brace of a class is always on a line by itself and must align with the opening curly brace of the block.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">HelloWorld</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">radius</span> <span class="p">=</span> <span class="m">4</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">radius</span> <span class="p">==</span> <span class="m">4</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// statements within the block would go here</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="whitespace">Whitespace</h2>
+
+<h3 class="no_toc" id="operators">Operators</h3>
+
+<p>One space is included before and after an operator, except when the operator is a unary operator.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Correct</span>
+<span class="n">sum</span> <span class="p">=</span> <span class="n">sum</span> <span class="p">+</span> <span class="m">5</span><span class="p">;</span>
+
+<span class="c1">// Incorrect</span>
+<span class="n">sum</span><span class="p">=</span><span class="n">sum</span><span class="p">+</span><span class="m">5</span><span class="p">;</span>
+
+<span class="c1">// Correct</span>
+<span class="n">sum</span><span class="p">++;</span>
+
+<span class="c1">// Incorrect</span>
+<span class="n">sum</span> <span class="p">++;</span>
+
+<span class="c1">// Correct</span>
+<span class="n">multiplier</span> <span class="p">=</span> <span class="p">(</span><span class="n">sum</span> <span class="p">&gt;</span> <span class="m">10</span><span class="p">)</span> <span class="p">?</span> <span class="m">3</span> <span class="p">:</span> <span class="m">8</span><span class="p">;</span>
+
+<span class="c1">// Incorrect</span>
+<span class="n">multiplier</span><span class="p">=(</span><span class="n">sum</span><span class="p">&gt;</span><span class="m">10</span><span class="p">)?</span><span class="m">3</span><span class="p">:</span><span class="m">8</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 class="no_toc" id="line-spacing">Line Spacing</h3>
+
+<p>The use of whitespace (blank lines) also helps improve readability. The standards for whitespace are as follows:</p>
+
+<ul>
+  <li>
+    <p>If the class has <code class="language-plaintext highlighter-rouge">using</code> statements, there are no blank lines between each <code class="language-plaintext highlighter-rouge">using</code> statement.</p>
+  </li>
+  <li>
+    <p>A blank line (line 2 in the example below) must be placed before the documentation for the class if there are import statements.</p>
+  </li>
+  <li>
+    <p>There are no blank lines between a class or method and its documentation.</p>
+  </li>
+  <li>
+    <p>Leave a blank line (line 15 in the example below) before the documentation of a method, expect if it’s the first method in the class.</p>
+  </li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Class documentation.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ClassName</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Method documentation.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">FirstMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Method documentation.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">SecondMethod</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>There is no blank line after the opening curly brace of any block. If there are multiple closing curly braces in consecutive lines (lines 8 - 10), there are no blank lines between the closing braces.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When commenting, make sure there is a blank line (line 5) before the comment. The blank line is not included when the comment is the first line of a block.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Comment for statement</span>
+    <span class="n">statement</span>
+
+    <span class="cm">/*
+    comment for statement
+    */</span>
+    <span class="n">statement</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When commenting, do not place any blank lines between the comment and the line of code it’s describing.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// comment for statement</span>
+
+<span class="n">statement</span>
+
+<span class="cm">/*
+comment for statement
+*/</span>
+
+<span class="n">statement</span>
+</code></pre></div></div>
+
+<p>Include a blank line (line 4) after local variable declaration statements.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">localVariable</span><span class="p">;</span>
+
+    <span class="c1">// method statements here</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="form-design">Form Design</h2>
+
+<p>For Windows Forms App projects where you are given a design for the forms, the expectation is that you will create form designs that will match the requirements you are given. The requirements will be in the form of both a image and/or text descriptions.</p>
+
+<p>The expectation of your form designs will not require you to generate an exact pixel-to-pixel copy, but rather, a form that has no noticeable differences between what you develop and what the requirement is.</p>
+
+<p>To give you a better idea of the expectations, consider the design requirement below, and the designs completed by past students.</p>
+
+<h3 class="no_toc" id="original-design-requirement">Original Design Requirement</h3>
+
+<p><img src="../images/csharp-fundamentals/requirement_form_design.png" alt="Original Design Requirement" title="Original Design Requirement" /></p>
+
+<h3 class="no_toc" id="student-completed-designs">Student Completed Designs</h3>
+
+<p>Here is a sample of a student that followed the requirements very well.</p>
+
+<p><img src="../images/csharp-fundamentals/well_done_form_design.png" alt="Following the Requirements" title="Following the Requirements" /></p>
+
+<p>Here is a sample of a student that did not follow the requirements very well.</p>
+
+<p><img src="../images/csharp-fundamentals/poor_form_design.png" alt="!Following the Requirements" title="!Following the Requirements" /></p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions" target="_blank">Capitalization Conventions</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/general-naming-conventions" target="_blank">General Naming Conventions</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-assemblies-and-dlls" target="_blank">Names of Assemblies and DLLs</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces" target="_blank">Names of Namespaces</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-classes-structs-and-interfaces" target="_blank">Names of Classes, Structs and Interfaces</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members" target="_blank">Names of Type Members</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-parameters" target="_blank">Naming Parameters</a></li>
+</ul>
+:ET

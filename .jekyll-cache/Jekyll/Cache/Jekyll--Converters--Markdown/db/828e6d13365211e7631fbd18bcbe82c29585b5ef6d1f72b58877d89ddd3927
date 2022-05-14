@@ -1,0 +1,200 @@
+I"2<h1 class="no_toc" id="inheritance">Inheritance</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#declaring-derived-classes" id="markdown-toc-declaring-derived-classes">Declaring Derived Classes</a></li>
+  <li><a href="#invoking-base-class-constructors" id="markdown-toc-invoking-base-class-constructors">Invoking Base Class Constructors</a></li>
+  <li><a href="#virtual-methods-and-properties" id="markdown-toc-virtual-methods-and-properties">Virtual Methods and Properties</a></li>
+  <li><a href="#method-and-property-overriding" id="markdown-toc-method-and-property-overriding">Method and Property Overriding</a></li>
+  <li><a href="#abstract-classes-and-members" id="markdown-toc-abstract-classes-and-members">Abstract Classes and Members</a></li>
+  <li><a href="#class-diagram" id="markdown-toc-class-diagram">Class Diagram</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>You learned in the previous level of programming that <strong>Inheritance</strong> enables you to create new classes that are based on another class. Inheritance allows you to reuse, extend and modify the behaviors of a class. The class that is being inherited from is called the <strong>Base Class</strong>. The class that is extending the base class is the <strong>derived class</strong>. Like Java, a class can only directly extend from one other class.</p>
+
+<h2 id="declaring-derived-classes">Declaring Derived Classes</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">CommissionEmployee</span> <span class="p">:</span> <span class="n">Employee</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">:</code> symbol is used to indicate that a class derives from another class. In the example above, the <code class="language-plaintext highlighter-rouge">CommissionEmployee</code> class inherits from the <code class="language-plaintext highlighter-rouge">Employee</code> class.</p>
+
+<h2 id="invoking-base-class-constructors">Invoking Base Class Constructors</h2>
+
+<p>When you covered inheritance in the previous level of programming, you learned that a base class constructor must always be invoked by a derived class constructor. Depending how the base class is coded, you may be required to explicitly invoke a base class constructor.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span><span class="p">;</span> 
+        <span class="k">private</span> <span class="k">set</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="nf">Employee</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">CommissionEmployee</span> <span class="p">:</span> <span class="n">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nf">CommissionEmployee</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the above example code, you can see the call to the base class constructor using the <code class="language-plaintext highlighter-rouge">base</code> keyword. This statement is coded on the same line as the declaration of the constructor, separated by the <code class="language-plaintext highlighter-rouge">:</code> symbol.</p>
+
+<p class="alert alert-note">When a base class is defined with a Default Constructor or a constructor with no parameters, the call to the base class constructor can happen implicitly.</p>
+
+<p class="alert alert-error">If you are receiving the “CS7036: There is no argument given that corresponds to the required formal parameter…”, it is likely you are not invoking the base class constructor when you should be doing this explicitly.</p>
+
+<h2 id="virtual-methods-and-properties">Virtual Methods and Properties</h2>
+
+<p>In Java, all methods are declared as <em>virtual</em> by default. A method must be declared as <code class="language-plaintext highlighter-rouge">virtual</code> to allow it to be overridden in a derived class. In C#, methods and properties are not virtual by default. To allow a method or property to be overridden, you must declare it using the <code class="language-plaintext highlighter-rouge">virtual</code> keyword.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span><span class="p">;</span> 
+        <span class="k">private</span> <span class="k">set</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">virtual</span> <span class="kt">decimal</span> <span class="nf">GetPay</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="method-and-property-overriding">Method and Property Overriding</h2>
+
+<p>To override a method or property, you must use the <code class="language-plaintext highlighter-rouge">override</code> keyword.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">CommissionEmployee</span> <span class="p">:</span> <span class="n">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="n">Name</span>
+    <span class="p">{</span>
+        <span class="k">get</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">decimal</span> <span class="nf">GetPay</span><span class="p">()</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When you want to include the base class implementation in the derived class version of the method, you can invoke it using the <code class="language-plaintext highlighter-rouge">base</code> keyword.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">CommissionEmployee</span> <span class="p">:</span> <span class="n">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">decimal</span> <span class="nf">GetPay</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">base</span><span class="p">.</span><span class="nf">GetPay</span><span class="p">()</span> <span class="p">*</span> <span class="k">this</span><span class="p">.</span><span class="n">CommissionRate</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-warning">Omitting the <code class="language-plaintext highlighter-rouge">override</code> keyword will not cause a syntax error, but will not result in method overriding.</p>
+
+<h2 id="abstract-classes-and-members">Abstract Classes and Members</h2>
+
+<p>When a class is defined solely for the purposes of being a base class, you will declare the class using the <code class="language-plaintext highlighter-rouge">abstract</code> keyword.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-note">Abstract classes cannot be instantiated on their own.</p>
+
+<p>Methods and properties that cannot be implemented in the base class, are declared using the <code class="language-plaintext highlighter-rouge">abstract</code> keyword and do not have a code block.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">abstract</span> <span class="kt">decimal</span> <span class="nf">GetPay</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Class members declared as <code class="language-plaintext highlighter-rouge">abstract</code> must be implemented in the derived concrete class.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">CommissionEmployee</span> <span class="p">:</span> <span class="n">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">decimal</span> <span class="nf">GetPay</span><span class="p">()</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If the <code class="language-plaintext highlighter-rouge">GetPay()</code> method was coded as a property, it would look like:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">abstract</span> <span class="kt">decimal</span> <span class="n">Pay</span>
+    <span class="p">{</span>
+        <span class="k">get</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">CommissionEmployee</span> <span class="p">:</span> <span class="n">Employee</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="kt">decimal</span> <span class="n">Pay</span>
+    <span class="p">{</span>
+        <span class="k">get</span>
+        <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="class-diagram">Class Diagram</h2>
+
+<p>In a UML Class Diagram, abstract classes and members are indicated by italicizing in the text.</p>
+
+<div class="uml">
+<pre class="class-name">
+<em>Employee</em>
+</pre>
+<pre>
+- identificationNumber : int
+- name : string
+
++ &lt;&lt;Property&gt;&gt; IdentificationNumber : int
++ &lt;&lt;Property&gt;&gt; Name : string
+</pre>
+<pre>
++ Employee(identificationNumber : int, name : string)
++ Employee(identificationNumber : int)
+<em>+ GetPay() : decimal</em>
+</pre>
+</div>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance" target="_blank">Inheritance</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual" target="_blank">Virtual</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract" target="_blank">Abstract</a></li>
+</ul>
+:ET

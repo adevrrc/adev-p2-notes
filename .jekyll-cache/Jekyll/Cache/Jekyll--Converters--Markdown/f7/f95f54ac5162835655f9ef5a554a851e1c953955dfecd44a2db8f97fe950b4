@@ -1,0 +1,20 @@
+I"<h1 id="adonet">ADO.Net</h1>
+
+<p>The section will help you answer the following questions:</p>
+
+<ul>
+  <li>How can I use a database to store, retrieve and update data in my application?</li>
+  <li>Is there a library of functionality that can make working with data in a database easier?</li>
+  <li>How can an application run more efficiently using multi-threading?</li>
+</ul>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<ul>
+  <li>Write a .NET application that retrieves and updates data in a database.</li>
+  <li>Explain the role of data sets and providers.</li>
+  <li>Understand the work flow of an application that uses ADO.NET.</li>
+  <li>Develop an application that combines ADO.NET and Data Binding.</li>
+  <li>Understand the role of threads in an application.</li>
+</ul>
+:ET

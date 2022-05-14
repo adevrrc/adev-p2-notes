@@ -1,0 +1,121 @@
+.breadcrumb-nav {
+  margin-bottom: 2rem;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  margin-bottom: 1em;
+}
+
+.main-content img.small {
+  max-height: 200px;
+}
+
+.main-content img.medium {
+  max-height: 300px;
+}
+
+.main-content img.large {
+  max-height: 400px;
+}
+
+@media only screen and (min-width: 900px) {
+  .main-content img.inline {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.main-content img:hover {
+  cursor: pointer;
+}
+  
+/* Ensure that if images have been floated we clear floats before the next section. */
+.main-content hr:before,
+.main-content footer:before,
+.main-content h1:before,
+.main-content h2:before,
+.main-content h3:before,
+.main-content h4:before,
+.main-content h5:before,
+.main-content h6:before {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.main-content a {
+  white-space: normal;
+}
+
+/* Fixes the code sample spacing between lines */
+.main-content pre {
+  line-height: .5;
+}
+
+/*
+Notes
+*/
+
+p.alert {
+  background-position: 15px 10px;
+  background-repeat: no-repeat;     
+  line-height: 1.5em;
+  overflow: hidden;
+  padding: 15px 15px 15px 60px;
+  
+}
+
+p.alert-note {
+  border-left: solid 4px #3498db;
+  background-color: #f1f7fc;
+  background-image: url(images/note.png);
+}
+
+p.alert-best-practices {
+  border-left: solid 4px #33c773;
+  background-color: #33c77325;
+  background-image: url(images/best-practices.png);
+}
+
+p.alert-warning {
+  border-left: solid 4px #eec51c;
+  background-color: #eec41c2d;
+  background-image: url(images/tips.png);
+}
+
+p.alert-error {
+  border-left: solid 4px #dd4e3c;
+  background-color: #f9e7e4;
+  background-image: url(images/error.png);
+}
+
+p.alert-future-lesson {
+  border-left: solid 4px #9115d3;
+  background-color: #9015d325;
+  background-image: url(images/future-lesson.png);
+}
+
+/* UML Class Diagram */
+
+div.uml {
+  margin-bottom: 15px;
+}
+
+div.uml pre {
+  border-radius:0 !important;
+  border: 1px solid black;
+  margin: 0;
+  padding: 10px;
+  line-height: 1em;
+}
+
+div pre.class-name {
+  text-align: center;
+  font-weight: bold;
+}

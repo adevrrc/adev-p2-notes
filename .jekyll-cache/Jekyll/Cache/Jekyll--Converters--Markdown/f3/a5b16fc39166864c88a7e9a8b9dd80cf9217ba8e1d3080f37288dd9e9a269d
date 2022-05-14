@@ -1,0 +1,213 @@
+I"ùC<h1 class="no_toc" id="delegates">Delegates</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#declaring-delegates" id="markdown-toc-declaring-delegates">Declaring Delegates</a></li>
+  <li><a href="#creating-delegate-instances" id="markdown-toc-creating-delegate-instances">Creating Delegate Instances</a></li>
+  <li><a href="#using-delegates" id="markdown-toc-using-delegates">Using Delegates</a></li>
+  <li><a href="#multicast-delegate" id="markdown-toc-multicast-delegate">Multicast Delegate</a></li>
+  <li><a href="#documentation" id="markdown-toc-documentation">Documentation</a></li>
+</ol>
+
+<p><strong>Delegates</strong> are special types of .NET classes whose instances store references to methods. Delegates allow you to pass methods as arguments to other methods. The delegate object can be passed to code which can call the referenced method, without the code knowing at compile time which method it will call.</p>
+
+<h2 id="declaring-delegates">Declaring Delegates</h2>
+
+<p>The declaration of a delegate looks more like a method than a class, but has no body.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">ADEV.Events</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Represents the method that will handle an instructor action.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">InstructorAction</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Every delegate has a <strong>signature</strong>. A signature includes the identifier, number of parameters and parameter types. Unlike methods, the return type of the delegate is part of the signature.</p>
+
+<p>When you declare a delegate type, you are specifying the types of methods the delegate can represent. A delegate instance can only reference a method that matches the delegate signature.</p>
+
+<p class="alert alert-note">Delegates would be coded in their own code file. The example above would be coded in a file called <strong>InstructorAction.cs</strong>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">DisplayStudentGrades</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">grades</span><span class="p">)</span>
+    <span class="p">{</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the <code class="language-plaintext highlighter-rouge">Program</code> class above, the <code class="language-plaintext highlighter-rouge">AlertStudent()</code> method signature matches that of the delegate <code class="language-plaintext highlighter-rouge">InstructorAction()</code>. Therefore, a instance of the delegate could reference the <code class="language-plaintext highlighter-rouge">AlertStudent()</code> method. The <code class="language-plaintext highlighter-rouge">DisplayStudentGrades(int[])</code> method does not have a matching signature and would not be able to be referenced by a delegate of the <code class="language-plaintext highlighter-rouge">InstructorAction()</code> type.</p>
+
+<h2 id="creating-delegate-instances">Creating Delegate Instances</h2>
+
+<p>Creating a delegate instance is similar to creating other objects. The delegate constructor always takes one argument, which is the identifier of the method you want the delegate to reference.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span><span class="p">;</span>
+        <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">InstructorAction</span><span class="p">(</span><span class="n">AlertStudent</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The syntax can be simplified to:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="using-delegates">Using Delegates</h2>
+
+<p>To use the delegate, you simply use the variable as if it was the method that it references.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+
+        <span class="c1">// Invoke the method</span>
+        <span class="nf">alertStudentAction</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALERT! Your test average is below the standard.
+</code></pre></div></div>
+
+<p>The example above demonstrates how you would invoke the method a delegate references. But seems rather pointless, considering the method is in the same class. The benefit of delegates is in passing the method to another piece of code.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddTestMark</span><span class="p">(</span><span class="kt">double</span> <span class="n">mark</span><span class="p">,</span> <span class="n">InstructorAction</span> <span class="n">action</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mark</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">||</span> <span class="n">mark</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">"mark"</span><span class="p">,</span> <span class="s">"The mark must be a value of zero or greater."</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">++;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">+=</span> <span class="n">mark</span><span class="p">;</span>
+
+        <span class="kt">double</span> <span class="n">testAverage</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">/</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">action</span> <span class="p">!=</span> <span class="k">null</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span> <span class="p">&gt;</span> <span class="m">3</span> <span class="p">&amp;&amp;</span> <span class="n">testAverage</span> <span class="p">&lt;</span> <span class="p">.</span><span class="m">65</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">action</span><span class="p">();</span>
+
+            <span class="c1">// or</span>
+            <span class="c1">// action.Invoke();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+
+        <span class="n">Student</span> <span class="n">student</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Student</span><span class="p">();</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">11</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">52</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">33</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">64</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALERT! Your test average is below the standard.
+</code></pre></div></div>
+
+<h2 id="multicast-delegate">Multicast Delegate</h2>
+
+<p>If delegates weren‚Äôt cool enough, they can actually reference more than one method. This is called a <strong>multicast delegate</strong>. When the delegate is used, all the methods it references are called one after another.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">InstructorAction</span> <span class="n">alertStudentAction</span> <span class="p">+=</span> <span class="n">AlertStudent</span><span class="p">;</span>
+
+        <span class="c1">// Adds a second method to the delegate</span>
+        <span class="n">alertStudentAction</span> <span class="p">+=</span> <span class="n">AlertGuardian</span><span class="p">;</span>
+
+        <span class="n">Student</span> <span class="n">student</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Student</span><span class="p">();</span>
+
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">11</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">52</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">33</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+        <span class="n">student</span><span class="p">.</span><span class="nf">AddTestMark</span><span class="p">(.</span><span class="m">64</span><span class="p">,</span> <span class="n">alertStudentAction</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertStudent</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">AlertGuardian</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"ALERT! Your dependant's test average is below the standard."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALERT! Your test average is below the standard.
+ALERT! Your dependant's test average is below the standard.
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">+=</code> operator adds a method to the delegates <strong>invocation list</strong>. The <code class="language-plaintext highlighter-rouge">-=</code> operator removes a method from the delegates invocation list.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li><a href="/adev2008/appendixes/documentation-samples/#delegate">Delegate</a></li>
+</ul>
+:ET

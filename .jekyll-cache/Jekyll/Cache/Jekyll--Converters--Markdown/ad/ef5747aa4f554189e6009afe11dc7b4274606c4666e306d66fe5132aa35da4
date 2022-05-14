@@ -1,0 +1,112 @@
+I"`$<h1 class="no_toc" id="event-class-members">Event Class Members</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#declaring-an-event" id="markdown-toc-declaring-an-event">Declaring an Event</a></li>
+  <li><a href="#the-on-method" id="markdown-toc-the-on-method">The On Method</a></li>
+  <li><a href="#raise-the-event" id="markdown-toc-raise-the-event">Raise the Event</a></li>
+  <li><a href="#documentation" id="markdown-toc-documentation">Documentation</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>Windows Forms Applications are graphical user interface applications built for the Windows desktop. Before you can learn about developing Windows Forms Applications, you must understand events and how to handle them.</p>
+
+<p>Events are a mechanism for object to notify other objects that something interesting happened to it. These events are typically used to notify that the object’s state has changed or an action was performed.</p>
+
+<p>Events are a special multicast delegates. An event can reference one or more methods. The class that contains the event is referred to as the <em>publisher</em>.</p>
+
+<p>Classes that need to respond to an object’s event will subscribe to the object’s event. These classes are referred to as <em>subscribers</em>.</p>
+
+<p>Microsoft has a standard pattern for setting up events in a publisher class.  It requires three steps:</p>
+
+<ol>
+  <li>Declare the event.</li>
+  <li>Declare and define an “On” method for the event.</li>
+  <li>Raise the event in the class.</li>
+</ol>
+
+<h2 id="declaring-an-event">Declaring an Event</h2>
+
+<p>Events are members of a class. They are typically declared as <code class="language-plaintext highlighter-rouge">public</code>, as the intention of the event is to be accessible outside of the class.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">AverageBelowFail</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">EventHandler</code> type is a delegate. All events in the .NET class library are based on this delegate.  It is declared as:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">EventHandler</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">EventHandler</code> delegate has two parameters. The parameters represent:</p>
+
+<ol>
+  <li>A reference to the object that raised the event.</li>
+  <li>An empty <code class="language-plaintext highlighter-rouge">EventArgs</code> object.</li>
+</ol>
+
+<p class="alert alert-future-lesson">The <code class="language-plaintext highlighter-rouge">object sender</code> and <code class="language-plaintext highlighter-rouge">EventArgs e</code> parameters will be discussed in a later topic.</p>
+
+<p class="alert alert-best-practices">Although events can be based on any delegate type, it is recommended that you base your events on the .NET pattern by using <code class="language-plaintext highlighter-rouge">EventHandler</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">event</code> keyword is used when declaring the event. The <code class="language-plaintext highlighter-rouge">event</code> keyword prevents the delegate from being invoked outside of the class the event is declared in.</p>
+
+<h2 id="the-on-method">The On Method</h2>
+
+<p>The second part of the pattern is to define a method to raise the event. The method identifier is prefixed with the word “On”, followed by the name of the event.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnAverageBelowFail</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">AverageBelowFail</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nf">AverageBelowFail</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">EventArgs</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the sample code above, the delegate invokes the methods it references. Since the <code class="language-plaintext highlighter-rouge">EventHandler</code> delegate has two parameters, to invoke the delegate, you must provide two arguments:</p>
+
+<p>You may be thinking at this point that this method is rather pointless, since the <code class="language-plaintext highlighter-rouge">AverageBelowFail(this, EventArgs.Empty);</code> statement can be coded at any point in the class. The advantage of using the “On” method is that when the class is a base class, the derived class will still be able to raise the event. Remember that events can only be invoked in the class they are declared in. The “On” method is inherited and can be called in the derived class. Also, the derived class could override this behavior if needed.</p>
+
+<h2 id="raise-the-event">Raise the Event</h2>
+
+<p>Raising the event simply means causing the delegate to invoke the methods it references. When following Microsoft’s recommended pattern, this means invoking the “On” method. Raising the event can happen in any method or property accessor.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Student</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AddTestMark</span><span class="p">(</span><span class="kt">double</span> <span class="n">mark</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">mark</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">||</span> <span class="n">mark</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span><span class="s">"mark"</span><span class="p">,</span> <span class="s">"The mark must be a value of zero or greater."</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">++;</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">+=</span> <span class="n">mark</span><span class="p">;</span>
+
+        <span class="kt">double</span> <span class="n">testAverage</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">SumOfTests</span> <span class="p">/</span> <span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">NumberOfTests</span> <span class="p">&gt;</span> <span class="m">3</span> <span class="p">&amp;&amp;</span> <span class="n">testAverage</span> <span class="p">&lt;</span> <span class="p">.</span><span class="m">65</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">OnAverageBelowFail</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li><a href="/adev2008/appendixes/documentation-samples/#events">Events</a></li>
+</ul>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/" target="_blank">Events</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event" target="_blank"><code class="language-plaintext highlighter-rouge">event</code> Keyword</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines" target="_blank">Publishing Events</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-raise-base-class-events-in-derived-classes" target="_blank">Raising Events</a></li>
+</ul>
+:ET

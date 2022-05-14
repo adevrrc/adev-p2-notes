@@ -1,0 +1,103 @@
+I"<h1 id="enumerations">Enumerations</h1>
+
+<p>An <strong>Enumeration</strong> is a set of named constants. This user-defined type is very useful when a built-in type does not meet the value requirements for your needs. Enumerations are used frequently in the .NET Framework.</p>
+
+<h2 id="declaring">Declaring</h2>
+
+<p>Declaring an enumeration is similar in syntax to a class, except you will use the <code class="language-plaintext highlighter-rouge">enum</code> keyword.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">enum</span> <span class="n">Suit</span>
+</code></pre></div></div>
+
+<h2 id="defining">Defining</h2>
+
+<p>Defining an enumeration is simply a list of names that make up the <em>enum members</em>.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">TableTopGame</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">enum</span> <span class="n">Suit</span>
+    <span class="p">{</span>
+        <span class="n">Hearts</span><span class="p">,</span>
+        <span class="n">Diamonds</span><span class="p">,</span>
+        <span class="n">Spades</span><span class="p">,</span>
+        <span class="n">Clubs</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The enum member’s type is <code class="language-plaintext highlighter-rouge">int</code> by default. If no value is assigned to the enum member, the first enum member’s value would be zero, with each other member’s value incrementing by one.</p>
+
+<p>Enumerations can also be defined with specific values for the enum members.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">Weather</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">enum</span> <span class="n">Direction</span>
+    <span class="p">{</span>
+        <span class="n">North</span> <span class="p">=</span> <span class="m">34</span><span class="p">,</span>
+        <span class="n">South</span> <span class="p">=</span> <span class="m">43</span><span class="p">,</span>
+        <span class="n">East</span> <span class="p">=</span> <span class="m">12</span><span class="p">,</span>
+        <span class="n">West</span> <span class="p">=</span> <span class="m">21</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="alert alert-best-practices">In this course, each enumeration you define will be coded within its own file. Like you did in the previous level of programming, you will name the file using the identifier of what it contains. For example, for the <code class="language-plaintext highlighter-rouge">Direction</code> enumeration defined above, you would code this in a file called <em>Direction.cs</em>.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Documentation is required for each enumeration and all of the enumeration members. Check out <a href="/appendixes/documentation-samples.html#enumeration">a sample of how an enumeration is documented</a>.</p>
+
+<h2 id="enumeration-values">Enumeration Values</h2>
+
+<p>You can use an enum member in your code, by specifying the enumeration the enum member is within, and using dot-notation to specify the enum member.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Direction</span> <span class="n">direction</span><span class="p">;</span>
+
+<span class="c1">// Syntax: Enumeration.EnumMember</span>
+<span class="n">direction</span> <span class="p">=</span> <span class="n">Direction</span><span class="p">.</span><span class="n">North</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Wind is gusting {0}."</span><span class="p">,</span> <span class="n">direction</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Wind is gusting North.
+</code></pre></div></div>
+
+<p>Because an enumeration underlying type is integral, you can type cast an enumeration value to use its associated integral value.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="k">value</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">direction</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>34
+</code></pre></div></div>
+
+<h2 id="enum-class"><code class="language-plaintext highlighter-rouge">Enum</code> Class</h2>
+
+<p>All enumerations derive from the base class <code class="language-plaintext highlighter-rouge">Enum</code>. The abstract class <code class="language-plaintext highlighter-rouge">Enum</code> provides a number of methods for working with enumerations.</p>
+
+<p>The following example demonstrates the <code class="language-plaintext highlighter-rouge">IsDefined</code> method of the <code class="language-plaintext highlighter-rouge">Enum</code> class, that returns <code class="language-plaintext highlighter-rouge">true</code> when the specified value is defined within the specified enumeration type; otherwise it returns <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>direction = (Direction)999;
+
+Console.WriteLine(Enum.IsDefined(typeof(Direction), direction));
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>False
+</code></pre></div></div>
+
+<p class="alert alert-note">The <code class="language-plaintext highlighter-rouge">typeof()</code> operator is used to retrieve a <code class="language-plaintext highlighter-rouge">System.Type</code> instance of the specified type. This gives you the ability to store the type of an object as an object. If you’d like to know more about the <code class="language-plaintext highlighter-rouge">typeof()</code> operator, check out <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#typeof-operator" target="_blank">Type Testing and Cast</a>.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum" target="_blank">Enumeration Type</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/api/system.enum" target="_blank">Enum Class</a></li>
+</ul>
+:ET

@@ -1,0 +1,92 @@
+I"�<h1 class="no_toc" id="mstest">MSTest</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#what-is-mstest" id="markdown-toc-what-is-mstest">What is MSTest?</a></li>
+  <li><a href="#creating-an-mstest-project" id="markdown-toc-creating-an-mstest-project">Creating an MSTest Project</a></li>
+  <li><a href="#solution-file-structure" id="markdown-toc-solution-file-structure">Solution File Structure</a></li>
+  <li><a href="#unit-test-class-standards" id="markdown-toc-unit-test-class-standards">Unit Test Class Standards</a></li>
+  <li><a href="#add-unit-test-classes" id="markdown-toc-add-unit-test-classes">Add Unit Test Classes</a></li>
+</ol>
+
+<p>The quality of your code is directly effected by how well you’ve tested it. The process of testing software is often referred to as <strong>Unit Testing</strong>. It’s called unit testing because the software being tested is broken down into testable behaviors known as <em>units</em>. Typically, the smallest unit of testable code is a method. In C#, this would also include property accessors.</p>
+
+<p>The goal of unit testing is to execute each unit to verify its behavior results in the expected way based on the requirement of the unit.</p>
+
+<p>Prior to this lesson, you preformed unit testing. You would have done this in two ways:</p>
+
+<ol>
+  <li>Execute a program many times to determine all possible outcomes are met.</li>
+  <li>Write a program that tests another class. The program would include methods to test each outcome of the methods within the class you are testing.</li>
+</ol>
+
+<p>These techniques are acceptable when you are beginning your developer journey. But they do have drawbacks:</p>
+
+<ul>
+  <li>Testing a program typically requires human interaction.</li>
+  <li>Results are verified by the tester comparing values. This can often lead to oversights.</li>
+  <li>Not able to test methods independently in many cases due to inaccessible fields.</li>
+</ul>
+
+<h2 id="what-is-mstest">What is MSTest?</h2>
+
+<p><strong>MSTest</strong> is a Unit Testing Framework (UTF). It helps in writing effective unit tests. The UTF includes software tools that support writing and running of tests, that includes a foundation to build tests and functionality to execute tests and report the results.</p>
+
+<h2 id="creating-an-mstest-project">Creating an MSTest Project</h2>
+
+<p>Creating a Class Library project follows the <a href="../module-1/console-application-project.html">same steps as a Console Application</a>, except that you will choose a different project template.</p>
+
+<p>When you get to the <strong>Create a new project</strong> window, the project type you want to choose is called “Unit Test Project (.NET Framework)”. You can use the search to filter the list.</p>
+
+<p><img src="images/mstest/create-new-project.png" alt="Create Unit Test Project" class="large" /></p>
+
+<h2 id="solution-file-structure">Solution File Structure</h2>
+
+<p class="alert alert-warning">At this point you may have more than one Visual Studio solution stored in this location. Read the directories careful to determine the one you are looking for.</p>
+
+<h3 class="no_toc" id="solution-directory">Solution Directory</h3>
+
+<p><img src="images/mstest/solution-directory.png" alt="Solution Directory" class="large" /></p>
+
+<p>The solution directory contains:</p>
+
+<ul>
+  <li><strong>Project Directory</strong> - You will see one directory for each project in the solution. New solutions will only contain one project and thus will have one project directory.</li>
+  <li><strong>packages</strong> - This directory can be ignored. We won’t be using it in this course.</li>
+  <li><strong>Solution File (.sln)</strong> - A file that ends with the file extension .sln. The .sln file contains information the Visual Studio environment needs to find and load the solution’s associated projects and resources.</li>
+</ul>
+
+<h3 class="no_toc" id="project-directory">Project Directory</h3>
+
+<p><img src="images/mstest/project-directory.png" alt="Project Directory" class="large" /></p>
+
+<p>The project directory contains:</p>
+
+<ul>
+  <li><strong>bin Directory</strong> - Where the resulting files of a successful project build are stored.</li>
+  <li><strong>obj Directory</strong> - This directory can be ignored. We won’t be using it in this course.</li>
+  <li><strong>Properties Directory</strong> - This is another directory that can be ignored.</li>
+  <li><strong>MS Build File (.csproj) File</strong> - The MSBuild file for the Visual Studio project.</li>
+  <li><strong>packages.config</strong> - An XML file that can be used to store settings for the test project.</li>
+  <li><strong>UnitTest1.cs</strong> - This file contains a class called <code class="language-plaintext highlighter-rouge">UnitTest1</code> and is created by default because of the project template that was chosen when creating the project.</li>
+</ul>
+
+<p class="alert alert-error"><code class="language-plaintext highlighter-rouge">UnitTest1</code> is not an appropriate name for a class. You should rename this file and the class identifier within it.</p>
+
+<h2 id="unit-test-class-standards">Unit Test Class Standards</h2>
+
+<p>Unit Test class identifiers follow the same standards as any other class and are named in the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">ClassYouAreTestingTests</code></p>
+
+<p>The identifier will begin with the name of the class you are testing followed by the word “Tests”. For example, if you are testing a class called “Student”, the unit test class would be called “StudentTests”.</p>
+
+<h2 id="add-unit-test-classes">Add Unit Test Classes</h2>
+
+<p>To add additional unit test classes to your unit test project, add an item to your project as you’ve done for other projects. In the <strong>Add New Item</strong> dialog window, select <strong>Test</strong> from the template categories on the left hand side of the window. Then choose the <strong>Basic Unit Test</strong> template. Give the source code file a name based on the unit test class standards above.</p>
+
+<p><img src="images/mstest/add-unit-test-class.png" alt="Add New Unit Test Class" class="large" /></p>
+
+<p class="alert alert-note">The Basic Unit Test template will use the file name as the class identifier.</p>
+:ET

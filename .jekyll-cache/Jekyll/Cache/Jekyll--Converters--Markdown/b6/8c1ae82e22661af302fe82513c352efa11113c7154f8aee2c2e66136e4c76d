@@ -1,0 +1,48 @@
+I"f<h1 class="no_toc" id="assembly-references">Assembly References</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#add-a-reference-to-a-project" id="markdown-toc-add-a-reference-to-a-project">Add a Reference To a Project</a></li>
+</ol>
+
+<p>To use types defined within class library assemblies, your project must contain a reference to the assembly.</p>
+
+<p>This is a two step process:</p>
+
+<ul>
+  <li>Copy the .dll assembly file to the <code class="language-plaintext highlighter-rouge">bin/Debug</code> directory of your project.</li>
+  <li>Add a reference to the .dll assembly file in Visual Studio.</li>
+</ul>
+
+<h2 id="add-a-reference-to-a-project">Add a Reference To a Project</h2>
+
+<ol>
+  <li>
+    <p>To add a reference to a project, right-click on the <strong>References</strong> node in Solution Explorer and choose <strong>Add Reference…</strong> in the context menu.</p>
+
+    <p><img src="../images/assembly-references/add-reference.png" alt="Add Reference" class="medium" /></p>
+  </li>
+  <li>
+    <p>The <strong>Reference Manager</strong> dialog window will appear. Click the <strong>Browse..</strong> button.</p>
+
+    <p><img src="../images/assembly-references/reference-manager.png" alt="Reference Manager" class="medium" /></p>
+  </li>
+  <li>
+    <p>Navigate to the <code class="language-plaintext highlighter-rouge">bin/Debug</code> directory within your project and select the .dll assembly file.</p>
+
+    <p><img src="../images/assembly-references/locate-assembly.png" alt="Locate the Assembly File" class="medium" /></p>
+  </li>
+  <li>
+    <p>Click the <strong>OK</strong> button to add the reference.</p>
+
+    <p><img src="../images/assembly-references/confirm-the-add.png" alt="Confirm the Addition of the Reference" class="medium" /></p>
+  </li>
+</ol>
+
+<p>You will now be able to see the reference as a node underneath <strong>References</strong>.</p>
+
+<p><img src="../images/assembly-references/reference-list.png" alt="Reference List" class="medium" /></p>
+
+<p>Once the assembly has been added to the project, you can now access the types within it.</p>
+:ET

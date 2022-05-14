@@ -1,0 +1,97 @@
+I"<h1 class="no_toc" id="selections">Selections</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#if-statements" id="markdown-toc-if-statements">If Statements</a></li>
+  <li><a href="#switch-statements" id="markdown-toc-switch-statements">Switch Statements</a></li>
+  <li><a href="#conditional-operator" id="markdown-toc-conditional-operator">Conditional Operator</a></li>
+  <li><a href="#further-reading" id="markdown-toc-further-reading">Further Reading</a></li>
+</ol>
+
+<p>Selections allow you to add logic to your code. All of the comparison, boolean logic and equality operators are the same as Java.</p>
+
+<h2 id="if-statements">If Statements</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">grade</span> <span class="p">=</span> <span class="m">77.4</span><span class="p">;</span>
+<span class="kt">char</span> <span class="n">letterGrade</span> <span class="p">=</span> <span class="sc">'F'</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">grade</span> <span class="p">&gt;</span> <span class="m">90</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">letterGrade</span> <span class="p">=</span> <span class="sc">'A'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">grade</span> <span class="p">&gt;</span> <span class="m">80</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">letterGrade</span> <span class="p">=</span> <span class="sc">'B'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">grade</span> <span class="p">&gt;</span> <span class="m">70</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">letterGrade</span> <span class="p">=</span> <span class="sc">'C'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">grade</span> <span class="p">&gt;</span> <span class="m">60</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">letterGrade</span> <span class="p">=</span> <span class="sc">'D'</span><span class="p">;</span>
+<span class="p">}</span>            
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Final grade: {0}"</span><span class="p">,</span> <span class="n">letterGrade</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Final grade: C
+</code></pre></div></div>
+
+<h2 id="switch-statements">Switch Statements</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DateTime</span> <span class="n">date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">message</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="n">DayOfWeek</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Sunday</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Saturday</span><span class="p">:</span>
+        <span class="n">message</span> <span class="p">=</span> <span class="s">"It's the weekend!"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Monday</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Tuesday</span><span class="p">:</span>
+        <span class="n">message</span> <span class="p">=</span> <span class="s">"Is it the weekend yet?"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Wednesday</span><span class="p">:</span>
+        <span class="n">message</span> <span class="p">=</span> <span class="s">"It's midweek."</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Thursday</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Friday</span><span class="p">:</span>
+        <span class="n">message</span> <span class="p">=</span> <span class="s">"Almost the weekend. :)"</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"{0}: {1}"</span><span class="p">,</span> <span class="n">date</span><span class="p">.</span><span class="n">DayOfWeek</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Tuesday: Is it the weekend yet?
+</code></pre></div></div>
+
+<h2 id="conditional-operator">Conditional Operator</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">grade</span> <span class="p">=</span> <span class="m">96.2</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"You scored {0}. You {1}."</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">grade</span> <span class="p">&gt;</span> <span class="m">50</span> <span class="p">?</span> <span class="s">"passed"</span> <span class="p">:</span> <span class="s">"failed"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You scored 96.2. You passed.
+</code></pre></div></div>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators" target="_blank">Comparison Operators</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators" target="_blank">Boolean Logic Operators</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators" target="_blank">Equality Operators</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements" target="_blank">Selection Statements</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/learn/modules/csharp-if-elseif-else/" target="_blank">Microsoft if-else if-else Lesson</a></li>
+</ul>
+:ET

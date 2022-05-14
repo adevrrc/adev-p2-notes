@@ -1,0 +1,30 @@
+I"´<h1 id="object-browser">Object Browser</h1>
+
+<p>The <strong>Object Browser</strong> is a tool in Visual Studio that allows you to enumerate and examine classes in the .NET Framework class library and libraries you code yourself. This tool is very poorly named, as you cannot use this to actually browse objects. You can use this tool to quickly find information about classes (or other modules) and their members.</p>
+
+<p>Here is how you can use it:</p>
+
+<p>You can open the Object Browser from the main menu by navigating to <strong>View &gt; Object Browser</strong>.</p>
+
+<p>The Object Browser has three panels:</p>
+
+<p><img src="../images/object-browser/object_browser_panels_marked.png" alt="Object Browser Panels" class="large" /></p>
+
+<p>To find a class, use the search box at the top of the Object Browser panel. You can also expand the listed namespaces in the namespace panel.</p>
+
+<p>The namespace panel will only display namespaces for assemblies that are referenced in the project.</p>
+
+<p>When you have selected a class in the namespace panel, the member panel will populate with all the accessible members of that type.</p>
+
+<p><img src="../images/object-browser/select_class_marked.png" alt="Select Class" class="large" /></p>
+
+<p>When you select a member in the members panel, the description panel will display documentation for the selected member.</p>
+
+<p><img src="../images/object-browser/select_class_member_marked.png" alt="Select Class Member" class="large" /></p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/visualstudio/ide/viewing-the-structure-of-code?view=vs-2022#BKMK_ObjectBrowser" target="_blank">Object Browser</a></li>
+</ul>
+:ET

@@ -1,0 +1,259 @@
+I"E&<h1 id="test-plan">Test Plan</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<ul>
+  <li>Resource: Person Class</li>
+  <li>Version: 1.0</li>
+  <li>Created: 5/12/2022</li>
+  <li>Last Updated: 7/21/2022</li>
+  <li>Author(s): Kenny Omega</li>
+</ul>
+
+<h2 id="test-cases">Test Cases</h2>
+
+<h3 id="personstring-decimal">Person(string, decimal)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when name is null</td>
+      <td style="text-align: left">Parameter name: null, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">ArgumentNullException, Parameter: name, Message: The argument must reference a string object.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Exception when the name has no characters</td>
+      <td style="text-align: left">Parameter name: “”, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">ArgumentException, Parameter: name, Message: The argument must contain at least 1 character.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Exception when the amount of money is a negative</td>
+      <td style="text-align: left">Parameter name: “Kenny”, Parameter amountOfMoney: -100</td>
+      <td style="text-align: left">ArgumentOutOfRangeException, Parameter: amountOfMoney, Message: The argument must be zero or greater.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">Initialize the name</td>
+      <td style="text-align: left">Parameter name: “Kenny”, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">“Kenny”</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left">Initialize the amount of money to zero</td>
+      <td style="text-align: left">Parameter name: “Kenny”, Parameter amountOfMoney: 0</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left">Initialize the amount of money to positive value</td>
+      <td style="text-align: left">Parameter name: “Kenny”, Parameter amountOfMoney: 500</td>
+      <td style="text-align: left">500</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="personstring">Person(string)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when name is null</td>
+      <td style="text-align: left">Parameter name: null</td>
+      <td style="text-align: left">ArgumentNullException, Parameter: name, Message: The argument must reference a string object.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Exception when the name has no characters</td>
+      <td style="text-align: left">Parameter name: “”</td>
+      <td style="text-align: left">ArgumentException, Parameter: name, Message: The argument must contain at least 1 character.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Initialize the name</td>
+      <td style="text-align: left">Parameter name: “Kenny”</td>
+      <td style="text-align: left">“Kenny”</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">Initialize the amount of money to zero</td>
+      <td style="text-align: left">Parameter name: “Kenny”</td>
+      <td style="text-align: left">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="property-amountofmoney--decimal">«Property» AmountOfMoney : decimal</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when the value is a negative value</td>
+      <td style="text-align: left">Value: -1</td>
+      <td style="text-align: left">ArgumentOutOfRangeException, Parameter: value, Message: The value must be zero or greater., State is not updated.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Sets the amount of money to zero</td>
+      <td style="text-align: left">Initial amount of money: 100, Value: 0</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">Sets the amount of money to positive value</td>
+      <td style="text-align: left">Initial amount of money: 0, Value: 100</td>
+      <td style="text-align: left">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left">Gets the amount of money</td>
+      <td style="text-align: left">Initial amount of money: 100</td>
+      <td style="text-align: left">100</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="property-name--string">«Property» Name : string</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Get the name</td>
+      <td style="text-align: left">Initial name: “Kenny”</td>
+      <td style="text-align: left">“Kenny”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="addmoneydecimal--void">AddMoney(decimal) : void</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when the amount is a negative value</td>
+      <td style="text-align: left">Initial amount of money: 0, Parameter amount: -1</td>
+      <td style="text-align: left">ArgumentOutOfRangeException, Parameter: amount, Message: The argument cannot be less than zero., State is not updated.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Add no money</td>
+      <td style="text-align: left">Initial amount of money: 100, Parameter amount: 0</td>
+      <td style="text-align: left">Amount of money state: 100</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Add money</td>
+      <td style="text-align: left">Initial amount of money: 100, Parameter amount: 60</td>
+      <td style="text-align: left">Amount of money state: 160</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="subtractmoneydecimal--void">SubtractMoney(decimal) : void</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Exception when the amount is a negative value</td>
+      <td style="text-align: left">Initial amount of money: 0, Parameter amount: -1</td>
+      <td style="text-align: left">ArgumentOutOfRangeException, Parameter: amount, Message: The argument cannot be less than zero., State is not updated.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">Exception when the amount is greater than the amount of money</td>
+      <td style="text-align: left">Initial amount of money: 100, Parameter amount: 500</td>
+      <td style="text-align: left">ArgumentOutOfRangeException, Parameter: amount, Message: The argument cannot not exceed the amount of money the Person has., State is not updated.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">Subtract no money</td>
+      <td style="text-align: left">Initial amount of money: 100, Parameter amount: 0</td>
+      <td style="text-align: left">Amount of money state: 100</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">Subtract money</td>
+      <td style="text-align: left">Initial amount of money: 100, Parameter amount: 60</td>
+      <td style="text-align: left">Amount of money state: 40</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tostring--string">ToString() : string</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: left">Test Case</th>
+      <th style="text-align: left">Test Data</th>
+      <th style="text-align: left">Expected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">Return string representation of the Person</td>
+      <td style="text-align: left">Initial name: Kenny, Initial amount of money: 123.45M</td>
+      <td style="text-align: left">“Kenny - $123.45”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Total number of test cases: 23</strong></p>
+:ET

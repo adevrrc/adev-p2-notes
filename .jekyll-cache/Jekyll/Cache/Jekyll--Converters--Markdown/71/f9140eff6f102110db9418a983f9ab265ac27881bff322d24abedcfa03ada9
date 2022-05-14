@@ -1,0 +1,86 @@
+I"�<h1 class="no_toc" id="introduction-to-net">Introduction to .NET</h1>
+
+<h2 class="no_toc text-delta" id="table-of-contents">Table of Contents</h2>
+
+<ol id="markdown-toc">
+  <li><a href="#what-is-net" id="markdown-toc-what-is-net">What is .NET?</a></li>
+  <li><a href="#what-is-the-net-framework" id="markdown-toc-what-is-the-net-framework">What is the .NET Framework?</a></li>
+  <li><a href="#how-does-it-work" id="markdown-toc-how-does-it-work">How Does it Work?</a>    <ol>
+      <li><a href="#common-language-runtime-clr" id="markdown-toc-common-language-runtime-clr">Common Language Runtime (CLR)</a></li>
+      <li><a href="#net-framework-class-library" id="markdown-toc-net-framework-class-library">.NET Framework Class Library</a></li>
+      <li><a href="#the-architecture" id="markdown-toc-the-architecture">The Architecture</a></li>
+    </ol>
+  </li>
+  <li><a href="#developing-net-framework-apps" id="markdown-toc-developing-net-framework-apps">Developing .NET Framework Apps</a></li>
+  <li><a href="#executing-net-framework-apps" id="markdown-toc-executing-net-framework-apps">Executing .NET Framework Apps</a></li>
+</ol>
+
+<h1 id="what-is-net">What is .NET?</h1>
+
+<p><strong>.NET</strong> (pronounced “dot net”) is a free, cross-platform, open-source development platform. It is developed and maintained by Microsoft. .NET is used to develope many types of applications.</p>
+
+<iframe width="450" height="253" src="https://www.youtube.com/embed/eIHKZfgddLM?list=PLdo4fOcmZ0oWoazjhXQzBKMrFuArxpW80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>.NET supports multiple languages, including C#, F# and Visual Basic. An application can be made up of source code from any supported language and will run natively on any compatible operating system.</p>
+
+<p>.NET is a cross-platform .NET implementation mostly used for websites, servers and console applications on Windows, Linux, and Mac.</p>
+
+<h1 id="what-is-the-net-framework">What is the .NET Framework?</h1>
+
+<p>The <strong>.NET Framework</strong> is the original implementation of .NET. It is a framework for developing desktop apps, websites, services, and more on Windows.</p>
+
+<p class="alert alert-note">The .NET Framework is not cross-platform and can only be used for developing applications for the Windows operating system.</p>
+
+<h1 id="how-does-it-work">How Does it Work?</h1>
+
+<p>The two major parts of the .NET Framework are the <strong>Common Language Runtime (CLR)</strong> and the <strong>.NET Framework Class Library</strong>.</p>
+
+<h2 id="common-language-runtime-clr">Common Language Runtime (CLR)</h2>
+
+<p>The <strong>Common Language Runtime (CLR)</strong> manages the execution of .NET Framework applications. The CLR is very similar to how the Java Virtual Machine works in the Java architecture. The CLR provides services like garbage collection, thread management, type safety, exception handling and much more.</p>
+
+<h2 id="net-framework-class-library">.NET Framework Class Library</h2>
+
+<p>The <strong>.NET Framework Class Library</strong> is set of Application Programming Interfaces (APIs) and data types a develop can use to develop applications. The Class Library is very similar to the library of classes offered to Java developers in the JDK.</p>
+
+<h2 id="the-architecture">The Architecture</h2>
+
+<p><a href="../images/introduction-to-dotnet/architecture.png" target="_blank"><img src="../images/introduction-to-dotnet/architecture.png" alt="Figure 1: .NET Framework Architecture" title="Figure 1: .NET Framework Architecture" class="medium inline" /></a></p>
+
+<p>As mentioned above, .NET supports multiple languages. The advantage of this is that the source code that makes up an application can be written in various languages.</p>
+
+<p>When source code is compiled, it is compiled to a bytecode called <strong>Common Intermediate Language (CIL)</strong>. Each language compiler will generate the same type of bytecode. For example, if you were to write a simple “Hello World” program in C#, and again in Visual Basic, each of these programs would compile to the same CIL.</p>
+
+<p>The CIL is stored in files called <strong>Assemblies</strong>. Assembly files end with the file extension .exe or .dll.</p>
+
+<p class="alert alert-future-lesson">This module will cover the .exe assembly. The .dll assembly is covered in the next module.</p>
+
+<p>During the execution of a .NET application, the CLR processes the CLI (a.k.a. managed code) from one or more assemblies to generate the machine code necessary to execute the instructions on the computers platform. This processes is referred to as <strong>Just-in-time (JIT)</strong> compiling.</p>
+
+<h1 id="developing-net-framework-apps">Developing .NET Framework Apps</h1>
+
+<p>To develop a .NET Framework Application, you will need:</p>
+
+<ul>
+  <li>A code editor that supports development of the .NET applications. The most common of which are <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank">Visual Studio Community</a> and <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>.</li>
+  <li>A compiler for the .NET supported programming language of choice.</li>
+</ul>
+
+<h1 id="executing-net-framework-apps">Executing .NET Framework Apps</h1>
+
+<p>Whether you are a developer or not, executing programs written in .NET requires a Common Language Runtime for the platform of computer you running. If you are using the Windows operating system, it is very likely you already have a version of the framework installed.</p>
+
+<h1 class="no_toc" id="further-reading">Further Reading</h1>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/get-started/overview" target="_blank">.NET Framework - Overview</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/framework/get-started/">.NET Framework - Get Started</a></li>
+</ul>
+
+<p class="mt-8"><strong>References</strong></p>
+
+<ul>
+  <li><a href="https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet" target="_blank">Video: What is .NET?</a></li>
+  <li><a href="https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet-framework" target="_blank">Figure 1: What is the .NET Framework?</a></li>
+</ul>
+:ET
