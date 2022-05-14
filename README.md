@@ -2,7 +2,7 @@
 
 These course notes were built using the [Jekyll static-site generator](https://jekyllrb.com/) with the [Just the Docs theme](https://pmarsceill.github.io/just-the-docs/).
 
-The published notes are hosted on GitHub Pages here: [adevrrc.github.io.github.io/Programming-1-Notes/](https://adevrrc.github.io.github.io/adevrrc.github.io/)
+The published notes are hosted on GitHub Pages here: [adevrrc.github.io/](https://adevrrc.github.io)
 
 ## Quick Overview for Other Instructors
 
