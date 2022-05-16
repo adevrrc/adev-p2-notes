@@ -99,6 +99,7 @@ Documentation is required for each enumeration and all of the enumeration member
 This is a test.
 
 ```mermaid
+classDiagram
 class Color{
     <<enumeration>>
     Red = 0
