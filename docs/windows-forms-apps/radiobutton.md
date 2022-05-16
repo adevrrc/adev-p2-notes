@@ -19,14 +19,14 @@ RadioButtons are grouped by the container they are in, such as a Form, GroupBox 
 
 ### Properties
 
-*   **Checked** - Gets or sets a value indicating whether the control is checked.
-*   **DataBindings** - Gets the data bindings for the control.
-*   **Text** - Gets or sets the text associated with this control.
- 
+* **Checked** - Gets or sets a value indicating whether the control is checked.
+* **DataBindings** - Gets the data bindings for the control.
+* **Text** - Gets or sets the text associated with this control.
+
 ### Events
 
-*   **CheckedChanged** - Occurs when the value of the Checked property changes.
+* **CheckedChanged** - Occurs when the value of the Checked property changes.
 
 ## Further Reading
 
-- [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.radiobutton){: target="_blank"}
+* [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.radiobutton){: target="_blank"}

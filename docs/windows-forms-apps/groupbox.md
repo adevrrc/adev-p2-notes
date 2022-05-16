@@ -19,9 +19,9 @@ A GroupBox's caption is optional.
 
 ### Properties
 
-*   **Size** - Gets or sets the height and width of the control.
-*   **Text** - Gets or sets the text associated with this control.
+* **Size** - Gets or sets the height and width of the control.
+* **Text** - Gets or sets the text associated with this control.
 
 ## Further Reading
 
-- [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.groupbox){: target="_blank"}
+* [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.groupbox){: target="_blank"}

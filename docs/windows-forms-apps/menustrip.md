@@ -51,10 +51,10 @@ It is important to design your Windows applications in a way that Windows users 
 
 ### Menu Items
 
-*   "File" is always the first menu item.
-*   "Exit" is always the last menu item under File.
-*   "Help" is always the last menu item.
-*   "About" is always the last menu item under Help.
+* "File" is always the first menu item.
+* "Exit" is always the last menu item under File.
+* "Help" is always the last menu item.
+* "About" is always the last menu item under Help.
 
 Although this is not always followed in every case, it is a majority of the time and users expect to find these items in those places.
 
@@ -64,10 +64,10 @@ Some users prefer to work with the keyboard to perform some of their tasks. Keyb
 
 There are also standards to keyboard shortcuts that Windows users expect to use. Here are some to consider:
 
-*   Save: <kbd>Ctrl + S</kbd>
-*   Copy: <kbd>Ctrl + C</kbd>
-*   Help: <kbd>F1</kbd>
-*   Exit: <kbd>Alt + F4</kbd>
+* Save: <kbd>Ctrl + S</kbd>
+* Copy: <kbd>Ctrl + C</kbd>
+* Help: <kbd>F1</kbd>
+* Exit: <kbd>Alt + F4</kbd>
 
 ### Accessor Keys
 
@@ -79,25 +79,25 @@ Menu items that open a modal dialog window will always include a "..." (ellipsis
 
 ![Menu Item With Ellipsis](../images/menustrip-item-ellipsis.png){:.large}
 
-### Notable MenuStrip Class Members
+## Notable MenuStrip Class Members
 
-**Properties**
+### Properties
 
-*   **Items** - Gets all the items that belong to a ToolStrip.
+* **Items** - Gets all the items that belong to a ToolStrip.
 
 ## Notable ToolStripMenuItem Class Members
 
-**Properties**
+### Properties
 
-*   **Image** - Gets or sets the image that is displayed on a ToolStripItem.
-*   **ShortcutKeys** - Gets or sets the shortcut keys associated with the ToolStripMenuItem.
-*   **Text** - Gets or sets the text that is to be displayed on the item.
- 
-**Events**
+* **Image** - Gets or sets the image that is displayed on a ToolStripItem.
+* **ShortcutKeys** - Gets or sets the shortcut keys associated with the ToolStripMenuItem.
+* **Text** - Gets or sets the text that is to be displayed on the item.
 
-*   **Click** - Occurs when the ToolStripItem is clicked.
+### Events
+
+* **Click** - Occurs when the ToolStripItem is clicked.
 
 ## Further Reading
 
-- [MenuStrip Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.menustrip){: target="_blank"}
-- [ToolStripMenuItem Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.toolstripmenuitem){: target="_blank"}
+* [MenuStrip Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.menustrip){: target="_blank"}
+* [ToolStripMenuItem Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.toolstripmenuitem){: target="_blank"}

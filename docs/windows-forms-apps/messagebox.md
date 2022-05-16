@@ -1,18 +1,18 @@
 ---
+title: MessageBox Class
 layout: default
-title: Messagebox Class
-parent: Windows Forms Apps
 ---
-
-# Messagebox Class
+MessageBox Class
+================
 
 Represents a message box.
 
-## Usage
+Usage
+-----
 
 A MessageBox is a built-in class used for displaying a modal dialog window. A message box can be used to quickly display information and/or allow a user to make a decision. The dialog window can be customized by using one of many `Show()` methods.
 
-![Parts of a message box](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/windows/media/how-to-open-message-box/diagram.png?view=netdesktop-6.0){: target="_blank"}
+![Parts of a message box](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/windows/media/how-to-open-message-box/diagram.png?view=netdesktop-6.0){:.img-responsive}
 
 1. A title bar with caption.
 2. A close button.
@@ -36,11 +36,11 @@ result = MessageBox.Show(message, caption, buttons, icon, MessageBoxDefaultButto
 
 The code above would produce the following message box:
 
-![Sample MessageBox](../images/messagebox.png){:.large}
+![Sample MessageBox](images/messagebox.png){:.img-responsive}
 
 ### Handle a Message Box Response
 
-The `Show()` methods return a [DialogResult](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.dialogresult){: target="_blank" } value indicating the button the user clicked on to close the dialog window.
+The `Show()` methods return a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.dialogresult?view=net-5.0" target="_blank">DialogResult</a> value indicating the button the user clicked on to close the dialog window.
 
 ```csharp
 result = MessageBox.Show(message, caption, buttons, icon, MessageBoxDefaultButton.Button3);
@@ -59,12 +59,10 @@ switch(result)
 }
 ```
 
-## Notable Class Members
+### Notable Class Members
 
-### Methods
+**Methods**
 
-* **Show()** - Displays a message box.
+*   Show()
 
-## Further Reading
-
-* [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.messagebox){: target="_blank"}
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.messagebox?view=windowsdesktop-6.0" target="_blank">MSDN Documentation</a>

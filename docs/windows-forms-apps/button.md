@@ -21,13 +21,13 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 
 ### Properties
 
-*   **Enabled** - Gets or sets a value indicating whether the Button can respond to user interaction.
-*   **Text** - Gets or sets the text associated with this Button.
+* **Enabled** - Gets or sets a value indicating whether the Button can respond to user interaction.
+* **Text** - Gets or sets the text associated with this Button.
 
 ### Events
 
-*   **Click** - Occurs when a Button is clicked.
+* **Click** - Occurs when a Button is clicked.
 
 ## Further Reading
 
-- [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.controls.button){: target="_blank"}
+* [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.controls.button){: target="_blank"}

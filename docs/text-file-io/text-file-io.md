@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Text File IO
-nav_order: 10
+nav_order: 9
 ---
 
 # Text File IO
@@ -23,37 +23,37 @@ Processing bit data can be awkward, so it is preferable to use decimal digits, l
 
 A **field** is a group of characters that convey a meaning.  For example, the characters "Kenny Omega" represents a person's name. A **record** is made up of related fields. A **file** is a group of related records.
 
-**Example**
+### File
 
-**File**
-
-```
+```text
 Kenny Omega,200,1983-10-16
 Chris Jericho,227,1970-11-9
 Laura Dennis,125,1985-9-3
 ```
 
-**Record**
+### Record
 
-```
+```text
 Kenny Omega,200,1983-10-16
 ```
 
-**Field**
+### Field
 
-```
+```text
 Kenny Omega
 ```
 
-**Character**
+### Character
 
-```
+```text
 K
 ```
 
-**Byte**
+### Byte
 
+```text
 01001011 (represents the character 'K')
+```
 
 ## Streams
 
@@ -61,13 +61,13 @@ In C# all files are considered a sequential stream of bytes. All files end with 
 
 There are many file-processing class in the .NET Framework, most of which are in the `System.IO` namespace.
 
-*   `StreamReader` - Used for text input from a file.
-*   `StreamWriter` - Used for text output to a file.
-*   `FileStream` - Used for both input from and output to a file.
+* `StreamReader` - Used for text input from a file.
+* `StreamWriter` - Used for text output to a file.
+* `FileStream` - Used for both input from and output to a file.
 
 ## File and Directory Classes
 
-The `File` and `Directory` classes contain methods to access file and directory information from the file system. 
+The `File` and `Directory` classes contain methods to access file and directory information from the file system.
 
 The `File` class is a static class used to determine information about files. The information can be used to open files for reading and writing.
 
@@ -258,7 +258,7 @@ catch (FormatException)
 fileWriter.Close();   
 ```
 
-It is best practice to use the <em>FileAccess</em> enumeration when opening a file to control user access.
+It is best practice to use the `FileAccess` enumeration when opening a file to control user access.
 {: .alert .alert-best-practices}
 
 ## Reading Data from a Text File
@@ -267,9 +267,9 @@ To read data from a text file accurately, you must understand the structure of t
 
 The following example reads a file with the following structure and data:
 
-Record structure: account_id,first_name,last_name,balance
+Record structure: `account_id,first_name,last_name,balance`
 
-```
+```text
 100,Chris,Jericho,1000.54
 200,James,Hetfield,2000.38
 300,Donna,Summers,3000.12

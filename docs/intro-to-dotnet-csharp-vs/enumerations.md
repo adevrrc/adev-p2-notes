@@ -55,9 +55,7 @@ namespace Weather
 In this course, each enumeration you define will be coded within its own file. Like you did in the previous level of programming, you will name the file using the identifier of what it contains. For example, for the `Direction` enumeration defined above, you would code this in a file called _Direction.cs_.
 {: .alert .alert-best-practices}
 
-## Documentation
 
-Documentation is required for each enumeration and all of the enumeration members. Check out [a sample of how an enumeration is documented]({{ site.url }}{{ site.baseurl }}/docs/appendixes/documentation-samples/#enumeration).
 
 ## Enumeration Values
 
@@ -90,6 +88,25 @@ Output:
 
 ```text
 34
+```
+
+## Documentation
+
+Documentation is required for each enumeration and all of the enumeration members. Check out [a sample of how an enumeration is documented]({{ site.url }}{{ site.baseurl }}/docs/appendixes/documentation-samples/#enumeration).
+
+## UML Class Diagram
+
+This is a test.
+
+```mermaid
+class Color{
+    <<enumeration>>
+    Red = 0
+    Blue = 1
+    Green = 2
+    White = 3
+    Black = 4
+}
 ```
 
 ## `Enum` Class

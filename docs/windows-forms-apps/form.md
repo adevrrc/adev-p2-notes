@@ -23,13 +23,13 @@ Forms can be shown in three ways:
 
 #### Normal
 
-The most basic way to show an instance of a Form. 
+The most basic way to show an instance of a Form.
 
 ```csharp
 form.Show();
 ```
 
-If the Form is the startup Form instance in the application, the application will continue to execute as long as this instance is still in memory (not closed). 
+If the Form is the startup Form instance in the application, the application will continue to execute as long as this instance is still in memory (not closed).
 
 If a Form instance (formA) is shown from code within another Form class (FormB), each form can gain focus, but the Form instance (formA) is taken out of member (destroyed) when the instance of the Form class (FormB) is removed from memory.
 
@@ -102,36 +102,36 @@ The FormClosed event occurs after the form is closed and removed from the screen
 
 ### Properties
 
-*   **AcceptButton** - Gets or sets the button on the form that is clicked when the user presses the ENTER key.
-*   **CancelButton** - Gets or sets the button control that is clicked when the user presses the ESC key.
-*   **Controls** - Gets the collection of controls contained within the control.
-*   **FormBorderStyle** - Gets or sets the border style of the form.
-*   **Height** - Gets or sets the height of the control.
-*   **IsMdiChild** - Gets a value indicating whether the form is a multiple-document interface (MDI) child form.
-*   **IsMdiContainer** - Gets or sets a value indicating whether the form is a container for multiple-document interface (MDI) child forms.
-*   **MaximizeBox** - Gets or sets a value indicating whether the Maximize button is displayed in the caption bar of the form.
-*   **MdiChildren** - Gets an array of forms that represent the multiple-document interface (MDI) child forms that are parented to this form.
-*   **MdiParent** - Gets or sets the current multiple-document interface (MDI) parent form of this form.
-*   **MinimizeBox** - Gets or sets a value indicating whether the Minimize button is displayed in the caption bar of the form.
-*   **ShowIcon** - Gets or sets a value indicating whether an icon is displayed in the caption bar of the form.
-*   **StartPosition** - Gets or sets the starting position of the form at run time.
-*   **Text** - Gets or sets the text associated with this control.
-*   **WindowState** - Gets or sets a value that indicates whether form is minimized, maximized, or normal.
- 
+* **AcceptButton** - Gets or sets the button on the form that is clicked when the user presses the ENTER key.
+* **CancelButton** - Gets or sets the button control that is clicked when the user presses the ESC key.
+* **Controls** - Gets the collection of controls contained within the control.
+* **FormBorderStyle** - Gets or sets the border style of the form.
+* **Height** - Gets or sets the height of the control.
+* **IsMdiChild** - Gets a value indicating whether the form is a multiple-document interface (MDI) child form.
+* **IsMdiContainer** - Gets or sets a value indicating whether the form is a container for multiple-document interface (MDI) child forms.
+* **MaximizeBox** - Gets or sets a value indicating whether the Maximize button is displayed in the caption bar of the form.
+* **MdiChildren** - Gets an array of forms that represent the multiple-document interface (MDI) child forms that are parented to this form.
+* **MdiParent** - Gets or sets the current multiple-document interface (MDI) parent form of this form.
+* **MinimizeBox** - Gets or sets a value indicating whether the Minimize button is displayed in the caption bar of the form.
+* **ShowIcon** - Gets or sets a value indicating whether an icon is displayed in the caption bar of the form.
+* **StartPosition** - Gets or sets the starting position of the form at run time.
+* **Text** - Gets or sets the text associated with this control.
+* **WindowState** - Gets or sets a value that indicates whether form is minimized, maximized, or normal.
+
 ### Methods
 
-*   **Activate()** - Activates the form and gives it focus.
-*   **Close()** - Closes the form.
-*   **Show()** - Displays the control to the user.
-*   **ShowDialog()** - Shows the form as a modal dialog box.
+* **Activate()** - Activates the form and gives it focus.
+* **Close()** - Closes the form.
+* **Show()** - Displays the control to the user.
+* **ShowDialog()** - Shows the form as a modal dialog box.
 
 ### Events
 
-*   **FormClosed** - Occurs after the form is closed.
-*   **FormClosing** - Occurs before the form is closed.
-*   **Load** - Occurs before a form is displayed for the first time.
-*   **Shown** - Occurs whenever the form is first displayed.
+* **FormClosed** - Occurs after the form is closed.
+* **FormClosing** - Occurs before the form is closed.
+* **Load** - Occurs before a form is displayed for the first time.
+* **Shown** - Occurs whenever the form is first displayed.
 
 ## Further Reading
 
-- [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form){: target="_blank"}
+* [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form){: target="_blank"}

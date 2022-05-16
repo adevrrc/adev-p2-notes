@@ -14,7 +14,7 @@ nav_order: 6
 1. TOC
 {:toc}
 
-All programmers are required to follow standards. A standard is an accepted way of doing something. Although programming standards do not need to be followed in order for your source code to produce its expected results, there are many reasons why you should follow programming standards. 
+All programmers are required to follow standards. A standard is an accepted way of doing something. Although programming standards do not need to be followed in order for your source code to produce its expected results, there are many reasons why you should follow programming standards.
 
 Standards ensure that the development of source code in a specific language is done in the same way by everyone. This makes working with other's code much easier, since it is written in a way that is already familiar to you. The problem with standards is they are not consistent. Standards can vary between organizations, organizational departments, and supervisors in an organization, schools, programs and instructors.
 
@@ -22,22 +22,22 @@ In this course, instructors have developed a general set of standards that all s
 
 ## Layout
 
-*   Use default code editor settings (smart indenting, four-character indent, tabs saved as spaces).
-*   Write one statement per line.
-*   Write one declaration per line.
-*   Add one blank line between method and property definitions.
+* Use default code editor settings (smart indenting, four-character indent, tabs saved as spaces).
+* Write one statement per line.
+* Write one declaration per line.
+* Add one blank line between method and property definitions.
 
 ## Identifier Guidelines
 
-- Namespace:
-- Classes and Other User-defined types:
-- Fields and Variables:
-- Methods and Other Class Members:
-- Parameters:
+* Namespace:
+* Classes and Other User-defined types:
+* Fields and Variables:
+* Methods and Other Class Members:
+* Parameters:
 
 ## Documentation
 
-All documentation must be XML style documentation. 
+All documentation must be XML style documentation.
 
 ### Class
 {: .no_toc}
@@ -62,9 +62,9 @@ public class Person
 
 All methods (excluding _main_) of a class must be preceded by XML style documentation. The documentation must contain the following in this exact format:
 
-- Method Description/Purpose.
-- List of parameters and descriptions of their use in the method (if the method has parameters defined).
-- Description of what value the method returns, and it's purpose (if the method returns a value).
+* Method Description/Purpose.
+* List of parameters and descriptions of their use in the method (if the method has parameters defined).
+* Description of what value the method returns, and it's purpose (if the method returns a value).
 
 ```csharp
 /// <summary>
@@ -103,13 +103,14 @@ Use single line comments (//) to explain a single statement if it is complex. Th
 tax = purchaseAmount * TaxRate;
 ```
 
-- Leave one blank line after the "//".
-- Capitalize the first character of the comment.
-- Must be free of spelling mistakes.
+* Leave one blank line after the "//".
+* Capitalize the first character of the comment.
+* Must be free of spelling mistakes.
 
 Comments are less formal than documentation, meaning that some grammar rules are not always followed.
 
 ### Block Comment
+
 {: .no_toc}
 
 Use a block comment (/&#42;...&#42;/) when the comment is too long to fit on a single line. These comments always precede the line(s) of code they are describing.
@@ -251,13 +252,13 @@ multiplier=(sum>10)?3:8;
 
 The use of whitespace (blank lines) also helps improve readability. The standards for whitespace are as follows:
 
-*   If the class has `using` statements, there are no blank lines between each `using` statement.
+* If the class has `using` statements, there are no blank lines between each `using` statement.
 
-*   A blank line (line 2 in the example below) must be placed before the documentation for the class if there are import statements.
+* A blank line (line 2 in the example below) must be placed before the documentation for the class if there are import statements.
 
-*   There are no blank lines between a class or method and its documentation.
+* There are no blank lines between a class or method and its documentation.
 
-*   Leave a blank line (line 15 in the example below) before the documentation of a method, expect if it's the first method in the class.
+* Leave a blank line (line 15 in the example below) before the documentation of a method, expect if it's the first method in the class.
 
 ```csharp
 using System;
@@ -340,36 +341,12 @@ public static void Main(string[] args)
 }
 ```
 
-## Form Design
-
-For Windows Forms App projects where you are given a design for the forms, the expectation is that you will create form designs that will match the requirements you are given. The requirements will be in the form of both a image and/or text descriptions.
-
-The expectation of your form designs will not require you to generate an exact pixel-to-pixel copy, but rather, a form that has no noticeable differences between what you develop and what the requirement is.
-
-To give you a better idea of the expectations, consider the design requirement below, and the designs completed by past students.
-
-### Original Design Requirement
-{: .no_toc}
-
-![Original Design Requirement](../images/csharp-fundamentals/requirement_form_design.png "Original Design Requirement")
-
-### Student Completed Designs
-{: .no_toc}
-
-Here is a sample of a student that followed the requirements very well.
-
-![Following the Requirements](../images/csharp-fundamentals/well_done_form_design.png "Following the Requirements")
-
-Here is a sample of a student that did not follow the requirements very well.
-
-![!Following the Requirements](../images/csharp-fundamentals/poor_form_design.png "!Following the Requirements")
-
 ## Further Reading
 
-- [Capitalization Conventions](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions){: target="_blank"}
-- [General Naming Conventions](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/general-naming-conventions){: target="_blank"}
-- [Names of Assemblies and DLLs](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-assemblies-and-dlls){: target="_blank"}
-- [Names of Namespaces](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces){: target="_blank"}
-- [Names of Classes, Structs and Interfaces](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-classes-structs-and-interfaces){: target="_blank"}
-- [Names of Type Members](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members){: target="_blank"}
-- [Naming Parameters](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-parameters){: target="_blank"}
+* [Capitalization Conventions](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions){: target="_blank"}
+* [General Naming Conventions](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/general-naming-conventions){: target="_blank"}
+* [Names of Assemblies and DLLs](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-assemblies-and-dlls){: target="_blank"}
+* [Names of Namespaces](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces){: target="_blank"}
+* [Names of Classes, Structs and Interfaces](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-classes-structs-and-interfaces){: target="_blank"}
+* [Names of Type Members](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members){: target="_blank"}
+* [Naming Parameters](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-parameters){: target="_blank"}

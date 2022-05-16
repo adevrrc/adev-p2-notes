@@ -23,14 +23,14 @@ When you add an `ErrorProvider` to a Form, you will not visually see an item on 
 
 ### Properties
 
-*   **BlinkStyle** - Sets or sets a value indicating when the error icon flashes.
+* **BlinkStyle** - Sets or sets a value indicating when the error icon flashes.
 
 ### Methods
 
-*   **GetError(Control)** - Returns the current error description string for the specified control.
-*   **SetError(Control, String)** - Sets the error description string for the specified control.
-*   **SetIconPadding(Control, Int32)** - Sets the amount of extra space to leave between the specified control and the error icon.
+* **GetError(Control)** - Returns the current error description string for the specified control.
+* **SetError(Control, String)** - Sets the error description string for the specified control.
+* **SetIconPadding(Control, Int32)** - Sets the amount of extra space to leave between the specified control and the error icon.
 
 ## Further Reading
 
-- [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.errorprovider){: target="_blank"}
+* [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.errorprovider){: target="_blank"}
