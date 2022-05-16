@@ -129,7 +129,11 @@ It is very common for Java programmers to leave out the `override` keyword, as i
 
 ## Documentation
 
-Documentation is required for each class and all of the class' members (except for private fields). Check out [a sample of how a class is documented](/adev2008/appendixes/documentation-samples.html#class).
+Documentation is required for each class and all of the class' members (except for private fields). Check out [a sample of how a class is documented]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#class).
+
+## UML Diagram
+
+* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#class)
 
 ## Further Reading
 
