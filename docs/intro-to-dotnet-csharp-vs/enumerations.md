@@ -100,14 +100,14 @@ This is a test.
 
 ```mermaid
 classDiagram
-class Color{
-    <<enumeration>>
-    Red = 0
-    Blue = 1
-    Green = 2
-    White = 3
-    Black = 4
-}
+    class Color{
+        <<enumeration>>
+        Red = 0
+        Blue = 1
+        Green = 2
+        White = 3
+        Black = 4
+    }
 ```
 
 ## `Enum` Class
