@@ -61,22 +61,9 @@ class Program
 }
 ```
 
-## Class Diagram
+## UML Diagram
 
-In a UML Class Diagram, static classes will be indicated by the `<<static>>` notation. Static class members will be underlined.
-
-<div class="uml">
-<pre class="class-name">
-&lt;&lt;static&gt;&gt;
-ClassName
-</pre>
-<pre>
-<u>+ field : Type = value</u>
-</pre>
-<pre>
-<u>+ Method() : returnType</u>
-</pre>
-</div>
+* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#static-class)
 
 ## Further Reading
 

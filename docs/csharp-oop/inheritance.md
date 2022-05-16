@@ -183,27 +183,9 @@ public class CommissionEmployee : Employee
 }
 ```
 
-## Class Diagram
+## UML Diagram
 
-In a UML Class Diagram, abstract classes and members are indicated by italicizing in the text.
-
-<div class="uml">
-<pre class="class-name">
-<em>Employee</em>
-</pre>
-<pre>
-- identificationNumber : int
-- name : string
-
-+ &lt;&lt;Property&gt;&gt; IdentificationNumber : int
-+ &lt;&lt;Property&gt;&gt; Name : string
-</pre>
-<pre>
-+ Employee(identificationNumber : int, name : string)
-+ Employee(identificationNumber : int)
-<em>+ GetPay() : decimal</em>
-</pre>
-</div>
+* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#inheritance)
 
 ## Further Reading
 

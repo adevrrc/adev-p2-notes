@@ -103,11 +103,15 @@ public class Student
 
 ## Documentation
 
-- [Events](/adev2008/appendixes/documentation-samples/#events)
+* [Events]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#events)
+
+## UML Diagram
+
+* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#event)
 
 ## Further Reading
 
-- [Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/){: target="_blank" }
-- [`event` Keyword](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event){: target="_blank" }
-- [Publishing Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines){: target="_blank" }
-- [Raising Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-raise-base-class-events-in-derived-classes){: target="_blank" }
+* [Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/){: target="_blank" }
+* [`event` Keyword](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event){: target="_blank" }
+* [Publishing Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines){: target="_blank" }
+* [Raising Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-raise-base-class-events-in-derived-classes){: target="_blank" }

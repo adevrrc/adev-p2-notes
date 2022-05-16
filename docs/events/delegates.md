@@ -223,4 +223,4 @@ The `+=` operator adds a method to the delegates **invocation list**. The `-=` o
 
 ## Documentation
 
-- [Delegate](/adev2008/appendixes/documentation-samples/#delegate)
+- [Delegate]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#delegate)

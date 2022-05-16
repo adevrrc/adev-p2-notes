@@ -96,7 +96,7 @@ Documentation is required for each enumeration and all of the enumeration member
 
 ## UML Diagram
 
-* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#class)
+* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#enumeration)
 
 ## `Enum` Class
 

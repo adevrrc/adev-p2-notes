@@ -504,7 +504,7 @@ Exceptions are documented in an `<exception>...</exception>` element.
 
 The documentation will include only one exception element per exception type generated in the method or property.The exception element will include one attribute, called `cref`, that is equal to the fully qualified name of the exception data type.  The data within the element is the description of the situation(s) when that exception is thrown in the unit.  The text typically starts with "Thrown when".
 
-[Check out documentation samples](/adev2008/appendixes/documentation-samples/#exceptions)
+[Check out documentation samples]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#exceptions)
 
 ## Testing Exceptions
 

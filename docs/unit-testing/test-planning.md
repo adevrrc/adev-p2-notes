@@ -27,7 +27,7 @@ A **unit test plan** is a plan based on the design specifications of a class or 
     - Test data needed to test the outcome/requirement.
     - The expected result (usually a value).
 
-[Check out a sample test plan](/adev2008/unit-testing/sample-test-plan)
+[Check out a sample test plan]({{ site.url}}{{ site.baseurl }}/docs/unit-testing/sample-test-plan/)
 
 The Microsoft Excel is a great way to create a test plan.
 {: .alert .alert-note }

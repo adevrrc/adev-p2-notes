@@ -214,26 +214,9 @@ public class Employee
 }
 ```
 
-## Class Diagram
+## UML Diagram
 
-When a class is defined with properties, a property is indicated in a UML Class Diagram with the `<<Property>>` notation.
-
-<div class="uml">
-<pre class="class-name">
-Employee
-</pre>
-<pre>
-- identificationNumber : int
-- name : string
-
-+ &lt;&lt;Property&gt;&gt; IdentificationNumber : int
-+ &lt;&lt;Property&gt;&gt; Name : string
-</pre>
-<pre>
-+ Employee(identificationNumber : int, name : string)
-+ Employee(identificationNumber : int)
-</pre>
-</div>
+* [UML Diagram Sample]({{ site.url}}{{ site.baseurl }}/docs/appendixes/uml-diagram-samples/#property)
 
 ## Further Reading
 

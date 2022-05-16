@@ -164,7 +164,7 @@ static void Student_AverageBelowFail(object sender, AverageBelowFailEventArgs e)
 
 ## Documentation
 
-- [Event Handler Methods](/adev2008/appendixes/documentation-samples/#event-handler-methods)
+- [Event Handler Methods]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#event-handler-methods)
 
 ## Further Reading
 
