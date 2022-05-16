@@ -37,6 +37,8 @@ The DropDownList style works like the DropDown style in the sense that the user 
 
 ### Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **DataSource** - Gets or sets the data source for this ComboBox.

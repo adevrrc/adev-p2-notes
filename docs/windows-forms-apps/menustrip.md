@@ -81,6 +81,8 @@ Menu items that open a modal dialog window will always include a "..." (ellipsis
 
 ## Notable MenuStrip Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **Items** - Gets all the items that belong to a ToolStrip.

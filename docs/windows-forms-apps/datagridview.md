@@ -41,6 +41,8 @@ To exit edit mode, one of the following things must happen:
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **CurrentCell** - Gets or sets the currently active cell.

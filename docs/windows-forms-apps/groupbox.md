@@ -17,6 +17,8 @@ A GroupBox's caption is optional.
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **Size** - Gets or sets the height and width of the control.

@@ -17,6 +17,8 @@ RadioButtons are grouped by the container they are in, such as a Form, GroupBox 
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **Checked** - Gets or sets a value indicating whether the control is checked.

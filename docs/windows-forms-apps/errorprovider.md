@@ -21,6 +21,8 @@ When you add an `ErrorProvider` to a Form, you will not visually see an item on 
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **BlinkStyle** - Sets or sets a value indicating when the error icon flashes.

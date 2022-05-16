@@ -35,6 +35,8 @@ The **MultiExtended** selection mode allows the user to select multiple items fr
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **DataSource** - Gets or sets the data source for this ListControl.

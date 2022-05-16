@@ -17,6 +17,8 @@ A ToolStrip can contain many types of objects. The most common of which is the `
 
 ## Notable ToolStrip Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **Dock** - Gets or sets which ToolStripItem borders are docked to its parent control and determines how a ToolStripItem is resized with its parent.

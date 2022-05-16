@@ -15,6 +15,8 @@ A CheckBox is typically used as an input, such as true/false or yes/no.
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **Checked** - Gets or set a value indicating whether the CheckBox is in the checked state.

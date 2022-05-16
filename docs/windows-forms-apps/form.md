@@ -100,6 +100,8 @@ The FormClosed event occurs after the form is closed and removed from the screen
 
 ## Notable Class Members
 
+Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
+
 ### Properties
 
 * **AcceptButton** - Gets or sets the button on the form that is clicked when the user presses the ENTER key.
