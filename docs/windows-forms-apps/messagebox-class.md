@@ -2,6 +2,7 @@
 layout: default
 title: Messagebox Class
 parent: Windows Forms Apps
+nav_order: 6
 ---
 
 # Messagebox Class
@@ -36,7 +37,7 @@ result = MessageBox.Show(message, caption, buttons, icon, MessageBoxDefaultButto
 
 The code above would produce the following message box:
 
-![Sample MessageBox](../images/messagebox.png){:.large}
+![Sample MessageBox](../images/messagebox-class/messagebox.png){:.large}
 
 ### Handle a Message Box Response
 

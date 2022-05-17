@@ -77,7 +77,7 @@ There are also standards for accessor keys. For example, using <kbd>Alt + F</kbd
 
 Menu items that open a modal dialog window will always include a "..." (ellipsis) at the end of their text. This is a visual cue to the user that they should expect a modal window to appear.
 
-![Menu Item With Ellipsis](../images/menustrip-item-ellipsis.png){:.large}
+![Menu Item With Ellipsis](../images/menustrip/menustrip-item-ellipsis.png){:.large}
 
 ## Notable MenuStrip Class Members
 

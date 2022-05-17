@@ -140,14 +140,6 @@ The following examples use the class `Student`.
 ```csharp
 public class Student
 {
-    public enum FieldIndex
-    {
-        IdentificationNumber,
-        FirstName,
-        LastName,
-        GradePointAverage
-    }
-
     public int IdentificationNumber
     {
         get;
@@ -311,10 +303,10 @@ try
         string[] fields = record.Split(delimiters);
 
         // Array index indicated with an inner Enumeration in the Student class
-        int identificationNumber = Int32.Parse(fields[((int)Student.FieldIndex.IdentificationNumber)]);
-        string firstName = fields[((int)Student.FieldIndex.FirstName)];
-        string lastName = fields[((int)Student.FieldIndex.LastName)];
-        double gradePointAverage = double.Parse(fields[(int)Student.FieldIndex.GradePointAverage]);
+        int identificationNumber = Int32.Parse(fields[0]);
+        string firstName = fields[1];
+        string lastName = fields[2];
+        double gradePointAverage = double.Parse(fields[3]);
         
         // Create an instance of the data object using the data (fields) read in from the file
         student = new Student(identificationNumber, firstName, lastName, gradePointAverage);

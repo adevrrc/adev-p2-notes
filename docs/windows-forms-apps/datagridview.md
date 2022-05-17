@@ -15,7 +15,7 @@ Displays data in a customizable grid.
 
 Populating a DataGridView control can be done in a few different ways. The common way would be to do a complex data bind. When a DataGridView is data bound, the DataGridView will automatically determine the columns, rows and data it displays.
 
-![Sample DataGridView](../images/datagridview.png){:.img-responsive}
+![Sample DataGridView](../images/datagridview/datagridview.png){:.img-responsive}
 
 ### Row Header
 

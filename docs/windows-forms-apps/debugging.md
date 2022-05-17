@@ -2,7 +2,7 @@
 layout: default
 title: Debugging
 parent: Windows Forms Apps
-nav_order: 6
+nav_order: 7
 ---
 
 # Debugging
@@ -20,13 +20,13 @@ nav_order: 6
 
 ## Debug Class
 
-The Debug class contains a set of methods to help you debug your code.  Although the Debugger is a great and powerful tool, it can be cumbersome to use for quick checks.
+The `Debug` class contains a set of methods to help you debug your code.  Although the Debugger is a great and powerful tool, it can be cumbersome to use for quick checks.
 
-The Debug class is a static class in the System.Diagnostics namespace. The most useful method in the Debug class is `WriteLine(object)`. When the WriteLine method is invoked, it will generate output in the Output Panel of Visual Studio while your application is running in Debug mode.
+The Debug class is a static class in the System.Diagnostics namespace. The most useful method in the Debug class is `WriteLine(object)`. When the `WriteLine` method is invoked, it will generate output in the Output Panel of Visual Studio while your application is running in Debug mode.
 
 **Example**
 
-In this example, I am going to add a statement to the Load event of my form, as it appears while running the code in the handler is not executing.
+In this example, I am going to add a statement to the `Load` event of my form, as it appears while running the code in the handler is not executing.
 
 ```csharp
 private void Form_Load(object sender, EventArgs e)  
@@ -51,4 +51,4 @@ You can code a Debug statement anywhere in your code. The great thing is, if you
 
 The output panel typically displays automatically when you run an application in Visual Studio.  If the panel does not appear, you can open it by going to the View menu item in the main menu of Visual Studio.
 
-![Output Panel](../images/output-panel.png){:.large}
+![Output Panel](../images/debugging/output-panel.png){:.large}

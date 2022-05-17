@@ -22,13 +22,13 @@ Creating a Class Library project follows the [same steps as a Console Applicatio
 
 When you get to the **Create a new project** window, the project type you want to choose is called "Class Library (.NET Framework)". You can use the search to filter the list.
 
-![Create Class Library Project](../images/class-libraries/create-class-library-project.png)
+![Create Class Library Project](../images/class-libraries/create-class-library-project.png){: .large }
 
 ## Solution File Structure
 
 If you navigate to the location you created the project to, you’ll find the solution directory for the project you created.
 
-![Save Directory](../images/class-libraries/save-directory.png)
+![Save Directory](../images/class-libraries/save-directory.png){: .large }
 
 At this point you may have more than one Visual Studio solution stored in this location. Read the directories careful to determine the one you are looking for.
 {: .alert .alert-warning}
@@ -36,7 +36,7 @@ At this point you may have more than one Visual Studio solution stored in this l
 ### Solution Directory
 {: .no_toc }
 
-![Solution Directory](../images/class-libraries/solution-directory.png)
+![Solution Directory](../images/class-libraries/solution-directory.png){: .large }
 
 The solution directory contains:
 
@@ -46,7 +46,7 @@ The solution directory contains:
 ### Project Directory
 {: .no_toc }
 
-![Project Directory](../images/class-libraries/project-directory.png)
+![Project Directory](../images/class-libraries/project-directory.png){: .large }
 
 The project directory contains:
 
@@ -61,7 +61,7 @@ The project directory contains:
 
 ## Visual Studio Solution Explorer
 
-![Solution Explorer](../images/class-libraries/solution-explorer.png)
+![Solution Explorer](../images/class-libraries/solution-explorer.png){: .large }
 
 When the newly created class library project is loaded into Visual Studio, the Solution Explorer will contain the following:
 
@@ -69,16 +69,13 @@ When the newly created class library project is loaded into Visual Studio, the S
 - **References** - This node contains the project references to other class libraries.
 - **Class1.cs** - The source code file _Class1.cs_ that contains the `Class1` class.
 
-In a future topic, you will learn how to add references to other class libraries to your VS projects.
-{: .alert .alert-future-lesson}
-
 ## Building the Project
 
 [Building (Compile) a Project]({{ site.url }}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/visual-studio-ide/#building-compiling-a-project) was discussed in a previous topic.
 
 On a successful build of a Console Application Project, the following files will be generated in the **bin\Debug** directory within the Project directory.
 
-![Debug Directory](../images/class-libraries/debug-directory.png)
+![Debug Directory](../images/class-libraries/debug-directory.png){: .large }
 
 The files you see in the screenshot above are:
 

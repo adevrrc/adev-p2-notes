@@ -30,7 +30,7 @@ Visual Studio is a very complex tool and is not really intended for beginner pro
 
 Although there is a version of Visual Studio for Mac, you will not be able to complete this course with it. You will require a Windows OS to complete this course. You can:
 
-*   Use Boot Camp (or equivalent software) to run Windows on your Mac.
+* Use Boot Camp (or equivalent software) to run Windows on your Mac.
 
 ## Download
 
@@ -167,13 +167,13 @@ The first step to learning the Visual Studio tool is to explore the layout of th
 
 ![Visual Studio Default Layout](../images/visual-studio-ide/default-layout.png)
 
-1. Menu Strip - Where you can find all the functionality of Visual Studio.
-2. Toolbar - Where you can find common Visual Studio functions.
-3. Toolbox Panel - You will use this panel later in the course.
-4. File Editor - Where you edit source code.
-5. Solution Explorer - Where you manage solutions and projects.
-6. Properties Panel - Where you can find and modify information about items selected in Visual Studio.
-7. Error List/Output Panel - Where errors and the results of building a project are listed.
+1. **Menu Strip** - Where you can find all the functionality of Visual Studio.
+2. **Toolbar** - Where you can find common Visual Studio functions.
+3. **Toolbox Panel** - You will use this panel later in the course.
+4. **File Editor** - Where you edit source code.
+5. **Solution Explorer** - Where you manage solutions and projects.
+6. **Properties Panel** - Where you can find and modify information about items selected in Visual Studio.
+7. **Error List/Output Panel** - Where errors and the results of building a project are listed.
 
 ### Solution Explorer
 
