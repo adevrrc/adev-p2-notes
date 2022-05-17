@@ -57,7 +57,7 @@ internal class HelloWorld
 }
 ```
 
-Many of the code examples in these course notes to not contain proper documentation. They are omitted for clarity of the example. Ensure you are following the [Coding Conventions and Standards](adev2008/module-1/coding-conventions-standards.html) for all your graded course work.
+Many of the code examples in these course notes to not contain proper documentation. They are omitted for clarity of the example. Ensure you are following the [Coding Conventions and Standards]({{ site.url}}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/coding-conventions-standards/) for all your graded course work.
 {: .alert .alert-warning}
 
 ## Help Improve These Notes
