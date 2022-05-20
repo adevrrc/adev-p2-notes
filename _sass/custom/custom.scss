@@ -101,6 +101,15 @@ p.alert-future-lesson {
   background-image: url(images/future-lesson.png);
 }
 
+a.no-underline {
+  text-decoration: none !important;
+  border:0px !important;
+  outline:none;
+  border-width: 0px;
+  outline-width:0px;
+  border-bottom: none;
+}
+
 /* UML Class Diagram */
 
 div.uml {
