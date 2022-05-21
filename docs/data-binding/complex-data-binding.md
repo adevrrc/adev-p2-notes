@@ -27,7 +27,7 @@ Assuming that your Form is designed and the data source is initialized, the step
 1. Instantiate a `BindingSource` object and initialize its `DataSource` property to the data source.
 2. Set the `DataSource` of the Control to the `BindingSource`.
 
-![Complex Data Binding ListBox Example](../images/complex-data-binding/listbox-complex-data-binding.png){: .large }
+![Complex Data Binding ListBox Example](../images/complex-data-binding/complex-data-binding.png){: .large }
 
 ```csharp
 public partial class ComplexBindExampleForm : Form

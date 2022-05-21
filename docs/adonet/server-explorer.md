@@ -18,7 +18,7 @@ Visual Studio includes tools to interact with a database. You can connect, query
 
 ![Server Explorer Panel](../images/server-explorer/server-explorer.png){: .large }
 
-To open the Server Explorer panel...
+To open the Server Explorer panel, go to **View > Server Explorer** on the Visual Studio Menu Strip. The keyboard shortcut is <kbd>Ctrl+W, L</kbd>.
 
 ## Adding a Connection
 
@@ -36,7 +36,7 @@ The **Add Connection** dialog will appear. Click the **Browse...** button, then 
 
 ![Add Connection](../images/server-explorer/add-connection.png){: .large }
 
-All database in this course will not require authentication. You can leave the User name as "Admin" and the Password "Blank".
+Databases in this course will not require authentication. You can leave the User name as "Admin" and the Password "Blank".
 {: .alert .alert-note}
 
 You can click the **Test Connection** button after locating the file. If this is successful, you know you've setup the connection properly.
@@ -66,3 +66,9 @@ The DataGridView works very similar to Excel. Click any cell and type to edit th
 
 When adding new records, DO NOT populate the ID column. This is an AutoNumber column.
 {: .alert .alert-error}
+
+## Closing the Connection
+
+It is recommended that you close the connection to the database before closing Visual Studio. You can close the connection by right-clicking the Database node and choosing **Close connection**.
+
+![Close Connection](../images/server-explorer/close-connection.png){: .large }

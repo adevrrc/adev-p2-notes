@@ -14,6 +14,12 @@ parent: ADO.NET
 1. TOC
 {:toc}
 
+## Database File Storage
+
+The database file can be stored anywhere on your file system, but it is recommended that you store the file in the **bin\Debug** directory of your application project. If you prefer, it can be stored in a sub-directory. For example, **bin\Debug\data**.
+
+Ensure that you are using a relative file path to any external resources. Using an absolute path will only work in the development environment and not on any other machine.
+
 ## Database Connection
 
 To connect to a database a connection string is required. The basic format of a connection string is:

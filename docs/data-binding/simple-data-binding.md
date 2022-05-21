@@ -32,6 +32,8 @@ There are a few ways to setup a simple data bind. Assuming that your Form is des
 
 The `BindingSource` object simplifies data binding. The `BindingSource` is an intermediary object between the data source and the Control. The `BindingSource` is bound to the data source and the Control is bound to the `BindingSource`. The advantage of `BindingSource` is that it provides change notification currency management and other data binding services.
 
+![BindingSource](../images/simple-data-binding/bindingsource.png){: .large }
+
 ## Binding Class
 
 The `Binding` object provides access to binding that connects the target Control's property to the property of the data source. The `Binding` object requires three pieces of information to successfully data bind:
@@ -40,11 +42,11 @@ The `Binding` object provides access to binding that connects the target Control
 2. The data source (always a reference to the `BindingSource`).
 3. The identifier of the object's property within the data source.
 
-![Binding Class](https://docs.microsoft.com/en-us/dotnet/media/databindingmostbasic.png){: .large }
+![Binding Class](../images/simple-data-binding/binding-object.png){: .large }
 
 ## Single Object Data Source
 
-![Simple Data Binding Example](../images/simple-data-binding/simple-bind-complete.png){: .large }
+![Simple Data Binding Example](../images/simple-data-binding/single-object-data-source.png){: .large }
 
 ```csharp
 public partial class SimpleBindExampleForm : Form
@@ -103,7 +105,7 @@ The `BindingList` collection works the same as the `List` type, but supports two
 
 More often then not, the data you are working with will be stored in a collection. When the data source is a collection, the Controls will represent the data from the object referenced by the `Current` property of the `BindingSource`.
 
-![Simple Data Binding To Collection Example](../images/simple-data-binding/simple-bind-to-collection-complete.png){: .large }
+![Simple Data Binding To Collection Example](../images/simple-data-binding/collection-data-source.png){: .large }
 
 ```csharp
 public partial class SimpleBindToCollectionForm : Form
@@ -198,7 +200,7 @@ Output:
 
 After clicking the **Next** Button, you can see that the Controls reflect the data of the second `Response` object in the data source. The `MovePrevious()`, `MoveNext()`, `MoveFirst()`, and `MoveLast()` methods of the `BindingSource` class, update which object in the data source `Current` references.
 
-![Simple Data Binding To Collection Example](../images/simple-data-binding/simple-bind-to-collection-complete-update-current.png){: .large }
+![Simple Data Binding To Collection Example](../images/simple-data-binding/collection-data-source-current.png){: .large }
 
 
 ## When Data Binding Doesn't Make Sense
@@ -285,7 +287,7 @@ It is always recommended to setup the data binding for all Controls on the Form 
 
 ```csharp
 BindingSource source = new BindingSource();  
-source.DataSource = typeof(Student);
+this.bindingSource.DataSource = typeof(Student);
 ```
 
 When setting up the `BindingSource` in this way, your controls will be bound to an empty `IBindingList<T>` collection, where the generic of the collection is the type specified in the parentheses of the `typeof` part of the statement.  The example above would create the internal list as a collection that can store `Student` type objects.
@@ -294,7 +296,7 @@ When an instance of the data source object is instantiated, the `DataSource` pro
 
 ```csharp
 Student student = new Student("Jon", "Moxley", 10003);  
-source.DataSource = student;
+this.bindingSource.DataSource = student;
 ```
 
 The above example will create a new internal list, where the first (and only) item in the list is the object referenced by the variable `student`.
@@ -304,7 +306,7 @@ The above example will create a new internal list, where the first (and only) it
 You may have a situation where Controls are data bound, they are displaying data, and at some point want the Controls to now show any data.  To do this, you can clear the `BindingSource` object's internal list:
 
 ```csharp
-source.List.Clear();
+this.bindingSource.List.Clear();
 ```
 
 Any Controls bound to the `BindingSource` will no longer show any data.
@@ -314,7 +316,7 @@ Any Controls bound to the `BindingSource` will no longer show any data.
 In rare situations, after redefining a `BindingSource` object's `DataSource` property, the Controls bound to the `BindingSource` may not update. To force the `BindingSource` to read the data from the data source to populate the bound Controls, you will need to invoke the `ResetBindings(bool)` method of the `BindingSource`.
 
 ```csharp
-source.ResetBinding(true);
+this.bindingSource.ResetBinding(true);
 ```
 
 ## Further Reading
