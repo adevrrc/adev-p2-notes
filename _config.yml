@@ -6,7 +6,7 @@ description: Course notes for the Programming 2 course.
 baseurl: "/adev-p2-notes" # the subpath of your site, e.g. /blog
 #url: "https://adevrrc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
-exclude: [docs/adonet/diagrams, docs/adonet/images/server-explorer/server-explorer.afdesign]
+exclude: [docs/data-binding/diagrams, docs/adonet/diagrams]
 
 permalink: pretty
 
