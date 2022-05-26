@@ -37,7 +37,7 @@ search:
   # Supports true or false (default)
   button: false
 
-footer_content: "Copyright &copy; 2022 RRCP (Thirsty Cod3r)."
+footer_content: "Copyright &copy; 2022 RRCP (ThirstyCoder)."
 
 kramdown:
   toc_levels: 1..2
