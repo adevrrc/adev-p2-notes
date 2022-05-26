@@ -31,7 +31,7 @@ form.Show();
 
 If the Form is the startup Form instance in the application, the application will continue to execute as long as this instance is still in memory (not closed).
 
-If a Form instance (formA) is shown from code within another Form class (FormB), each form can gain focus, but the Form instance (formA) is taken out of member (destroyed) when the instance of the Form class (FormB) is removed from memory.
+If a `Form` instance (`formA`) is shown from code within another Form class (`formB`), each form can gain focus, but the Form instance (`formA`) is taken out of member (destroyed) when the instance of the Form class (`formB`) is removed from memory.
 
 #### Modal
 
@@ -45,17 +45,17 @@ form.ShowDialog();
 
 #### MDI Parent and Child Forms
 
-A Form can be set to be an MDI container.  MDI stands for "Multiple-Document Interface".  An MDI Form's purpose is to contain other Form instances.
+A Form can be set to be an MDI container.  **MDI** stands for **Multiple-Document Interface**.  An MDI Form's purpose is to contain other Form instances.
 
-To set a Form as an MDI container, the Form's `IsMdiContainer` property is set to `true`. A Form instance set as an MDI container is shown and closed like any other non-modal Form.
+To set a `Form` as an MDI container, the Form's `IsMdiContainer` property is set to `true`. A `Form` instance set as an MDI container is shown and closed like any other non-modal Form.
 
-To open a Form within the MDI container, also referred to as a child Form, the Form instance must have a reference to a Form instance (parent Form) that is an MDI container.
+To open a `Form` within the MDI container, also referred to as a child Form, the `Form` instance must have a reference to a `Form` instance (parent Form) that is an MDI container.
 
 ```csharp
 form.MdiParent = parentForm;
 ```
 
-Not setting the `IsMdiContainer` property to an instance of a Form that is an MDI container will still allow you to show the Form, but it will not be a part of the MDI container.
+Not setting the `IsMdiContainer` property to an instance of a `Form` that is an MDI container will still allow you to show the `Form`, but it will not be a part of the MDI container.
 {: .alert .alert-warning}
 
 Showing and closing a child Form is done like any non-modal Form:
@@ -65,7 +65,7 @@ form.Show();
 form.Close();
 ```
 
-The `MdiChildren` property of a Form is a reference to a collection contain all the Form instances shown within the MDI container.
+The `MdiChildren` property of a `Form` is a reference to a collection contain all the `Form` instances shown within the MDI container.
 
 #### Setting Focus to a Child Form
 
@@ -81,22 +81,22 @@ After a form is constructed or closed, a series of events are raised.
 
 #### Load Event
 
-The Load event occurs before the form is shown for the first time. This event can be used to prepare the data that is used on the form. It can also be used to set the form's control's initial state.
+The `Load` event occurs before the form is shown for the first time. This event can be used to prepare the data that is used on the form. It can also be used to set the form's control's initial state.
 
-The Load event is too early to perform some form tasks, as the form is not been displayed on the screen yet.
+The `Load` event is too early to perform some form tasks, as the form is not been displayed on the screen yet.
 {: .alert .alert-note}
 
 #### Shown Event
 
-The Shown event occurs after the form is first displayed. This event can be used to perform tasks that were too early to do during the Load event.
+The `Shown` event occurs after the form is first displayed. This event can be used to perform tasks that were too early to do during the `Load` event.
 
 #### FormClosing Event
 
-When a form is closed (using the UI close button or Close() method) the FormClosing event is raised before the form is removed from the screen. This is event is used for last second tasks before the form actually closes. An example would be to display a MessageBox to ask the user to save changes. During the FormClosing event, you can cancel the closing of the form by using the event's FormClosingEventArgs parameter. Cancelling the close will prevent the FormClosed event from taking place.
+When a Form is closed (using the UI close button or `Close()` method) the `FormClosing` event is raised before the form is removed from the screen. This is event is used for last second tasks before the form actually closes. An example would be to display a `MessageBox` to ask the user to save changes. During the `FormClosing` event, you can cancel the closing of the form by using the event's `FormClosingEventArgs` parameter. Cancelling the close will prevent the `FormClosed` event from taking place.
 
 #### FormClosed Event
 
-The FormClosed event occurs after the form is closed and removed from the screen. This event can be used to dispose of resources, like file streams.
+The `FormClosed` event occurs after the form is closed and removed from the screen. This event can be used to dispose of resources, like file streams.
 
 ## Notable Class Members
 

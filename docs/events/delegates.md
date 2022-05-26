@@ -30,7 +30,7 @@ namespace ADEV.Events
 }
 ```
 
-Every delegate has a **signature**. A signature includes the identifier, number of parameters and parameter types. Unlike methods, the return type of the delegate is part of the signature.
+Every delegate has a **signature**. A signature includes the identifier, number of parameters and parameter types. Unlike methods, the return type of the delegate is part of its signature.
 
 When you declare a delegate type, you are specifying the types of methods the delegate can represent. A delegate instance can only reference a method that matches the delegate signature.
 
@@ -124,7 +124,7 @@ Output:
 ALERT! Your test average is below the standard.
 ```
 
-The example above demonstrates how you would invoke the method a delegate references. But seems rather pointless, considering the method is in the same class. The benefit of delegates is in passing the method to another piece of code.
+The example above demonstrates how you would invoke the method a delegate references. This may seem pointless to you, considering the method is in the same class. The benefit of a delegates is you can pass a reference to a method and have it invoked in another code context.
 
 ```csharp
 public class Student
@@ -180,7 +180,7 @@ ALERT! Your test average is below the standard.
 
 ## Multicast Delegate
 
-If delegates weren't cool enough, they can actually reference more than one method. This is called a **multicast delegate**. When the delegate is used, all the methods it references are called one after another.
+If delegates weren't cool enough, they can actually reference more than one method. This is called a **multicast delegate**. When the delegate is invoked, all the methods it references are called one after another.
 
 ```csharp
 class Program
@@ -223,4 +223,4 @@ The `+=` operator adds a method to the delegates **invocation list**. The `-=` o
 
 ## Documentation
 
-- [Delegate]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#delegate)
+* [Delegate]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#delegate)

@@ -14,7 +14,7 @@ nav_order: 3
 1. TOC
 {:toc}
 
-Console Applications are applications that execute within the console. When you developed Java applications in the previous level of programming, they too were executed in the console.
+When you developed Java applications in the previous level of programming, they executed in the console. Console Applications are applications that are executed within the **Command-line Interface (CLI)**. 
 
 In .NET, source code and other applications resources are managed within a Visual Studio Project. This is a much more structured approach to how you manually managed source code files in Java.
 
@@ -27,7 +27,7 @@ The easiest way to create a new Visual Studio Project, and thus a Visual Studio 
 ## Launch Window
 {: .no_toc}
 
-![Visual Studio Launch Window](../images/console-application-project/launch-screen.png){: .large }
+[![Visual Studio Launch Window](../images/console-application-project/launch-screen.png "Visual Studio Launch Window"){: .large }](../images/console-application-project/launch-screen.png)
 
 Click the **Create a new project** button to start configuring a new project.
 
@@ -36,11 +36,11 @@ Click the **Create a new project** button to start configuring a new project.
 
 The next part of the project creation process is to choose a project type. There are many templates to create starting points for certain types of projects. These templates will include assembly references, build configurations, source code files and resources.
 
-![Choose Project Template Window](../images/console-application-project/choose-project-template-screen.png){: .large }
+[![Choose Project Template Window](../images/console-application-project/choose-project-template-screen.png "Choose Project Template Window"){: .large }](../images/console-application-project/choose-project-template-screen.png){: target="_blank"}
 
-The project type you want to use for creating a console application in this course is called "Console App (.NET Framework)". Ensure that you are choosing the project template that is specifically for C#. In the image above, you can see that the selected project on the right has "C#" listed as one of the tags for the project template.
+The project type you want to use for creating a console application in this course is called **Console App (.NET Framework)**. Ensure that you are choosing the project template that is specifically for C#. In the image above, you can see that the selected project on the right has "C#" listed as one of the tags for the project template.
 
-When choosing a project template, read carefully.<br /><br /> There is typically more than one project template called "Console App (.NET Framework)". For example, there is a project called "Console App (.NET Framework)" but is configured to work with the Visual Basic programming language, as noted by the "Visual Basic" tag. Also, there are many project templates labeled as "Console App". You want to choose the project template that ends with "(.NET Framework)".
+When choosing a project template, read carefully.<br /><br /> There is typically more than one project template called **Console App (.NET Framework)**. For example, there is a project called "Console App (.NET Framework)" but is configured to work with the Visual Basic programming language, as noted by the "Visual Basic" tag. Also, there are many project templates labeled as "Console App". You want to choose the project template that ends with "(.NET Framework)".
 {: .alert .alert-error}
 
 Depending on how you installed Visual Studio, the number of project templates listed can be quite large. Use the search input to filter the list.
@@ -50,15 +50,15 @@ Depending on how you installed Visual Studio, the number of project templates li
 
 Next, you'll need to configure the project.
 
-![Configure Project Window](../images/console-application-project/configure-project-screen.png){: .large }
+[![Configure Project Window](../images/console-application-project/configure-project-screen.png "Configure Project Window"){: .large }](../images/console-application-project/configure-project-screen.png){: target="_blank"}
 
 Modify the following:
 
 * **Project Name** - Names the project directory and will be the default namespace for all project files.
 * **Location** - Sets the directory where the solution/project will be saved.
 * **Solution Name** - Names the solution directory. Changing the Project Name will automatically update the Solution Name, but can be changed to meet your needs.
-    - Uncheck "Place solution and project in the same directory".
-* **Framework** - Always use ".NET Framework 4.7.2".
+    - Uncheck **Place solution and project in the same directory**.
+* **Framework** - Always use **.NET Framework 4.7.2**.
 
 Click the **Create** button to create the project.  This will create all the directories and files required for the project type you selected and launch the Visual Studio Solution.
 
@@ -69,12 +69,12 @@ Double check your inputs before clicking "Create". Some of these choices cannot 
 
 If you navigate to the location you created the project to, you'll find the solution directory for the project you created.
 
-![Save Directory](../images/console-application-project/repo-directory.png){: .large }
+[![Save Directory](../images/console-application-project/repo-directory.png "Save Directory"){: .large }](../images/console-application-project/repo-directory.png)
 
 ## Solution Directory
 {: .no_toc .mb-3}
 
-![Solution Directory](../images/console-application-project/solution-directory.png){: .large }
+[![Solution Directory](../images/console-application-project/solution-directory.png "Solution Directory"){: .large }](../images/console-application-project/solution-directory.png){: target="_blank"}
 
 The solution directory contains:
 
@@ -84,27 +84,27 @@ The solution directory contains:
 ## Project Directory
 {: .no_toc .mb-3}
 
-![Project Directory](../images/console-application-project/project-directory.png){: .large }
+[![Project Directory](../images/console-application-project/project-directory.png "Project Directory"){: .large }](../images/console-application-project/project-directory.png)
 
 The project directory contains:
 
-* **bin Directory** - Where the resulting files of a successful project build are stored.
-* **obj Directory** - This directory can be ignored. We won't be using it in this course.
-* **Properties Directory** - This is another directory that can be ignored.
+* **bin Directory** - Contains binary files. These are the application or library assemblies generated during a successful project build.
+* **obj Directory** - Contains compiled binary files that haven't been linked yet and will later be combined to produce the assembly file stored in the _bin_ directory.
+* **Properties Directory** - Contains information about the project. This information can viewable and editable in Visual Studio.
 * **MS Build File (.csproj) File** - The MSBuild file for the Visual Studio project.
-* **App.config** - An XML file that can be used to store settings for you application.
+* **App.config** - An XML file that can be used to store settings for your application.
 * **Program.cs** - A file that ends with .cs is a C# Source Code file. This file contains a class called `Program` and is created by default because of the project template that was chosen when creating the project.
 
 ## Visual Studio Solution Explorer
 
-![Solution Explorer](../images/console-application-project/solution-explorer.png){: .large }
+[![Solution Explorer](../images/console-application-project/solution-explorer.png "Solution Explorer"){: .large }](../images/console-application-project/solution-explorer.png)
 
 When the newly created class library project is loaded into Visual Studio, the Solution Explorer will contain the following:
 
-* **Properties** - This node can be ignored.
+* **Properties** - Represents the Properties directory within the project. This node can be ignored.
 * **References** - This node contains the project references to other class libraries.
 * **App.config** - The application configuration file.
-* **Class1.cs** - The source code file _Class1.cs_ that contains the `Class1` class.
+* **Program.cs** - The source code file _Program.cs_ that contains a class declared as `Program`.
 
 In a future topic, you will learn how to add references to other class libraries to your VS projects.
 {: .alert .alert-future-lesson}
@@ -115,7 +115,7 @@ In a future topic, you will learn how to add references to other class libraries
 
 On a successful build of a Console Application Project, the following files will be generated in the **bin\Debug** directory within the Project directory.
 
-![Debug Directory](../images/console-application-project/debug-directory.png){: .large }
+[![Debug Directory](../images/console-application-project/debug-directory.png "Debug Directory"){: .large }](../images/console-application-project/debug-directory.png)
 
 The files you see in the screenshot above are:
 

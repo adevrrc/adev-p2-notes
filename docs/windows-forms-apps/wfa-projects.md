@@ -32,47 +32,47 @@ Creating a Windows Forms Application project follows the [same steps as a Consol
 
 When you get to the **Create a new project** window, the project type you want to choose is called "Windows Forms App (.NET Framework)". You can use the search to filter the list.
 
-![Create Class Library Project](../images/wfa-projects/create-new-project.png){: .large }
+[![Create Class Library Project](../images/wfa-projects/create-new-project.png "Create Class Library Project"){: .large }](../images/wfa-projects/create-new-project.png)
 
 ### Solution Directory
 {: .no_toc }
 
-![Solution Directory](../images/wfa-projects/solution-directory.png){: .large }
+[![Solution Directory](../images/wfa-projects/solution-directory.png "Solution Directory"){: .large }](../images/wfa-projects/solution-directory.png)
 
 The solution directory contains:
 
-- **Project Directory** - You will see one directory for each project in the solution. New solutions will only contain one project and thus will have one project directory.
-- **Solution File (.sln)** - A file that ends with the file extension .sln. The .sln file contains information the Visual Studio environment needs to find and load the solution's associated projects and resources.
+* **Project Directory** - You will see one directory for each project in the solution. New solutions will only contain one project and thus will have one project directory.
+* **Solution File (.sln)** - A file that ends with the file extension .sln. The .sln file contains information the Visual Studio environment needs to find and load the solution's associated projects and resources.
 
 ### Project Directory
 {: .no_toc }
 
-![Project Directory](../images/wfa-projects/project-directory.png){: .large }
+[![Project Directory](../images/wfa-projects/project-directory.png "Project Directory"){: .large }](../images/wfa-projects/project-directory.png)
 
 The project directory contains:
 
-- **bin Directory** - Where the resulting files of a successful project build are stored.
-- **obj Directory** - This directory can be ignored. We won't be using it in this course.
-- **Properties Directory** - This is another directory that can be ignored.
-- **MS Build File (.csproj) File** - The MSBuild file for the Visual Studio project.
-- **App.config** - An XML file that can be used to store settings for you application.
-- **Form1.cs** - This file contains a class called `Form1` and is created by default because of the project template that was chosen when creating the project.
-- **Form1.Designer.cs** - The file also contains part of the `Form1` class. This file is used by Visual Studio when designing the form.
-- **Program.cs** - This file contains the `Program` class.
+* **bin Directory** - Contains binary files. These are the application or library assemblies generated during a successful project build.
+* **obj Directory** - Contains compiled binary files that haven't been linked yet and will later be combined to produce the assembly file stored in the _bin_ directory.
+* **Properties Directory** - Contains information about the project. This information can viewable and editable in Visual Studio.
+* **MS Build File (.csproj) File** - The MSBuild file for the Visual Studio project.
+* **App.config** - An XML file that can be used to store settings for you application.
+* **Form1.cs** - This file contains a class called `Form1` and is created by default because of the project template that was chosen when creating the project.
+* **Form1.Designer.cs** - The file also contains part of the `Form1` class. This file is used by Visual Studio when designing the form.
+* **Program.cs** - This file contains the `Program` class.
 
 `Form1` is not an appropriate name for a class. You should rename this file and the class identifier within it.
 {: .alert .alert-error}
 
 ## Visual Studio Solution Explorer
 
-![Solution Explorer](../images/wfa-projects/solution-explorer.png){: .large }
+[![Solution Explorer](../images/wfa-projects/solution-explorer.png "Solution Explorer"){: .large }](../images/wfa-projects/solution-explorer.png)
 
 When the newly created class library project is loaded into Visual Studio, the Solution Explorer will contain the following:
 
-- **Properties** - This node can be ignored.
-- **References** - This node contains the project references to other class libraries.
-- **App.config** - The application configuration file.
-- **Form1.cs** - The source code file _Form1.cs_ that contains the `Form1` class.
+* **Properties** - Represents the Properties directory within the project. This node can be ignored.
+* **References** - This node contains the project references to other class libraries.
+* **App.config** - The application configuration file.
+* **Form1.cs** - The source code file _Form1.cs_ that contains the `Form1` class.
 
 ## Building the Project
 
@@ -80,7 +80,7 @@ When the newly created class library project is loaded into Visual Studio, the S
 
 On a successful build of a Windows Forms Application Project, the following files will be generated in the **bin\Debug** directory within the Project directory.
 
-![Debug Directory](../images/wfa-projects/debug-directory.png){: .large }
+[![Debug Directory](../images/wfa-projects/debug-directory.png "Debug Directory"){: .large }](../images/wfa-projects/debug-directory.png)
 
 The files you see in the screenshot above are:
 
@@ -117,21 +117,21 @@ The `Program` class is part of the Windows Forms Application project template an
 
 If you were to execute a new Windows Forms Application without writing any code, this is what you would get:
 
-![New Windows Form App](../images/wfa-projects/blank-form.png){: .large }
+[![New Windows Form App](../images/wfa-projects/blank-form.png "New Windows Form App"){: .large }](../images/wfa-projects/blank-form.png)
 
 A Winform application will execute while the `Form` instance passed to the `Run(Form)` method is open. When you create a new project, the `Form` object is an instance of the `Form1` class.
 
 Because a Winform application is event-driven, the functionality of the program is developed within `Form` classes.
 
-The Windows Forms Application project template creates one `Form` class called `Form1`. The first thing you need to do is rename this class. The standard `Form` classes is the same as other classes, exception the identifier will always end with "Form". To rename the class, right-click the **Form1.cs** node in the Solution Explorer, and choose **Rename** from the context menu. Enter a new file name in the follow format: _ClassName.cs_. For example, if the purpose of the form was to display a "Hello world" message, the file could be called _HelloWorldForm.cs_. After editing the file name, a dialog window will appear asking you whether you want to update all references to class. Click the **Yes** button to update the references.
+The Windows Forms Application project template creates one `Form` class called `Form1`. The first thing you need to do is rename this class. The standard for `Form` class identifiers is the same as other classes, except the identifier will always end with "Form". To rename the class, right-click the **Form1.cs** node in the Solution Explorer, and choose **Rename** from the context menu. Enter a new file name in the following format: _ClassName.cs_. For example, if the purpose of the form was to display a "Hello world" message, the file could be called _HelloWorldForm.cs_. After editing the file name, a dialog window will appear asking you whether you want to update all references to the class. Click the **Yes** button to update the references.
 
-![Update References Dialog](../images/wfa-projects/update-references-dialog.png){: .large }
+[![Update References Dialog](../images/wfa-projects/update-references-dialog.png "Update References Dialog"){: .large }](../images/wfa-projects/update-references-dialog.png)
 
 Form class identifiers should always end with the word "Form".
 {: .alert .alert-note }
 
 ## Adding Additional Forms
 
-To add a Form to your WFA project, right-click the project node in Solution Explorer and choose **Add > New Item...**. In the **Add New Item** dialog window, select the **Windows Forms** in the category list on the left. This will filter the template list. Choose the **Form (Windows Forms)** template, name the file name and click the **Add** button.
+To add a `Form` to your WFA project, right-click the project node in Solution Explorer and choose **Add > New Item...**. In the **Add New Item** dialog window, select the **Windows Forms** in the category list on the left. This will filter the template list. Choose the **Form (Windows Forms)** template, name the file name and click the **Add** button.
 
-![Add New Form](../images/wfa-projects/add-new-item.png){: .large }
+[![Add New Form](../images/wfa-projects/add-new-item.png "Add New Form"){: .large }](../images/wfa-projects/add-new-item.png)

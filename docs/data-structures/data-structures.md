@@ -8,21 +8,21 @@ nav_order: 7
 
 The section will help you answer the following questions:
 
-- What is a data structure?
-- What are the commonly used data structures?
-- How do data structures differ from one another?
+* What is a data structure?
+* What are the commonly used data structures?
+* How do data structures differ from one another?
 
 ## Learning Objectives
 
-- Learn array basics.
-- Understand the difference between standard and generic collections.
-- Explore collection types: List, Dictionary, SortedList, Stack, Queue.
+* Learn array basics.
+* Understand the difference between standard and generic collections.
+* Explore collection types: List, Dictionary, SortedList, Stack, Queue.
 
 **Data Structures** are a means of organizing and storing data such that we can perform operations on the data efficiently. There are many types of data structures, each of which are used for a specific task.
 
 ## Arrays
 
-An array  is a data structure of fixed size that store items of a single type. Arrays are indexed. This allows elements to be randomly accessed.
+An **array** is a data structure of fixed size that store items of a single type. Arrays are indexed, which allows elements to be randomly accessed.
 
 ```csharp
 double[] grades;
@@ -44,7 +44,7 @@ foreach(double temperature in temperatures)
 }
 ```
 
-Inserting and deleting elements is not possible because arrays are a fixed size. You can however create a new array, using the elements of an array, with more or less elements.
+Inserting and deleting elements is not possible because arrays are a fixed size. However, you can create a new array with more or less elements, using the elements of the original array.
 {: .alert .alert-warning }
 
 The `System.Array` class defines methods for working with arrays.
@@ -125,7 +125,7 @@ spells.Clear();
 
 ## SortedList<TKey, TValue>
 
-Represents a collection of key/value pairs that are sorted by key based on the associated `IComparer<T>` implementation. The `SortedList` will sort elements by key. Keys are sorted based on how objects of that type are sorted. Each time an element is added the `SortedList` will reorder its elements.
+Represents a collection of key/value pairs that are sorted by key based on the associated `IComparer<T>` implementation. The `SortedList` will sort elements by key. Keys are sorted based on how objects of that type are sorted. Each time an element is added to the `SortedList`, the elements will be reordered.
 
 ```csharp
 SortedList<string, decimal> menuItems = new SortedList<string, decimal>();
@@ -208,9 +208,9 @@ enemies.Clear();
 
 ## Further Reading
 
-- [Collections](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections){: target="_blank" }
-- [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1){: target="_blank" }
-- [Dictionary](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2){: target="_blank" }
-- [SortedList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2){: target="_blank" }
-- [Stack](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1){: target="_blank" }
-- [Queue](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1){: target="_blank" }
+* [Collections](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/collections){: target="_blank" }
+* [List](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1){: target="_blank" }
+* [Dictionary](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2){: target="_blank" }
+* [SortedList](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sortedlist-2){: target="_blank" }
+* [Stack](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1){: target="_blank" }
+* [Queue](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1){: target="_blank" }

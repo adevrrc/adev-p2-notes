@@ -11,7 +11,7 @@ Represents a Windows up-down control (spin box) that displays numeric values.
 
 ## Usage
 
-A NumericUpDown control is an input control used for a single numeric value. It can be incremented or decremented by clicking the up or down buttons on the control. A value can also be entered in the text area of the control.
+A `NumericUpDown` control is an input control used for a single numeric value. It can be incremented or decremented by clicking the up or down buttons on the control. A value can also be entered in the text area of the control.
 
 ## Notable Class Members
 
@@ -29,7 +29,7 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 
 ### Events
 
-* **ValueChanged** - Occurs when the Value property has been changed in some way.
+* **ValueChanged** - Occurs when the `Value` property has been changed in some way.
 
 ## Further Reading
 

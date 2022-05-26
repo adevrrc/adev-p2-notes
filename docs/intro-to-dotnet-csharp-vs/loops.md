@@ -80,13 +80,18 @@ The average grade is 56.
 ## While Loop
 
 ```csharp
-
+while((fileInput = file.ReadLine()) != null)
+{
+    Console.WriteLine(fileInput);
+}
 ```
 
 Output:
 
 ```text
-
+1,Blue,Monday
+2,Red,Tuesday
+3,Green,Wednesday
 ```
 
 ## ForEach Loop
@@ -146,4 +151,4 @@ A
 
 ## Further Reading
 
-- [Iteration Statements](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements){: target="_blank"}
+* [Iteration Statements](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements){: target="_blank"}

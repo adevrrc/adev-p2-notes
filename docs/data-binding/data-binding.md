@@ -19,10 +19,9 @@ The section will help you answer the following questions:
 * Explain the role of data binding in a Windows Forms Application.
 * Develop a Form class that uses data binding.
 
-![Data Binding](../images/data-binding/data-binding.png){: .large .inline }
-
 **Data Binding** is a Windows Forms technique that allows you to connect Form Controls to almost any structure that contains data. The benefit of data binding is that you will write less code to  manage the state of the Form's Controls as it relates to the data it works with. This means when you change the data, the Control will update and vice versa. You can bind any property of any control to properties of any object type within the data source.
 
+[![Data Binding](../images/data-binding/data-binding.png "Data Binding"){: .large }](../images/data-binding/data-binding.png)
 
 There are two types of Data Binding:
 

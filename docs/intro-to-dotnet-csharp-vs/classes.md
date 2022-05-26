@@ -47,6 +47,8 @@ namespace ADEV.Education
         private string name;
         private int identificationNumber;
 
+        // Constructor methods
+
         // Methods
     }
 }
@@ -106,11 +108,11 @@ The call to another constructor method is done after the declaration of the cons
 
 In the previous programming level, you learned that when classes derive from other classes, you can override the implementation of a **base class** method in the **derived class**.  To be able to override a method in any OOP language, the base class method must be declared as **virtual** and the derived class must include a method with the same identifier and signature.
 
-In Java, all methods are declared as virtual. To override a base class method, you simply declare a method in the derived class with the same identifier and signature.
+In Java, all methods are `virtual`. To override a base class method, you simply declare a method in the derived class with the same identifier and signature.
 
-In C#, not all methods are virtual. Also, you must specify when a method is overriding versus just creating another method with the same name and signature.
+In C#, methods are not `virtual` by default. Also, you must specify when a method is overriding versus just creating another method with the same name and signature.
 
-You will see in a later topic how to declare a method as virtual.
+You will see in a later topic how to declare a method as `virtual`.
 {: .alert .alert-future-lesson}
 
 The following example will override the `ToString()` implementation inherited from the `System.Object` class.
@@ -137,4 +139,4 @@ Documentation is required for each class and all of the class' members (except f
 
 ## Further Reading
 
-- [Introduction to Classes](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes){: target="_blank"}
+* [Introduction to Classes](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes){: target="_blank"}

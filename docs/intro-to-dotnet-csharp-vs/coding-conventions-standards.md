@@ -16,7 +16,7 @@ nav_order: 6
 
 All programmers are required to follow standards. A standard is an accepted way of doing something. Although programming standards do not need to be followed in order for your source code to produce its expected results, there are many reasons why you should follow programming standards.
 
-Standards ensure that the development of source code in a specific language is done in the same way by everyone. This makes working with other's code much easier, since it is written in a way that is already familiar to you. The problem with standards is they are not consistent. Standards can vary between organizations, organizational departments, and supervisors in an organization, schools, programs and instructors.
+Standards ensure that the development of source code in a specific language is done in the same way by everyone. This makes working with code you haven't written much easier, since it is written in a way that is already familiar to you. The problem with standards is they are not consistent. Standards can vary between organizations, organizational departments, and supervisors in an organization, schools, programs and instructors.
 
 In this course, instructors have developed a general set of standards that all students will be expected to follow.
 
@@ -253,11 +253,8 @@ multiplier=(sum>10)?3:8;
 The use of whitespace (blank lines) also helps improve readability. The standards for whitespace are as follows:
 
 * If the class has `using` statements, there are no blank lines between each `using` statement.
-
 * A blank line (line 2 in the example below) must be placed before the documentation for the class if there are import statements.
-
 * There are no blank lines between a class or method and its documentation.
-
 * Leave a blank line (line 15 in the example below) before the documentation of a method, expect if it's the first method in the class.
 
 ```csharp

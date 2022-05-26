@@ -11,7 +11,7 @@ Represents a Windows control used to group controls.
 
 ## Usage
 
-A Panel is similar to a [GroupBox]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/groupbox/), but does not have a border or caption.
+A `Panel` is similar to a [GroupBox]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/groupbox/), but does not have a border or caption.
 
 ## Further Reading
 

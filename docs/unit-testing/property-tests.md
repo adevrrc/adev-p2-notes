@@ -55,8 +55,8 @@ public void SetAmountOfMoney_NegativeAmount_Exception()
 
 **Notes**:
 
-- The `Assert.ThrowsException()` method is used since an exception is expected to occur and the state of the exception is verified.
-- In most cases, when an exception is thrown in a `set` accessor, the state should not change to the invalid value. The final `Assert` statement verifies this.
+* The `Assert.ThrowsException()` method is used since an exception is expected to occur and the state of the exception is verified.
+* In most cases, when an exception is thrown in a `set` accessor, the state should not change to the invalid value. The final `Assert` statement verifies this.
 
 ## Example 2 - Set Accessor Valid Value
 
@@ -96,9 +96,9 @@ public void SetAmountOfMoney_ZeroAmount_UpdateState()
 
 **Notes**:
 
-- When testing a modification in state, the value you choose to change the state should be different than the initial value.
-- The variable `expected` is a recommended practice as it makes the `Assert` statement clearer.
-- Due to the result of the unit changing the state, accessing the `private` field is required to verify the test.
+* When testing a modification in state, the value you choose to change the state should be different than the initial value.
+* The variable `expected` is a recommended practice as it makes the `Assert` statement clearer.
+* Due to the result of the unit changing the state, accessing the `private` field is required to verify the test.
 
 ## Example 3 - Get Accessor
 
@@ -130,7 +130,7 @@ public void GetAmountOfMoney_ReturnsState()
 
 **Notes**:
 
-- `PrivateObject` should not be used in this test as no `private` member is accessed.
+* `PrivateObject` should not be used in this test as no `private` member is accessed.
 
 ## Auto-Implemented Property Tests
 

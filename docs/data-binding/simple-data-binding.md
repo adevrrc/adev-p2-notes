@@ -16,11 +16,11 @@ nav_order: 1
 
 **Simple Data Binding** is the ability of a Control to bind to a single data element. 
 
-![Simple Data Binding](../images/simple-data-binding/simple-data-binding.png){: .large }
+[![Simple Data Binding](../images/simple-data-binding/simple-data-binding.png "Simple Data Binding"){: .large }](../images/simple-data-binding/simple-data-binding.png)
 
-This type of Data Binding is typical for Controls like [TextBox]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/textbox/) and [Label]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/label/) that only display a single value.
+This type of Data Binding is typical for Controls like [TextBox]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/textbox/) and [Label]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/label/) which only display a single value.
 
-![Simple Data Binding TextBox Example](../images/simple-data-binding/textbox-data-binding.png){: .large }
+[![Simple Data Binding TextBox Example](../images/simple-data-binding/textbox-data-binding.png "Simple Data Binding TextBox Example"){: .large }](../images/simple-data-binding/textbox-data-binding.png)
 
 There are a few ways to setup a simple data bind. Assuming that your Form is designed and the data source is initialized, the recommended steps are:
 
@@ -32,7 +32,7 @@ There are a few ways to setup a simple data bind. Assuming that your Form is des
 
 The `BindingSource` object simplifies data binding. The `BindingSource` is an intermediary object between the data source and the Control. The `BindingSource` is bound to the data source and the Control is bound to the `BindingSource`. The advantage of `BindingSource` is that it provides change notification currency management and other data binding services.
 
-![BindingSource](../images/simple-data-binding/bindingsource.png){: .large }
+[![BindingSource](../images/simple-data-binding/bindingsource.png "BindingSource"){: .large }](../images/simple-data-binding/bindingsource.png)
 
 ## Binding Class
 
@@ -42,11 +42,11 @@ The `Binding` object provides access to binding that connects the target Control
 2. The data source (always a reference to the `BindingSource`).
 3. The identifier of the object's property within the data source.
 
-![Binding Class](../images/simple-data-binding/binding-object.png){: .large }
+[![Binding Class](../images/simple-data-binding/binding-object.png "Binding Class"){: .large }](../images/simple-data-binding/binding-object.png)
 
 ## Single Object Data Source
 
-![Simple Data Binding Example](../images/simple-data-binding/single-object-data-source.png){: .large }
+[![Simple Data Binding Example](../images/simple-data-binding/single-object-data-source.png "Simple Data Binding Example"){: .large }](../images/simple-data-binding/single-object-data-source.png)
 
 ```csharp
 public partial class SimpleBindExampleForm : Form
@@ -88,7 +88,7 @@ public partial class SimpleBindExampleForm : Form
 
 Output:
 
-![Simple Data Binding Example Output](../images/simple-data-binding/simple-bind-single-object-output.png){: .large }
+[![Simple Data Binding Example Output](../images/simple-data-binding/simple-bind-single-object-output.png "Simple Data Binding Example Output"){: .large }](../images/simple-data-binding/simple-bind-single-object-output.png)
 
 Once the simple data binding is setup you can see that the `Text` property of the `TextBox` is data bound as the data "Hello World" appears in the `TextBox`. In the code above, the `Text` property of the `TextBox` is never assigned. The `Binding` object handles updating the `Text` property.
 
@@ -105,7 +105,7 @@ The `BindingList` collection works the same as the `List` type, but supports two
 
 More often then not, the data you are working with will be stored in a collection. When the data source is a collection, the Controls will represent the data from the object referenced by the `Current` property of the `BindingSource`.
 
-![Simple Data Binding To Collection Example](../images/simple-data-binding/collection-data-source.png){: .large }
+[![Simple Data Binding To Collection Example](../images/simple-data-binding/collection-data-source.png "Simple Data Binding To Collection Example"){: .large }](../images/simple-data-binding/collection-data-source.png)
 
 ```csharp
 public partial class SimpleBindToCollectionForm : Form
@@ -151,7 +151,7 @@ public partial class SimpleBindToCollectionForm : Form
 
 Output:
 
-![Simple Data Binding To Collection Example Output](../images/simple-data-binding/simple-bind-to-collection-output.png){: .large }
+[![Simple Data Binding To Collection Example Output](../images/simple-data-binding/simple-bind-to-collection-output.png "Simple Data Binding To Collection Example Output"){: .large }](../images/simple-data-binding/simple-bind-to-collection-output.png)
 
 Once the simple data binding is setup you can see that the Controls are representing the data of the first `Response` object in the data source (collection). The `Current` property of the `BindingSource` will always reference the first element of a collection when you data bind the data source to the `BindingSource`.
 
@@ -196,11 +196,11 @@ public partial class SimpleBindToCollectionWithNavigationForm : SimpleBindToColl
 
 Output:
 
-![Simple Data Binding To Collection Example Output](../images/simple-data-binding/simple-bind-to-collection-output-next-button.png){: .large }
+[![Simple Data Binding To Collection Example Output](../images/simple-data-binding/simple-bind-to-collection-output-next-button.png "Simple Data Binding To Collection Example Output"){: .large }](../images/simple-data-binding/simple-bind-to-collection-output-next-button.png)
 
 After clicking the **Next** Button, you can see that the Controls reflect the data of the second `Response` object in the data source. The `MovePrevious()`, `MoveNext()`, `MoveFirst()`, and `MoveLast()` methods of the `BindingSource` class, update which object in the data source `Current` references.
 
-![Simple Data Binding To Collection Example](../images/simple-data-binding/collection-data-source-current.png){: .large }
+[![Simple Data Binding To Collection Example](../images/simple-data-binding/collection-data-source-current.png "Simple Data Binding To Collection Example"){: .large }](../images/simple-data-binding/collection-data-source-current.png)
 
 
 ## When Data Binding Doesn't Make Sense
@@ -252,8 +252,8 @@ It is recommended to handle events like `BindingSource.CurrentChanged` after set
 
 The above example uses two `BindingSource` properties: 
 
-* `Position` - Gets or sets the index of the current item in the underlying list.
-* `Count` - Gets the total number of items in the underlying list, taking the current Filter value into consideration.
+* **Position** - Gets or sets the index of the current item in the underlying list.
+* **Count** - Gets the total number of items in the underlying list, taking the current Filter value into consideration.
 
 ## Formatting
 

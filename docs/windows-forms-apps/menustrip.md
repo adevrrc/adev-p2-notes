@@ -11,29 +11,29 @@ Provides a menu system for a form.
 
 ## Usage
 
-A MenuStrip is a container control for building a textual menu, normally docked to the top of a form. A MenuStrip manages a collection of ToolStripMenuItem, ToolStripTextBox and ToolStripComboBox items.
+A `MenuStrip` is a container control for building a textual menu, normally docked to the top of a `Form`. A `MenuStrip` manages a collection of `ToolStripMenuItem`, `ToolStripTextBox` and `ToolStripComboBox` items.
 
-A MenuStrip will contain most, if not all, the tasks the application can perform.
+A `MenuStrip` will contain most, if not all, the tasks the application can perform.
 
-When you add a MenuStrip to a Form, you will visually see an item on the form that allows you to build the menu visually. The reference to the MenuStrip instance is in the component panel below the form designer.
+When you add a `MenuStrip` to a Form, you will visually see an item on the form that allows you to build the menu visually. The reference to the `MenuStrip` instance is in the component panel below the form designer.
 
 ### Adding Menu Items
 
-Items are added to a MenuStrip using form designer. Simply click the text area where you see the placeholder text "Type Here". Then type in the text for the menu item.
+Items are added to a `MenuStrip` using form designer. Simply click the text area where you see the placeholder text "Type Here". Then type in the text for the menu item.
 
-![Adding a Menu Item By Typing Text](../images/menustrip-type-here.png){:.large}
+[![Adding a Menu Item By Typing Text](../images/menustrip/menustrip-type-here.png "Adding a Menu Item By Typing Text"){:.large}](../images/menustrip/menustrip-type-here.png)
 
 Each menu item you add is a control on the form and will require a `Name` prefixed with "mnu".
 
 Items can also be added using the drop-down control in form designer.
 
-![Adding a Menu Item By Using the Drop-Down](../images/menustrip-add-dropdown.png){:.large}
+[![Adding a Menu Item By Using the Drop-Down](../images/menustrip/menustrip-add-dropdown.png "Adding a Menu Item By Using the Drop-Down"){:.large}](../images/menustrip/menustrip-add-dropdown.png)
 
 ### Menu Access Key
 
 Menu access keys allow you to access menu items with a keyboard only. The user will press the <kbd>Alt</kbd> in combination with the predefined access key.
 
-To define an access key for a menu item, add an ampersand ("&") before a letter in the text value.
+To define an access key for a menu item, add an ampersand (&) before a letter in the text value.
 
 For more information, see [How to: Create Access Keys for Windows Forms Controls](https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/how-to-create-access-keys-for-windows-forms-controls){: target="_blank"}.
 
@@ -41,7 +41,7 @@ For more information, see [How to: Create Access Keys for Windows Forms Controls
 
 A separator bar represents a line used to group related items in a menu strip.  In the image below, the separator bar is the gray line between the "Open" and "Exit" menu items.
 
-![Menu Item With Ellipsis](images/menustrip-item-ellipsis.png){:.large}
+[![Menu Item With Ellipsis](images/menustrip/menustrip-item-ellipsis.png "Menu Item With Ellipsis"){:.large}](images/menustrip/menustrip-item-ellipsis.png)
 
 You can add a separator bar in design view by choosing it from the drop-down list or by typing a hyphen (-) in the "Type Here" input area.  By doing this, an instance of the [ToolStripSeparator](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.toolstripseparator){: target="_blank"} class is added to the form.
 
@@ -77,7 +77,7 @@ There are also standards for accessor keys. For example, using <kbd>Alt + F</kbd
 
 Menu items that open a modal dialog window will always include a "..." (ellipsis) at the end of their text. This is a visual cue to the user that they should expect a modal window to appear.
 
-![Menu Item With Ellipsis](../images/menustrip/menustrip-item-ellipsis.png){:.large}
+[![Menu Item With Ellipsis](../images/menustrip/menustrip-item-ellipsis.png "Menu Item With Ellipsis"){:.large}](../images/menustrip/menustrip-item-ellipsis.png)
 
 ## Notable MenuStrip Class Members
 
@@ -91,13 +91,13 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 
 ### Properties
 
-* **Image** - Gets or sets the image that is displayed on a ToolStripItem.
-* **ShortcutKeys** - Gets or sets the shortcut keys associated with the ToolStripMenuItem.
+* **Image** - Gets or sets the image that is displayed on a `ToolStripItem`.
+* **ShortcutKeys** - Gets or sets the shortcut keys associated with the `ToolStripMenuItem`.
 * **Text** - Gets or sets the text that is to be displayed on the item.
 
 ### Events
 
-* **Click** - Occurs when the ToolStripItem is clicked.
+* **Click** - Occurs when the `ToolStripItem` is clicked.
 
 ## Further Reading
 

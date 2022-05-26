@@ -11,7 +11,7 @@ Represents a Windows control that groups controls in a frame with a caption.
 
 ## Usage
 
-A GroupBox control is a container control that groups related controls. A typical example of using a GroupBox is for a set of RadioButtons.
+A `GroupBox` control is a container control that groups related controls. A typical example of using a `GroupBox` is for a set of `RadioButtons`.
 
 A GroupBox's caption is optional.
 

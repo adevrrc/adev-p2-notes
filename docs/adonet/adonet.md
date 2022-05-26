@@ -132,7 +132,7 @@ An exception will be generated when opening a connection if the `ConnectionStrin
 
 ## Command
 
-A command object is used to represent an SQL statement to execute against the data source.
+A command object is used to represent a SQL statement to execute against the data source.
 
 ### Notable Members
 
@@ -166,7 +166,7 @@ A DataAdapter must have an initialized `SelectCommand` to `Fill()` a [DataSet](#
 
 ## CommandBuilder
 
-The CommandBuilder automatically generates single-table commands used to reconcile changes made to a `DataSet` with the associated database. When a command builder is initialized with a `DataAdapter` whose `SelectCommand` is set, the command builder can create Commands for Insert, Update and Delete based on the `SelectCommand` schema.
+The CommandBuilder automatically generates single-table commands used to reconcile changes made to a `DataSet` with the associated database. When a command builder is initialized with a `DataAdapter` whose `SelectCommand` is defined, the `CommandBuilder` can create Commands for Insert, Update and Delete based on the `SelectCommand` schema.
 
 ### Notable Members
 

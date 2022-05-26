@@ -153,7 +153,7 @@ public class Student
 }
 ```
 
-The event handler method would include the custom EventArgs as the second parameter type.
+The event handler method would include the custom `EventArgs` as the second parameter type.
 
 ```csharp
 static void Student_AverageBelowFail(object sender, AverageBelowFailEventArgs e)
@@ -164,8 +164,8 @@ static void Student_AverageBelowFail(object sender, AverageBelowFailEventArgs e)
 
 ## Documentation
 
-- [Event Handler Methods]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#event-handler-methods)
+* [Event Handler Methods]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples/#event-handler-methods)
 
 ## Further Reading
 
-- [Handle and Raise Events](https://docs.microsoft.com/en-us/dotnet/standard/events/){: target="_blank" }
+* [Handle and Raise Events](https://docs.microsoft.com/en-us/dotnet/standard/events/){: target="_blank" }

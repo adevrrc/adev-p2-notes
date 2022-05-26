@@ -70,7 +70,7 @@ If you are receiving the "CS7036: There is no argument given that corresponds to
 
 ## Virtual Methods and Properties
 
-In Java, all methods are declared as _virtual_ by default. A method must be declared as `virtual` to allow it to be overridden in a derived class. In C#, methods and properties are not virtual by default. To allow a method or property to be overridden, you must declare it using the `virtual` keyword.
+A **virtual method** is a inheritable and overridable method. In Java, all non-static methods are  _virtual_. In C#, methods and properties are not `virtual` by default. To allow a method or property to be overridden, you must declare it using the `virtual` keyword.
 
 ```csharp
 public class Employee
@@ -136,7 +136,7 @@ public abstract class Employee
 }
 ```
 
-Abstract classes cannot be instantiated on their own.
+Abstract classes cannot be directly instantiated.
 {: .alert .alert-note}
 
 Methods and properties that cannot be implemented in the base class, are declared using the `abstract` keyword and do not have a code block.
@@ -160,7 +160,7 @@ public class CommissionEmployee : Employee
 }
 ```
 
-If the `GetPay()` method was coded as a property, it would look like:
+Properties can also be declared as `abstract`. If the `GetPay()` method was coded as a property, the property would need to be overridden in the concrete class.
 
 ```csharp
 public abstract class Employee
@@ -189,6 +189,6 @@ public class CommissionEmployee : Employee
 
 ## Further Reading
 
-- [Inheritance](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance){: target="_blank"}
-- [Virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual){: target="_blank"}
-- [Abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract){: target="_blank"}
+* [Inheritance](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/inheritance){: target="_blank"}
+* [Virtual](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual){: target="_blank"}
+* [Abstract](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract){: target="_blank"}

@@ -10,7 +10,7 @@ nav_order: 3
 
 Derived classes inherit the attributes of its base class. If you coded the base class, part of your testing will include verifying that an object's entire state is set.
 
-Consider the follow class hierarchy:
+Consider the following class hierarchy:
 
 ```csharp
 public abstract class Shape
@@ -49,4 +49,4 @@ public void Constructor_Color_Initialized()
 
 **Notes**:
 
-- Uses an overloaded version of the `PrivateObject` constructor. The second argument is a `PrivateType` instance to the base class `Shape`.
+* Uses an overloaded version of the `PrivateObject` constructor. The second argument is a `PrivateType` instance to the base class `Shape`.

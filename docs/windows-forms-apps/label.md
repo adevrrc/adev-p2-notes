@@ -11,9 +11,9 @@ Represents a standard Windows label.
 
 ## Usage
 
-Labels are an output control, typically used to provide descriptive text to other controls.
+**Labels** are an output control, typically used to provide descriptive text to other controls.
 
-A Label is part of the tab order of a form, but does not receive focus.
+A `Label` is part of the tab order of a form, but does not receive focus.
 
 ## Notable Class Members
 
@@ -30,7 +30,7 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 
 ### Events
 
-* **TextChanged** - Occurs when the Text property value changes.
+* **TextChanged** - Occurs when the `Text` property value changes.
 
 ## Further Reading
 

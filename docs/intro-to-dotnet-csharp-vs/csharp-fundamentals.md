@@ -8,7 +8,7 @@ nav_order: 4
 
 # C# Fundamentals
 
-C# (pronounced "see sharp") is a modern Object-Oriented Programming language. It is one of the most popular of the programming languages supported by the .NET.
+C# (pronounced "see sharp") is a modern Object-Oriented Programming language. It is one of the most popular of the programming languages supported by .NET.
 
 C# is a C-based language. It's syntax is influenced by other languages like C, C++, and Java. If you are comfortable developing in either of the aforementioned languages, you can already read C# code.
 
@@ -33,8 +33,8 @@ namespace ADEV.BIT.ADEV.RRC.Module1
 
 As you can see from the sample code above, C# has a very similar syntax to Java. Many of the keywords are the same. Some of the words are different, but based on context, you should have a good understanding what they represent.
 
-More often than not, the syntax you used to develop Java code will work in C#. The following will highlight the similarities and differences from Java. 
+More often than not, the syntax you used to develop Java code will work in C#. The topics in this section will highlight the similarities and differences between C# and Java. 
 
 ## Further Reading
 
-- [Tour of C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/){: target="_blank"}
+* [Tour of C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/){: target="_blank"}

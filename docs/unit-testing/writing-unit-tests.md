@@ -20,7 +20,7 @@ After creating the test plan, you are now ready to start developing your unit te
 
 ## Unit Test Classes
 
-Declaring a unit test class is similar to declaring a regular class. The use of the `TestClass` attribute denotes the class as contain unit tests. 
+Declaring a unit test class is similar to declaring a regular class, but it includes the `[TestClass]` attribute. The use of the `[TestClass]` attribute is what differentiates a test class from just a regular class.
 
 ```csharp
 namespace ADEV.UnitTesting
@@ -33,7 +33,7 @@ namespace ADEV.UnitTesting
 }
 ```
 
-If your unit test class is missing the `TestClass` attribute, the Test Explorer will not recognize the class as containing unit tests.
+If your unit test class is missing the `[TestClass]` attribute, the Test Explorer will not recognize the class as containing unit tests.
 {: .alert .alert-error }
 
 ### Naming Convention
@@ -42,9 +42,9 @@ Unit test class identifiers are named by using the class name of the class you a
 
 ## Unit Test Methods
 
-You will code unit test methods within the a class with the `TestClass` attribute. As a general guideline, you will write one unit test method per test case in your test plan.
+You will code unit test methods within a class with the `[TestClass]` attribute. As a general guideline, you will write one unit test method per test case in your test plan.
 
-Unit test methods are declared and defined like other methods. The use of the `TestMethod` attribute denotes the method is a unit test method. 
+Unit test methods are declared and defined like other methods. The use of the `[TestMethod]` attribute denotes the method is a unit test method. 
 
 ```csharp
 namespace ADEV.UnitTesting
@@ -61,7 +61,7 @@ namespace ADEV.UnitTesting
 }
 ```
 
-If your unit test method is missing the `TestMethod` attribute, the Test Explorer will not recognize the method as a unit tests method.
+If your unit test method is missing the `[TestMethod]` attribute, the Test Explorer will not recognize the method as a unit tests method.
 {: .alert .alert-error }
 
 ### Naming Convention
@@ -87,23 +87,24 @@ namespace ADEV.UnitTesting
 
 ## AAA Pattern
 
-The AAA (Arrange, Act, Assert) is a common pattern for writing unit test methods.
+The **AAA (Arrange, Act, Assert) pattern** is a common pattern for writing unit test methods.
 
-- The **Arrange** part of the unit test defines test data and initializes an object used for the test.
-- The **Act** part of the test invokes the unit being tested under the conditions of the test case.
-- The **Assert** part of the test verifies that the unit being tested behaved as expected.
+* The **Arrange** part of the unit test defines test data and initializes an object used for the test.
+* The **Act** part of the test invokes the unit being tested under the conditions of the test case.
+* The **Assert** part of the test verifies that the unit being tested behaved as expected.
 
 ## Assert Class
 
 The `Assert` class contains a collection of methods to determine the result of a test. If the condition being tested is not met, an `AssertFailedException` is thrown.
 
-Common Method
+### Common Assert Class Method
+{: .no_toc }
 
-- **AreEqual(Object, Object)** - Tests whether the specified objects are equal and throws an exception if the two objects are not equal.
-- **AreNotEqual(Object, Object)** - Tests whether the specified values are unequal and throws an exception if the two values are equal. 
-- **IsTrue(Boolean)** - Tests whether the specified condition is `true` and throws an exception if the condition is `false`.
-- **IsFalse(Boolean)** - Tests whether the specified condition is `false` and throws an exception if the condition is `true`.
-- **ThrowsException&lt;T&gt;()** - Tests whether the code specified by delegate action throws exact given exception of type `T` (and not of derived type) and throws `AssertFailedException` if code does not throws exception or throws exception of type other than `T`. This method returns a reference to the exception the exception if one is thrown.
+* **AreEqual(Object, Object)** - Tests whether the specified objects are equal and throws an exception if the two objects are not equal.
+* **AreNotEqual(Object, Object)** - Tests whether the specified values are unequal and throws an exception if the two values are equal. 
+* **IsTrue(Boolean)** - Tests whether the specified condition is `true` and throws an exception if the condition is `false`.
+* **IsFalse(Boolean)** - Tests whether the specified condition is `false` and throws an exception if the condition is `true`.
+* **ThrowsException&lt;T&gt;()** - Tests whether the code specified by the delegate action throws exact given exception of type `T` (and not of derived type) and throws `AssertFailedException` if code does not throws exception or throws exception of type other than `T`. This method returns a reference to the exception the exception if one is thrown.
 
 All `Assert` methods will throw an `AssertFailedException` when the condition is not met. The result of the test is a fail.
 {: .alert .alert-note}
@@ -114,7 +115,7 @@ Many of the tests you will develop will involve verifying the state of an object
 
 In the testing you did prior to this topic, you would have normally called an accessor method to verify changes to state. This is no longer satisfactory, as one of your unit testing goals is to isolate the unit your are testing. This means you do not want to invoke other units of the class while testing a specific unit.
 
-### PrivateObject Class
+## PrivateObject Class
 
 The `PrivateObject` class represents a `public` "version" of an object. The class contains methods to accesses `private` fields, methods, and properties.
 
@@ -128,9 +129,9 @@ PrivateObject target = new PrivateObject(person);
 
 Use the following methods of the `PrivateObject` class:
 
-- `GetField(String) : Object` - Returns the value of the specified field.
-- `SetField(String, Object) : void` - Sets the specified field to the specified value.
-- `Invoke(String, Object[]) : Object` - Invokes the specified method. The `Object[]` represents the arguments. Returns the result of the method.
+* **GetField(String) : Object** - Returns the value of the specified field.
+* **SetField(String, Object) : void** - Sets the specified field to the specified value.
+* **Invoke(String, Object[]) : Object** - Invokes the specified method. The `Object[]` represents the arguments. Returns the result of the method.
 
 ```csharp
 PrivateObject target = new PrivateObject(person);
@@ -138,7 +139,7 @@ PrivateObject target = new PrivateObject(person);
 decimal actual = (decimal)target.GetField("amountOfMoney");
 ```
 
-### PrivateType Class
+## PrivateType Class
 
 The `PrivateType` class is used like `PrivateObject`, but is used for Static Classes.
 
@@ -162,13 +163,13 @@ Before you really dive into developing your unit tests, keep the following best 
 
 The following unit test method examples will follow the [sample test plan]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/sample-test-plan). Not every test case will be demonstrated here, as some of the test cases will produce similar unit test method implementation.
 
-- [Constructor Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/constructor-tests)
-- [Property Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/property-tests)
-- [Method Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/method-tests)
-- [Accessing Base Class Fields]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/accessing-base-class-fields)
+* [Constructor Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/constructor-tests)
+* [Property Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/property-tests)
+* [Method Tests]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/method-tests)
+* [Accessing Base Class Fields]({{ site.url }}{{ site.baseurl }}/docs/unit-testing/accessing-base-class-fields)
 
 ## Further Reading
 
-- [Assert Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert?view=visualstudiosdk-2022){: target="_blank" }
-- [PrivateObject Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.privateobject?view=visualstudiosdk-2022){: target="_blank" }
-- [PrivateType Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.privatetype?view=visualstudiosdk-2022){: target="_blank" }
+* [Assert Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert?view=visualstudiosdk-2022){: target="_blank" }
+* [PrivateObject Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.privateobject?view=visualstudiosdk-2022){: target="_blank" }
+* [PrivateType Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.privatetype?view=visualstudiosdk-2022){: target="_blank" }

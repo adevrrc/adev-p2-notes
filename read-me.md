@@ -23,7 +23,7 @@ The following are the features of these course notes:
 
 ## Documentation Conventions
 
-You will see the following marker throughout the course notes:
+You will see the following alerts throughout the course notes:
 {: .mb-1 }
 
 A note of important information about the topic.
@@ -35,7 +35,7 @@ Calls attention to techniques that will help you produce code that is cleaner, m
 Tips for exposing and removing defects in your code.
 {: .alert .alert-warning}
 
-Highlights common errors to help reduce the likeliness that you'll make them.
+Highlights common errors to help you avoid defects.
 {: .alert .alert-error}
 
 A concept that needs to be mentioned now, but will be discussed deeper in a future lesson.
@@ -57,7 +57,7 @@ internal class HelloWorld
 }
 ```
 
-Many of the code examples in these course notes to not contain proper documentation. They are omitted for clarity of the example. Ensure you are following the [Coding Conventions and Standards]({{ site.url}}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/coding-conventions-standards/) for all your graded course work.
+Many of the code examples in these course notes do not contain proper documentation. They are omitted for clarity of the example. Ensure you are following the [Coding Conventions and Standards]({{ site.url}}{{ site.baseurl }}/docs/intro-to-dotnet-csharp-vs/coding-conventions-standards/) for all your graded course work.
 {: .alert .alert-warning}
 
 ## Help Improve These Notes

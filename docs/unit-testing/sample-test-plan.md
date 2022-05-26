@@ -1,18 +1,20 @@
 ---
 layout: default
 title: Sample Test Plan
-nav_exclude: true
+parent: Test Planning
+grand_parent: Unit Testing
+nav_order: 1
 ---
 
 # Test Plan
 
 ## Introduction
 
-- Resource: Person Class
-- Version: 1.0
-- Created: 5/12/2022
-- Last Updated: 7/21/2022
-- Author(s): Kenny Omega
+* Resource: Person Class
+* Version: 1.0
+* Created: 5/12/2022
+* Last Updated: 7/21/2022
+* Author(s): Kenny Omega
 
 ## Test Cases
 

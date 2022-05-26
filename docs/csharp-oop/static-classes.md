@@ -16,7 +16,7 @@ nav_order: 4
 
 Up to this point, classes have been considered non-static classes. These classes were used to create instances of the type.
 
-Static classes are like non-static classes, except you cannot create instances of the type.
+**Static classes** are like non-static classes, except you cannot create instances of the type and the class cannot contain any instance members. A static class can only contain static class members.
 
 ## Declaring a Static Class
 
@@ -67,4 +67,4 @@ class Program
 
 ## Further Reading
 
-- [Static Classes and Static Class Members](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members){: target="_blank"}
+* [Static Classes and Static Class Members](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-classes-and-static-class-members){: target="_blank"}

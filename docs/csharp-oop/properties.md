@@ -16,9 +16,9 @@ nav_order: 2
 
 In the previous level of programming, you learned that:
 
-- fields define the attributes of objects of the type.
-- fields are declared with `private` access, following the Object-Oriented Programming principle of **Encapsulation**.
-- reading, writing and computing field values (_object state_) happens in **accessor** and **mutator** methods.
+* fields define the attributes of objects of the type.
+* fields are declared with `private` access, following the Object-Oriented Programming principle of **Encapsulation**.
+* reading, writing and computing field values (_object state_) happens in **accessor** and **mutator** methods.
 
 ```csharp
 public class Employee
@@ -37,7 +37,7 @@ public class Employee
 }
 ```
 
-A C# property is a class member that provides a mechanism to read, write or compute the value of a private field. In many cases, properties eliminates the need for accessor and mutator methods.
+A C# property is a class member that provides a mechanism to read, write or compute the value of a private field. In many cases, properties eliminate the need for accessor and mutator methods.
 
 ## Declaring and Defining Properties
 
@@ -65,7 +65,7 @@ public class Employee
 
 ### `get` Accessor
 
-To access an object's state, a properties must include a `get` accessor. A `get` accessor can include any type of statements, but must have a `return`.
+To access an object's state, a property must include a `get` accessor. A `get` accessor can include any type of statements, but must have a `return`.
 
 ```csharp
 get
@@ -129,6 +129,9 @@ public class Employee
 
 This example defines the `Name` property as a _read-only_ property. The property is considered read-only because without the `set` accessor a new state cannot be written to the object. Defining the property this way, the class itself won't be able to `set` the property.
 
+The C# language contains the keyword `readonly`, which has a different meaning than the _read-only_ described above. You won't use `readonly` in this course.
+{: .alert .alert-error}
+
 If an accessor is only required within the class, the `private` accessor modifier can be used.
 
 ```csharp
@@ -146,7 +149,7 @@ public class Employee
 
 This example also defines the `Name` property as read-only, but the class itself will be able to set the property.
 
-It is very rare for a property to be Write-only.
+It is very rare for a property to be _write-only_.
 {: .alert .alert-note}
 
 ## Using Properties
@@ -173,7 +176,7 @@ class Program
 
 ## Auto-Implemented Properties
 
-When the implementation of a property is only to assign a value or retrieve a value from a field without any additional logic, the property can be _auto-implemented_. An auto-implemented property's accessors will not have a block. Also, a field (called a _Backing Field_) is automatically created for the class. When the class is compiled, a backing field and implementation is created for the property.
+When the implementation of a property is only to assign a value or retrieve a value from a field without any additional logic, the property can be _auto-implemented_. An auto-implemented property's accessors will not have a block. Also, a field (called a **Backing Field**) is automatically created for the class. When the class is compiled, a backing field and implementation is created for the property.
 
 ```csharp
 public class Employee
@@ -186,7 +189,7 @@ public class Employee
 }
 ```
 
-You do not have access to the Backing Field.
+When a property is auto-implemented, you will not have access to the generated backing field. This includes in the class the property is declared within.
 {: .alert .alert-warning}
 
 If you are required to declare a field within the class, you will not be able to auto-implement the associated property.
@@ -220,5 +223,5 @@ public class Employee
 
 ## Further Reading
 
-- [Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties){: target="_blank"}
-- [Using Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties){: target="_blank"}
+* [Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties){: target="_blank"}
+* [Using Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties){: target="_blank"}

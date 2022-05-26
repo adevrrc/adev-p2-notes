@@ -19,7 +19,7 @@ nav_order: 2
 
 All the data types you are familiar with exist in C#:
 
-- byte, char, double, float, int, long, short
+* byte, char, double, float, int, long, short
 
 ### Boolean Type
 
@@ -44,7 +44,7 @@ Like Java, a floating-point literal (Ex. `34.23`) is considered a `double` type.
 
 ### Object Type
 
-Like Java, the `object` type is the base type for all reference types (just written without the capital 'O'). How the `object` type differs, is how it is the base type for all reference types and value types.
+Like Java, the `object` type is the base type for all types (just written without the capital 'O'). How the `object` type differs, is how it is the base type for all reference types and value types.
 
 ```csharp
 object widget;
@@ -58,17 +58,17 @@ In Java, the String type is referenced using the `String` class name. In C#, the
 string firstName = "Chris";`
 ```
 
-For the most part, you will not see any difference between the Java `String` and the C# `string`.
+For the most part, you will not see any difference between the Java `String` and the C# `string`, other than some of its method identifiers.
 
 It is best practice to be familiar with the members of the `string` type for any programming language you are developing with.
 {: .alert .alert-best-practices}
 
 ## Further Reading
 
-- [Integral Numeric Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types){: target="_blank"}
-- [Floating-point Numeric Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types){: target="_blank"}
-- [Built-in Numeric Conversions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions){: target="_blank"}
-- [Boolean Type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool){: target="_blank"}
-- [Character Type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char){: target="_blank"}
-- [String Interpolation](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated){: target="_blank"}
-- [String Verbatim Token](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim){: target="_blank"}
+* [Integral Numeric Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types){: target="_blank"}
+* [Floating-point Numeric Types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types){: target="_blank"}
+* [Built-in Numeric Conversions](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions){: target="_blank"}
+* [Boolean Type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool){: target="_blank"}
+* [Character Type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char){: target="_blank"}
+* [String Interpolation](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated){: target="_blank"}
+* [String Verbatim Token](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim){: target="_blank"}

@@ -11,9 +11,9 @@ Represents a Windows radio button.
 
 ## Usage
 
-A RadioButton is an input control for allowing the user to select a single option from a group of choices when paired with other RadioButton controls.
+A `RadioButton` is an input control for allowing the user to select a single option from a group of choices when paired with other `RadioButton` controls.
 
-RadioButtons are grouped by the container they are in, such as a Form, GroupBox or Panel.
+`RadioButtons` are grouped by the container they are in, such as a `Form`, `GroupBox` or `Panel`.
 
 ## Notable Class Members
 
@@ -27,7 +27,7 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 
 ### Events
 
-* **CheckedChanged** - Occurs when the value of the Checked property changes.
+* **CheckedChanged** - Occurs when the value of the `Checked` property changes.
 
 ## Further Reading
 

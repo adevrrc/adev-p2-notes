@@ -53,7 +53,7 @@ public void AddMoney_PositiveAmount_StateUpdated()
 
 **Notes**:
 
-- The outcome of this method is to change the state and is verified by using `PrivateObject`.
+* The outcome of this method is to change the state and is verified by using `PrivateObject`.
 
 ## Non-Void Methods
 
@@ -87,4 +87,4 @@ public void ToString_ReturnsResult()
 
 **Notes**:
 
-- When a method returns a value, that value is captured to verify the test.
+* When a method returns a value, that value is captured to verify the test.

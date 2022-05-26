@@ -19,8 +19,8 @@ nav_order: 4
 
 In C#, you can expect to use all the same arithmetic operators you used in Java:
 
-- Binary: `+` (Addition), `-` (Subtraction), `*` (Multiplication), `/` (Division), `%` (Reminder)
-- Unary: `++` (Increment), `--` (Decrement)
+* Binary: `+` (Addition), `-` (Subtraction), `*` (Multiplication), `/` (Division), `%` (Reminder)
+* Unary: `++` (Increment), `--` (Decrement)
 
 ## Math Class
 
@@ -44,5 +44,5 @@ It's also recommended to familiarize yourself with the `Math` class members for 
 
 ## Further Reading
 
-- [Arithmetic Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators){: target="_blank"}
-- [Math Class Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.math){: target="_blank"}
+* [Arithmetic Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators){: target="_blank"}
+* [Math Class Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.math){: target="_blank"}

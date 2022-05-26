@@ -3,6 +3,8 @@ layout: default
 title: Test Planning
 parent: Unit Testing
 nav_order: 2
+has_children: true
+has_toc: false
 ---
 
 # Test Planning
@@ -20,27 +22,27 @@ The first step to successfully testing software is to have a plan. A detailed **
 
 A **unit test plan** is a plan based on the design specifications of a class or program. A typical unit test plan includes a table outlining the following data:
 
-- The class you are testing.
-- A list of all the units within the class.
-    - Test number.
-    - Description of the outcome/requirement.
-    - Test data needed to test the outcome/requirement.
-    - The expected result (usually a value).
+* The class you are testing.
+* A list of all the units within the class.
+    * Test number.
+    * Description of the outcome/requirement.
+    * Test data needed to test the outcome/requirement.
+    * The expected result (usually a value).
 
 [Check out a sample test plan]({{ site.url}}{{ site.baseurl }}/docs/unit-testing/sample-test-plan/)
 
-The Microsoft Excel is a great way to create a test plan.
+Microsoft Excel is a great way to create a test plan.
 {: .alert .alert-note }
 
 ## Test Order
 
-The order that you choose to complete your tests help find defects and prevent false results. Your plan and ultimately your test code should follow this order:
+The order that you choose to complete your tests will help you find defects and prevent false results. Your plan and ultimately your test code should follow this order:
 
 1. Constructors
 2. Property Accessors
 3. Methods
 
-Constructors should be tested first because for all other tests a constructor will need to be invoked. To ensure the integrity of your other tests, you'll want to make sure your constructors are working as expected.
+Constructors should be tested first, because a constructor will need to be invoked for all the other tests. To ensure the integrity of your other tests, you'll want to make sure your constructors are working as expected.
 
 Properties are completed next because in many instances the methods of a class will use the properties.
 
@@ -61,6 +63,9 @@ The `Person` class represents a person. A `Person` has two attributes: name and 
 
 The purpose of every constructor is to set the initial state of an instance of the class.
 
+### Requirements
+{: .no_toc}
+
 The `Person` class contains the following constructor:
 
 ```text
@@ -73,9 +78,12 @@ Initializes an instance of the `Person` class with the specified name and amount
 
 Exceptions:
 
-- **ArgumentNullException** - Thrown when the `name` is `null`.
-- **ArgumentException** - Thrown when the `name` does not contain at least 1 character.
-- **ArgumentOutOfRangeException** - Thrown when the `amountOfMoney` is a negative numeric value.
+* **ArgumentNullException** - Thrown when the `name` is `null`.
+* **ArgumentException** - Thrown when the `name` does not contain at least 1 character.
+* **ArgumentOutOfRangeException** - Thrown when the `amountOfMoney` is a negative numeric value.
+
+### Implementation
+{: .no_toc}
 
 ```csharp
 public Person(string name, decimal amountOfMoney)
@@ -94,7 +102,7 @@ public Person(string name, decimal amountOfMoney)
 }
 ```
 
-### Constructor Test Cases
+### Test Cases
 {: .no_toc}
 
 | # | Test Case | Test Data | Expected |
@@ -108,6 +116,9 @@ public Person(string name, decimal amountOfMoney)
 
 ## Property
 
+### Requirement
+{: .no_toc}
+
 The `Person` class contains the following property:
 
 ```text
@@ -120,7 +131,10 @@ Gets and sets the amount of money the person has.
 
 Exceptions:
 
-- **ArgumentOutOfRangeException** - Thrown when the `value` is a negative numeric value.
+* **ArgumentOutOfRangeException** - Thrown when the `value` is a negative numeric value.
+
+### Implementation
+{: .no_toc}
 
 ```csharp
 public decimal AmountOfMoney
@@ -140,6 +154,9 @@ public decimal AmountOfMoney
 }
 ```
 
+### Test Cases
+{: .no_toc}
+
 | # | Test Case | Test Data | Expected |
 |:-:|:--------|:---------|:---------|
 | 1 | Exception when the value is a negative value | Value: -1 | ArgumentOutOfRangeException, Parameter: value, Message: The value must be zero or greater., State is not updated. |
@@ -148,6 +165,9 @@ public decimal AmountOfMoney
 | 5 | Gets the amount of money | Initial amount of money: 100 | 100 |
 
 ## Method
+
+### Requirement
+{: .no_toc}
 
 The `Person` class contains the following method:
 
@@ -162,6 +182,9 @@ Subtracts the specified amount of money from the amount of money the Person has.
 Exceptions:
 
 - **ArgumentOutOfRangeException** - Thrown when `amount` is less than zero or exceeds the amount of money the Person has.
+
+### Implementation
+{: .no_toc}
 
 ```csharp
 public void SubtractMoney(decimal amount)
@@ -180,6 +203,9 @@ public void SubtractMoney(decimal amount)
 }
 ```
 
+### Test Cases
+{: .no_toc}
+
 | # | Test Case | Test Data | Expected |
 |:-:|:--------|:---------|:---------|
 | 1 | Exception when the amount is a negative value | Initial amount of money: 0, Parameter amount: -1 | ArgumentOutOfRangeException, Parameter: amount, Message: The argument cannot be less than zero. |
@@ -189,4 +215,4 @@ public void SubtractMoney(decimal amount)
 
 ## Other Considerations
 
-- Selections that use the `<=` or `>=` operators, would equate to two test cases.
+* Selections that use the `<=` or `>=` operators, would equate to two test cases.

@@ -99,8 +99,8 @@ You scored 96.2. You passed.
 
 ## Further Reading
 
-- [Comparison Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators){: target="_blank"}
-- [Boolean Logic Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators){: target="_blank"}
-- [Equality Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators){: target="_blank"}
-- [Selection Statements](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements){: target="_blank"}
-- [Microsoft if-else if-else Lesson](https://docs.microsoft.com/en-us/learn/modules/csharp-if-elseif-else/){: target="_blank"}
+* [Comparison Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators){: target="_blank"}
+* [Boolean Logic Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators){: target="_blank"}
+* [Equality Operators](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators){: target="_blank"}
+* [Selection Statements](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements){: target="_blank"}
+* [Microsoft if-else if-else Lesson](https://docs.microsoft.com/en-us/learn/modules/csharp-if-elseif-else/){: target="_blank"}

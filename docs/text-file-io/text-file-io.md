@@ -13,7 +13,7 @@ nav_order: 9
 1. TOC
 {:toc}
 
-Variables and collections provide temporary storage for data in your applications while your program is executing.  When your program terminates, this data is lost. Files are used for long-term storage of data. The data is retained after your terminates. Computers store files on secondary storage devices, such as flash memory or a hard disk.
+Variables and collections provide temporary storage for data in your applications while your program is executing.  When your program terminates, this data is lost. Files are used for long-term storage of data. The data is retained after your program terminates. Computers store files on secondary storage devices, such as flash memory or a hard disk.
 
 ## Data Hierarchy
 
@@ -59,17 +59,17 @@ K
 
 In C# all files are considered a sequential stream of bytes. All files end with an **end-of-file marker** or at a specific byte number (determined by the data structure). When a file is opened, an object is created and a stream is associated with the object.
 
-There are many file-processing class in the .NET Framework, most of which are in the `System.IO` namespace.
+There are many file-processing classes in the .NET Framework, most of which are in the `System.IO` namespace.
 
-* `StreamReader` - Used for text input from a file.
-* `StreamWriter` - Used for text output to a file.
-* `FileStream` - Used for both input from and output to a file.
+* **StreamReader** - Used for text input from a file.
+* **StreamWriter** - Used for text output to a file.
+* **FileStream** - Used for both input from and output to a file.
 
 ## File and Directory Classes
 
 The `File` and `Directory` classes contain methods to access file and directory information from the file system.
 
-The `File` class is a static class used to determine information about files. The information can be used to open files for reading and writing.
+The `File` class is a static class used to determine information about files. The information can be used to open files for reading and writing. Here are the common methods:
 
 * **AppendText** - Returns a StreamWriter that appends text to an existing file or creates a file if one does not exist.
 * **Copy** - Copies a file to a new file.
@@ -86,7 +86,7 @@ The `File` class is a static class used to determine information about files. Th
 * **OpenText** - Returns a StreamReader associated with the specified file.
 * **OpenWrite** - Returns a write FileStream associated with the specified file.
 
-The `Directory` class is a static class used for working with directories.
+The `Directory` class is a static class used for working with directories. Here are the common methods:
 
 * **CreateDirectory** - Creates a directory and returns its associated DirectoryInfo object.
 * **Delete** - Deletes the specified directory.

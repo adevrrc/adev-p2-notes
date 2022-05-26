@@ -27,7 +27,7 @@ Assuming that your Form is designed and the data source is initialized, the step
 1. Instantiate a `BindingSource` object and initialize its `DataSource` property to the data source.
 2. Set the `DataSource` of the Control to the `BindingSource`.
 
-![Complex Data Binding ListBox Example](../images/complex-data-binding/complex-data-binding.png){: .large }
+[![Complex Data Binding ListBox Example](../images/complex-data-binding/complex-data-binding.png "Complex Data Binding ListBox Example"){: .large }](../images/complex-data-binding/complex-data-binding.png)
 
 ```csharp
 public partial class ComplexBindExampleForm : Form
@@ -71,14 +71,14 @@ public partial class ComplexBindExampleForm : Form
 
 Output:
 
-![Complex Data Binding ListBox Example Output](../images/complex-data-binding/listbox-complex-data-binding-output.png){: .large }
+[![Complex Data Binding ListBox Example Output](../images/complex-data-binding/listbox-complex-data-binding-output.png "Complex Data Binding ListBox Example Output"){: .large }](../images/complex-data-binding/listbox-complex-data-binding-output.png)
 
 When the Form is initialized, the data source (`BindingList`) contains no elements. In the `Click` event handler of the **New** button, a new `Response` object is added to the data source. The changes to the data within the data source are reflected in the Control.
 
 
 ## DisplayMember
 
-For Controls like `ComboBox` and `ListBox`, you can customize how the Control will render data bound objects. Again, by default, the objects will be represented by `string` returned by the object's `ToString()` method.  Setting the `DisplayMember` property of the Control to the identifier of an data source object's property, will use the value of the specified property to render the object in the Control.
+For Controls like `ComboBox` and `ListBox`, you can customize how the Control will render data bound objects. Again, by default, the objects will be represented by the `string` returned by the object's `ToString()` method.  Setting the `DisplayMember` property of the Control to the identifier of a data source object's property, will use the value of the specified property to render the object in the Control.
 
 ```csharp
 public partial class ComboBoxDataBindingForm : Form
@@ -115,7 +115,7 @@ public partial class ComboBoxDataBindingForm : Form
 }
 ```
 
-![ComboBox DisplayMember](../images/complex-data-binding/display-member.png){: .large }
+[![ComboBox DisplayMember](../images/complex-data-binding/display-member.png "ComboBox DisplayMember"){: .large }](../images/complex-data-binding/display-member.png)
 
 ## ValueMember
 

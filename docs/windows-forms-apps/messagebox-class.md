@@ -11,7 +11,7 @@ Represents a message box.
 
 ## Usage
 
-A MessageBox is a built-in class used for displaying a modal dialog window. A message box can be used to quickly display information and/or allow a user to make a decision. The dialog window can be customized by using one of many `Show()` methods.
+A `MessageBox` is a built-in class used for displaying a modal dialog window. A message box can be used to quickly display information and/or allow a user to make a decision. The dialog window can be customized by using one of many `Show()` methods.
 
 ![Parts of a message box](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/windows/media/how-to-open-message-box/diagram.png?view=netdesktop-6.0){: target="_blank"}
 
@@ -37,7 +37,7 @@ result = MessageBox.Show(message, caption, buttons, icon, MessageBoxDefaultButto
 
 The code above would produce the following message box:
 
-![Sample MessageBox](../images/messagebox-class/messagebox.png){:.large}
+[![Sample MessageBox](../images/messagebox-class/messagebox.png "Sample MessageBox"){:.large}](../images/messagebox-class/messagebox.png)
 
 ### Handle a Message Box Response
 

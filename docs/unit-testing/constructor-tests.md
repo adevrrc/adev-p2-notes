@@ -44,9 +44,9 @@ public void Constructor_NameNull_Exception()
 
 **Notes**:
 
-- The _act_ part of the test is `new Person(name, amountOfMoney)`.
-- The `Assert.ThrowsException&lt;T&gt;()` method generates a `AssertFailedException` if the type of exception is not thrown. If the type of exception is thrown, a reference to the exception object is returned.
-- The _assert_ part of the test includes verifying the parameter and message of the exception.
+* The _act_ part of the test is `new Person(name, amountOfMoney)`.
+* The `Assert.ThrowsException<T>()` method generates a `AssertFailedException` if the type of exception is not thrown. If the type of exception is thrown, a reference to the exception object is returned.
+* The _assert_ part of the test includes verifying the parameter and message of the exception.
 
 ## Non-Test Methods
 
@@ -81,7 +81,7 @@ Feel free to include this method in your test class.
 |:-:|:--------|:---------|:---------|
 | 6 | Initialize the amount of money to positive value | Parameter name: "Kenny", Parameter amountOfMoney: 500 | 500 |
 
-**Testing Goal**: The goal of this test is initialize the state of the object and verify it did so correctly.
+**Testing Goal**: The goal of this test is to initialize the state of the object and verify it did so correctly.
 
 ```csharp
 [TestMethod]
@@ -107,5 +107,5 @@ public void Constructor_AmountOfMoney_Initialize()
 
 **Notes**:
 
-- Because the state is stored in a private field, the `PrivateObject` class is used to gain access to the class private class member.
-- The `GetField()` method returns an `object` type. Because fields can be any type, the method uses this polymorphic reference to the value of the field. A type cast is necessary to store the value in the `decimal` variable.
+* Because the state is stored in a private field, the `PrivateObject` class is used to gain access to the class' private member.
+* The `GetField()` method returns an `object` type. Because fields can be any type, the method uses this polymorphic reference to the value of the field. A type cast is necessary to store the value in the `decimal` variable.

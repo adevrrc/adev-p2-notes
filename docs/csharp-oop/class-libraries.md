@@ -22,13 +22,13 @@ Creating a Class Library project follows the [same steps as a Console Applicatio
 
 When you get to the **Create a new project** window, the project type you want to choose is called "Class Library (.NET Framework)". You can use the search to filter the list.
 
-![Create Class Library Project](../images/class-libraries/create-class-library-project.png){: .large }
+[![Create Class Library Project](../images/class-libraries/create-class-library-project.png Create Class Library Project""){: .large }](../images/class-libraries/create-class-library-project.png)
 
 ## Solution File Structure
 
 If you navigate to the location you created the project to, you’ll find the solution directory for the project you created.
 
-![Save Directory](../images/class-libraries/save-directory.png){: .large }
+[![Save Directory](../images/class-libraries/save-directory.png "Save Directory"){: .large }](../images/class-libraries/save-directory.png)
 
 At this point you may have more than one Visual Studio solution stored in this location. Read the directories careful to determine the one you are looking for.
 {: .alert .alert-warning}
@@ -36,38 +36,38 @@ At this point you may have more than one Visual Studio solution stored in this l
 ### Solution Directory
 {: .no_toc }
 
-![Solution Directory](../images/class-libraries/solution-directory.png){: .large }
+[![Solution Directory](../images/class-libraries/solution-directory.png "Solution Directory"){: .large }](../images/class-libraries/solution-directory.png)
 
 The solution directory contains:
 
-- **Project Directory** - You will see one directory for each project in the solution. New solutions will only contain one project and thus will have one project directory.
-- **Solution File (.sln)** - A file that ends with the file extension .sln. The .sln file contains information the Visual Studio environment needs to find and load the solution's associated projects and resources.
+* **Project Directory** - You will see one directory for each project in the solution. New solutions will only contain one project and thus will have one project directory.
+* **Solution File (.sln)** - A file that ends with the file extension .sln. The .sln file contains information the Visual Studio environment needs to find and load the solution's associated projects and resources.
 
 ### Project Directory
 {: .no_toc }
 
-![Project Directory](../images/class-libraries/project-directory.png){: .large }
+[![Project Directory](../images/class-libraries/project-directory.png "Project Directory"){: .large }](../images/class-libraries/project-directory.png)
 
 The project directory contains:
 
-- **bin Directory** - Where the resulting files of a successful project build are stored.
-- **obj Directory** - This directory can be ignored. We won't be using it in this course.
-- **Properties Directory** - This is another directory that can be ignored.
-- **MS Build File (.csproj) File** - The MSBuild file for the Visual Studio project.
-- **Class1.cs** - This file contains a class called `Class1` and is created by default because of the project template that was chosen when creating the project.
+* **bin Directory** - Contains binary files. These are the application or library assemblies generated during a successful project build.
+* **obj Directory** - Contains compiled binary files that haven't been linked yet and will later be combined to produce the assembly file stored in the _bin_ directory.
+* **Properties Directory** - Contains information about the project. This information can viewable and editable in Visual Studio.
+* **MS Build File (.csproj) File** - The MSBuild file for the Visual Studio project.
+* **Class1.cs** - This file contains a class called `Class1` and is created by default because of the project template that was chosen when creating the project.
 
 `Class1` is not an appropriate name for a class. You should rename this file and the class identifier within it.
 {: .alert .alert-error}
 
 ## Visual Studio Solution Explorer
 
-![Solution Explorer](../images/class-libraries/solution-explorer.png){: .large }
+[![Solution Explorer](../images/class-libraries/solution-explorer.png "Solution Explorer"){: .large }](../images/class-libraries/solution-explorer.png)
 
 When the newly created class library project is loaded into Visual Studio, the Solution Explorer will contain the following:
 
-- **Properties** - This node can be ignored.
-- **References** - This node contains the project references to other class libraries.
-- **Class1.cs** - The source code file _Class1.cs_ that contains the `Class1` class.
+* **Properties** - This node can be ignored.
+* **References** - This node contains the project references to other class libraries.
+* **Class1.cs** - The source code file _Class1.cs_ that contains the `Class1` class.
 
 ## Building the Project
 
@@ -75,13 +75,13 @@ When the newly created class library project is loaded into Visual Studio, the S
 
 On a successful build of a Console Application Project, the following files will be generated in the **bin\Debug** directory within the Project directory.
 
-![Debug Directory](../images/class-libraries/debug-directory.png){: .large }
+[![Debug Directory](../images/class-libraries/debug-directory.png "Debug Directory"){: .large }](../images/class-libraries/debug-directory.png)
 
 The files you see in the screenshot above are:
 
-- **Dynamic Link Library File (.dll)** - The assembly file, which is the compiled version of your project.
-- **Program Database File (.pdb)** - The program database file that contains debugging information about the library. You can ignore this file.
+* **Dynamic Link Library File (.dll)** - The assembly file, which is the compiled version of your project.
+* **Program Database File (.pdb)** - The program database file that contains debugging information about the library. You can ignore this file.
 
 ## Further Reading
 
-- [The .NET Framework Assembly](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/dynamic-link-library#the-net-framework-assembly){: site="_blank"}
+* [The .NET Framework Assembly](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/dynamic-link-library#the-net-framework-assembly){: site="_blank"}

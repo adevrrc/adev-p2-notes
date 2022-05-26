@@ -7,4 +7,4 @@ parent: ADO.NET
 
 # Object Diagram
 
-[![Object Diagram](../images/object-diagram/adonet-object-diagram.png)](../images/object-diagram/adonet-object-diagram.png){: target="_blank" .no-underline }
+[![Object Diagram](../images/object-diagram/adonet-object-diagram.png "ADO.NET UML Object Diagram")](../images/object-diagram/adonet-object-diagram.png)

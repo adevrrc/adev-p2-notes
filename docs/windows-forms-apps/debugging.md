@@ -51,4 +51,4 @@ You can code a Debug statement anywhere in your code. The great thing is, if you
 
 The output panel typically displays automatically when you run an application in Visual Studio.  If the panel does not appear, you can open it by going to the View menu item in the main menu of Visual Studio.
 
-![Output Panel](../images/debugging/output-panel.png){:.large}
+[![Output Panel](../images/debugging/output-panel.png "Output Panel"){:.large}](../images/debugging/output-panel.png)

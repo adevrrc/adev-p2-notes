@@ -17,7 +17,7 @@ nav_order: 1
 
 The .NET Framework is made up of hundreds of classes, enumerations, delegates and other types. You could imagine that the Framework could be a very confusing thing to use if it wasn't organized in a logical manner.
 
-Think of the Framework like library in your neighborhood. A library is filled with books and other resources. To keep it simple, we can say a book represents a class.  Now imagine the library had 5000 books. Without proper organization, it would be difficult to find the book you are looking for. We would also have to consider that some books may make reference to other books in the library. Also, imagine the librarian having to manage to catalogue with additions and changes.
+Think of the Framework like library in your neighborhood. A library is filled with books and other resources. To keep it simple, we can say a book represents a class.  Now imagine the library had 5000 books. Without proper organization, it would be difficult to find the book you are looking for. We would also have to consider that some books may make reference to other books in the library. Also, imagine the librarian having to manage the catalogue with additions and changes.
 
 When developing applications (or anything really), it is very important to be organized. It is the most efficient way to complete any programming project. The .NET Framework is organized by using **Namespaces**.
 
@@ -42,7 +42,7 @@ namespace Education
 
 In the sample code above, the `Student` class is declared within the `Education` Namespace.
 
-## Fully Qualified Identifiers
+## Fully Qualified Class Identifiers
 
 When you declare a class, or any other type, the actual identifier for the class includes the namespace. This is referred to as the **Fully Qualified** name of the class. For the `Student` class above, the fully qualified name would be `Education.Student`. In order to use the class in another code context, you'd have to fully qualify the identifier.
 
@@ -57,10 +57,10 @@ This works for classes in the .NET Framework **Application Programming Interface
 
 Namespace identifiers must follow these naming conventions:
 
-- Identifiers must start with a letter or underscore (_).
-- Use Pascal-casing (Example: `ThisIsCapitalCase`).
-- The identifier is descriptive of the types and other Namespaces within it.
-- Use of acronyms is accepted.
+* Identifiers must start with a letter or underscore (_).
+* Use Pascal-casing (Example: `ThisIsPascalCasing`).
+* The identifier is descriptive of the types and other Namespaces within it.
+* Use of acronyms is accepted.
 
 ## Nested Namespaces
 
@@ -160,7 +160,7 @@ namespace Module1.Namespaces
 Namespaces are like packages in Java. Using statements are like `import` statements in Java.
 {: .alert .alert-note}
 
-Unlike Java, `using` statements cannot reference a type. The following `using` statement would cause a syntax error.<br />`using Animalia.Chordata.Carnivora.Feliformia.Felidae.Felinae.Felis.Cat;`
+Unlike Java, `using` statements cannot reference a type. The following `using` statement would cause a syntax error in C#.<br />`using Animalia.Chordata.Carnivora.Feliformia.Felidae.Felinae.Felis.Cat;`
 {: .alert .alert-error}
 
 ## Name Collision
@@ -218,6 +218,6 @@ It is not acceptable practice to change the name of a class (or other type) just
 
 ## Further Reading
 
-- [Namespaces](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/namespaces){: target="_blank"}
-- [Names of Namespaces](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces){: target="_blank"}
-- [using Directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive){: target="_blank"}
+* [Namespaces](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/namespaces){: target="_blank"}
+* [Names of Namespaces](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces){: target="_blank"}
+* [using Directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive){: target="_blank"}

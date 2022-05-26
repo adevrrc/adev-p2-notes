@@ -72,9 +72,9 @@ Unit test methods do not require documentation.
 
 The implementation of a unit test method follows a general pattern:
 
--   Setup
--   Invoke
--   Verify
+* Setup
+* Invoke
+* Verify
 
 ### Setup
 

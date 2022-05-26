@@ -35,8 +35,8 @@ Console.Out
 
 The `Out` class member returns a reference to a `TextWriter` object. The `TextWriter` class has two method for outputting text to a stream:
 
-- `Write()`
-- `WriteLine()`
+* `Write()`
+* `WriteLine()`
 
 `Write()` is equivalent to Java's `java.io.PrintStream.print()` method and `WriteLine()` is equivalent to Java's `java.io.PrintStream.println()`.
 
@@ -84,7 +84,7 @@ Output:
 Hello, Chris! Today is Tuesday, it's 11:14 now.
 ```
 
-The "{}" signifies a placeholder and the integer value within it curly-braces signifies an index used to reference the arguments after the string argument. Formatting strings like this is called [Composite Formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting){: target="_blank" }.
+The curly-braces ({}) signifies a placeholder. The integer value within the placeholder signifies an index used to reference the arguments after the string argument. Formatting strings like this is called [Composite Formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting){: target="_blank" }.
 
 ## Reading From the Console
 
@@ -121,5 +121,5 @@ The `Console.In` class member returns a `TextReader` object. Using `Console.In` 
 
 ## Further Reading
 
-- [Console Class Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.console){: target="_blank"}
-- [Composite Formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting){: target="_blank"}
+* [Console Class Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.console){: target="_blank"}
+* [Composite Formatting](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting){: target="_blank"}

@@ -28,7 +28,7 @@ To connect to a database a connection string is required. The basic format of a 
 Provider={provider};Data Source={database_file_path};
 ```
 
-For Microsoft Access databases using the Office Access Connectivity Engine (ACE), the provider is `Microsoft.ACE.OLEDB.12.0`.
+For Microsoft Access databases using the **Office Access Connectivity Engine (ACE)**, the provider is `Microsoft.ACE.OLEDB.12.0`.
 
 **Example**: `Provider=Microsoft.ACE.OLEDB.12.0;Data Source={database_file_path};`
 
@@ -45,7 +45,7 @@ To set your project to compile as 64-bit:
 4. Change the **Platform target** from "Any PC" to "x64".
 5. Save the project and close the properties window.
 
-![Project Properties Panel](../images/workflow/project_properties_panel.png){: .large }
+[![Project Properties Panel](../images/workflow/project_properties_panel.png "Project Properties Panel"){: .large }](../images/workflow/project_properties_panel.png)
 
 If you are experiencing exceptions connecting to the database, ensure you've set the project as 64-bit.
 {: .alert .alert-error }
@@ -63,7 +63,7 @@ The goal of retrieving the data from a data source is to query the data and temp
 
 Retrieving data in this course will require a [Connection]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#connection), [Command]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#command), [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter), and [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset). The work flow is as follows:
 
-[![Retrieve Data Flowchart](../images/workflow/retrieve-data.png){: .large }](../images/workflow/retrieve-data.png){: .no-underline target="_blank" }
+[![Retrieve Data Flowchart](../images/workflow/retrieve-data.png "Retrieve Data Flowchart"){: .large }](../images/workflow/retrieve-data.png)
 
 ### Results
 {: .no_toc}
@@ -81,7 +81,7 @@ If an exception occurs, here are some common causes:
 
 ## Setup DataAdapter
 
-Before the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) can be used to update the data source, the `InsertCommand`, `UpdateCommand`, and `DeleteCommand` properties must reference [Command]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#command) object containing SQL for the specific operation they represent.
+Before the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) can be used to update the data source, the `InsertCommand`, `UpdateCommand`, and `DeleteCommand` properties must reference [Command]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#command) an object containing SQL for the specific operation they represent.
 
 Unlike the `SelectCommand`, you do not need to initialize the `InsertCommand`, `UpdateCommand`, and `DeleteCommand` properties yourself. The [CommandBuilder]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#commandbuilder) object can generate INSERT, UPDATE, and DELETE [Commands]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#command) by using the `SelectCommand` of a [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter).
 
@@ -89,8 +89,8 @@ Unlike the `SelectCommand`, you do not need to initialize the `InsertCommand`, `
 
 The data within a [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset) is modified in two ways:
 
-1. Code
-2. Data bound controls
+1. Modifying object state in code.
+2. Data bound controls.
 
 ## DataRow's RowState Property
 
@@ -98,9 +98,9 @@ The key to understanding how a data source is updated is to understand the [Data
 
 | DataRowState | Description |
 |----------|-------------|
-| Added | The row has been added to a DataRowCollection. |
-| Delete | The row was deleted using the Delete() method of the DataRow. |
-| Detached | The row has been created but is not part of any DataRowCollection. A DataRow is in this state immediately after it has been created and before it is added to a collection, or if it has been removed from a collection. |
+| Added | The row has been added to a `DataRowCollection`. |
+| Delete | The row was deleted using the `Delete()` method of the `DataRow`. |
+| Detached | The row has been created but is not part of any `DataRowCollection`. A `DataRow` is in this state immediately after it has been created and before it is added to a collection, or if it has been removed from a collection. |
 | Modified | The row has been modified. |
 | Unchanged | The row has not been changed. |
 
@@ -113,9 +113,9 @@ The `RowState` is evaluated for each [DataRow]({{ site.url }}{{ site.baseurl }}/
 
 ## Updating Data Source
 
-When the application makes changes to the data in a [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset), those changes are not applied to the data source automatically. The [DataAdapter's]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datadapter) responsibility to update the data. This should make sense, considering it is the object that contains the `InsertCommand`, `UpdateCommand`, and `DeleteCommand`.
+When the application makes changes to the data in a [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset), those changes are not applied to the data source automatically. The [DataAdapter's]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datadapter) responsibility is to update the data, since it is the object that contains the `InsertCommand`, `UpdateCommand`, and `DeleteCommand`.
 
-[![Update Data Flowchart](../images/workflow/update-data.png){: .large }](../images/workflow/update-data.png){: .no-underline target="_blank" }
+[![Update Data Flowchart](../images/workflow/update-data.png "Update Data Flowchart"){: .large }](../images/workflow/update-data.png)
 
 ### Results
 {: .no_toc}
@@ -137,7 +137,7 @@ When the data is no longer needed, typically when the Form using the data is clo
 
 ### AutoNumber Type
 
-In most modern databases, there is a special column type that generates an automatically incremented numeric counter.  In the Microsoft Access database, this type is called [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"}. Columns of the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} type are typically used for the primary key of the table, as it will generate a unique value for each new row inserted in the table.  And that is the most important thing to remember while reading this part of the lesson. The unique value is **only** generated by the database when a row is inserted into the table.
+In most modern databases, there is a special column type that generates an automatically incremented numeric counter.  In the Microsoft Access database, this type is called [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"}. Columns of the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} type are typically used for the primary key of the table, as it will generate a unique value for each new row inserted into the table. The key thing to consider, is that the unique value is **only** generated by the database when a row is inserted into the table.
 
 ### Inserting Rows into a DataTable
 
@@ -145,7 +145,7 @@ As you learned earlier in this topic, data is queried from a database to populat
 
 This means that when new data is generated in your application, a new [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow) will be added to the [DataTable]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datatable).
 
-A [DataTable]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datatable) does not have an [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} type of column. This means that when you create a new [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow), you will not populate the column which represents the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} column in the database.
+A [DataTable]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datatable) does not have an [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} type of column. This means that when you create a new [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow), you will not provide a value for the column which represents the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} column in the database.
 
 Let's say you were working with data from a table called _Contacts_, which contained data about your friends and colleagues. The SQL to query this table might look like this:
 
@@ -168,7 +168,7 @@ When the [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset)
 
 #### Adding a New Row
 
-As mentioned above, after adding a row to the DataTable, the row will not have a value populated for the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} column.  The last row in the table below shows how that would look.
+As mentioned above, after adding a row to the [DataTable]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datatable), the row will not have a value populated for the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} column.  The last row in the table below shows how that would look.
 
 | ID   | FirstName | LastName   | PhoneNumber |
 |:----:|-----------|------------|-------------|
@@ -179,11 +179,11 @@ As mentioned above, after adding a row to the DataTable, the row will not have a
 
 #### Updating the DataSet
 
-When the [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset) is updated, the new row (`RowState`: `Added`) will be attempted to be inserted into the database and the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} column in the database will generate the next numerical incremented value. But the [DataTable]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datatable) will not receive that value and will remain blank.
+When the [DataSet]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataset) is updated, the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) will attempt to insert the new row (`RowState`: `Added`) into the database table and the [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} column in the table will generate the next unique value (previous value plus one). But the [DataTable]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datatable) will not receive that value and will remain blank.
 
 #### The Problem
 
-The potential problem is that if this [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow) was to be edited, and it's `RowState` changed (to `Modified` or `Deleted`), an exception would occur when the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) performs an update. The reason is because of the missing ID value.
+The potential problem is that if this [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow) was to be edited, and it's `RowState` changed (to `Modified` or `Deleted`), an exception would occur when the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) performs an update. The reason is because of the missing ID value in the [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow).
 
 The [DataAdapter's]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) `UpdateCommand` and `DeleteCommand` will all end with:
 
@@ -195,9 +195,9 @@ The question mark is substituted with the primary key value from the [DataRow]({
 
 #### The Solution
 
-The solution to the problem is to query the database right after a row is inserted into the database to capture the last [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} value generated by the database.
+The solution to the problem is to query the database table right after a row is inserted to capture the last [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} value generated by the database.
 
-First, you need to know when a row is inserted. You can accomplish this by handling the `RowUpdated` event of the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter). After an `Update()` is invoked, if a DataRow is updated, it will raise this event. When the `StatementType` is an `Insert`, you'll execute a special SQL command on the database that returns the last [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} generated by the database.
+First, you need to know when a row is inserted. You can accomplish this by handling the `RowUpdated` event of the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter). After an `Update()` is invoked, if a [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow) is updated, it will raise this event. When the `StatementType` is an `Insert`, you'll execute a special SQL command on the database that returns the last [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"} generated by the database.
 
 Handle the `RowUpdated` event of the [DataAdapter]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#dataadapter) object.
 
@@ -232,3 +232,10 @@ void dataAdapter_RowUpdated(object sender, OleDbRowUpdatedEventArgs e)
 ```
 
 After this code is executed, the _ID_ DataColumn of the [DataRow]({{ site.url }}{{ site.baseurl }}/docs/adonet/adonet/#datarow) will be populated with the generated [AutoNumber](https://en.wikipedia.org/wiki/AutoNumber){: target="_blank"}.
+
+The `@@IDENTITY` is a system function that will only work on certain types of databases, like MS Access and MS SQL Server.
+{: .alert .alert-note}
+
+## Further Reading
+
+* [@@ IDENTITY](https://docs.microsoft.com/en-us/sql/t-sql/functions/identity-transact-sql?view=sql-server-ver16){: target="_blank"}

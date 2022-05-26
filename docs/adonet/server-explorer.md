@@ -16,27 +16,27 @@ parent: ADO.NET
 
 Visual Studio includes tools to interact with a database. You can connect, query, and modify the data in a database using the **Server Explorer** panel.
 
-![Server Explorer Panel](../images/server-explorer/server-explorer.png){: .large }
+[![Server Explorer Panel](../images/server-explorer/server-explorer.png "Server Explorer Panel"){: .large }](../images/server-explorer/server-explorer.png)
 
 To open the Server Explorer panel, go to **View > Server Explorer** on the Visual Studio Menu Strip. The keyboard shortcut is <kbd>Ctrl+W, L</kbd>.
 
 ## Adding a Connection
 
-To add a connection to a database in Visual Studio, click the **Connect to database** button the Toolbar of the Server Explorer panel.
+To add a connection to a database in Visual Studio, click the **Connect to database** button on the Toolbar of the Server Explorer panel.
 
-![Server Explorer - Add Connection](../images/server-explorer/add-a-connection.png){: .large }
+[![Server Explorer - Add Connection](../images/server-explorer/add-a-connection.png "Server Explorer - Add Connection"){: .large }](../images/server-explorer/add-a-connection.png)
 
 The first time you add a connection, the following dialog window will appear.
 
-![Change Data Source](../images/server-explorer/change-data-source.png){: .large }
+[![Change Data Source](../images/server-explorer/change-data-source.png "Change Data Source"){: .large }](../images/server-explorer/change-data-source.png)
 
 Choose the type of data source you will be connecting to, then click **OK**.
 
 The **Add Connection** dialog will appear. Click the **Browse...** button, then navigate to the database file you want to connect to.
 
-![Add Connection](../images/server-explorer/add-connection.png){: .large }
+[![Add Connection](../images/server-explorer/add-connection.png "Add Connection"){: .large }](../images/server-explorer/add-connection.png)
 
-Databases in this course will not require authentication. You can leave the User name as "Admin" and the Password "Blank".
+Databases in this course will not require authentication. You can leave the User name text field as "Admin" and the Password text field blank.
 {: .alert .alert-note}
 
 You can click the **Test Connection** button after locating the file. If this is successful, you know you've setup the connection properly.
@@ -44,19 +44,19 @@ You can click the **Test Connection** button after locating the file. If this is
 
 When a database connection is added, a new database node will appear under **Data Connections**.
 
-![Data Connections](../images/server-explorer/database-node.png){: .large }
+[![Data Connections](../images/server-explorer/database-node.png "Data Connections"){: .large }](../images/server-explorer/database-node.png)
 
-If you expand the database node, it will reveal a **Tables** node.  If you expand the Tables node, it will reveal nodes for each table in the database. If you expand the Table nodes, it will reveal the columns that make up the table.
+If you expand the database node, it will reveal a Tables node.  If you expand the Tables node, it will reveal nodes for each table in the database. If you expand the Table nodes, it will reveal the columns that make up the table.
 
 ## View Database Data
 
 To retrieve the data within a database table, right-click a Table node and choose **Retrieve Data**.  This will perform an SQL SELECT query to retrieve all rows in that table.
 
-![Retrieve Data](../images/server-explorer/retrieve-data.png){: .large }
+[![Retrieve Data](../images/server-explorer/retrieve-data.png "Retrieve Data"){: .large }](../images/server-explorer/retrieve-data.png)
 
-This will open a tab in the editor portion of Visual Studio. You will see a DataGridView contain all the records from the table.
+This will open a tab in the editor portion of Visual Studio. You will see a DataGridView containing all the records from the table.
 
-![Database Table Rows](../images/server-explorer/datatable-rows.png){: .large }
+[![Database Table Rows](../images/server-explorer/datatable-rows.png "Database Table Rows"){: .large }](../images/server-explorer/datatable-rows.png)
 
 ## Modify Database Data
 
@@ -71,4 +71,4 @@ When adding new records, DO NOT populate the ID column. This is an AutoNumber co
 
 It is recommended that you close the connection to the database before closing Visual Studio. You can close the connection by right-clicking the Database node and choosing **Close connection**.
 
-![Close Connection](../images/server-explorer/close-connection.png){: .large }
+[![Close Connection](../images/server-explorer/close-connection.png "Close Connection"){: .large }](../images/server-explorer/close-connection.png)

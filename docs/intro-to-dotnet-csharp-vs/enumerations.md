@@ -52,10 +52,8 @@ namespace Weather
 }
 ```
 
-In this course, each enumeration you define will be coded within its own file. Like you did in the previous level of programming, you will name the file using the identifier of what it contains. For example, for the `Direction` enumeration defined above, you would code this in a file called _Direction.cs_.
+In this course, each enumeration you define will be coded within its own file. Like you did in the previous level of programming, you will name the file using the identifier of the type declared within the file. For example, for the `Direction` enumeration defined above, you would code this in a file called _Direction.cs_.
 {: .alert .alert-best-practices}
-
-
 
 ## Enumeration Values
 

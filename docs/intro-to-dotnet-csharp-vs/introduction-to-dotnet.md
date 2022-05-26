@@ -18,9 +18,7 @@ nav_order: 1
 
 **.NET** (pronounced "dot net") is a free, cross-platform, open-source development platform. It is developed and maintained by Microsoft. .NET is used to develope many types of applications.
 
-<iframe width="450" height="253" src="https://www.youtube.com/embed/eIHKZfgddLM?list=PLdo4fOcmZ0oWoazjhXQzBKMrFuArxpW80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-.NET supports multiple languages, including C#, F# and Visual Basic. An application can be made up of source code from any supported language and will run natively on any compatible operating system.
+.NET supports multiple languages, including C#, F#, and Visual Basic. An application can be made up of source code from any supported language and will run natively on any compatible operating system.
 
 .NET is a cross-platform .NET implementation mostly used for websites, servers and console applications on Windows, Linux, and Mac.
 
@@ -41,11 +39,11 @@ The **Common Language Runtime (CLR)** manages the execution of .NET Framework ap
 
 ## .NET Framework Class Library
 
-The **.NET Framework Class Library** is set of Application Programming Interfaces (APIs) and data types a develop can use to develop applications. The Class Library is very similar to the library of classes offered to Java developers in the JDK.
+The **.NET Framework Class Library** is set of Application Programming Interfaces (APIs) and data types a developer can use to develop applications. The Class Library is very similar to the library of classes offered to Java developers in the JDK.
 
 ## The Architecture
 
-[![Figure 1: .NET Framework Architecture](../images/introduction-to-dotnet/architecture.png "Figure 1: .NET Framework Architecture"){:class="medium inline"}](../images/introduction-to-dotnet/architecture.png){: target="_blank"}
+[![Figure 1: .NET Framework Architecture](../images/introduction-to-dotnet/architecture.png "Figure 1: .NET Framework Architecture"){:class="medium inline"}](../images/introduction-to-dotnet/architecture.png)
 
 As mentioned above, .NET supports multiple languages. The advantage of this is that the source code that makes up an application can be written in various languages.
 
@@ -53,30 +51,30 @@ When source code is compiled, it is compiled to a bytecode called **Common Inter
 
 The CIL is stored in files called **Assemblies**. Assembly files end with the file extension .exe or .dll.
 
-This module will cover the .exe assembly. The .dll assembly is covered in the next module.
+This topic will cover the .exe assembly. The .dll assembly is covered in the next topic.
 {: .alert .alert-future-lesson}
 
-During the execution of a .NET application, the CLR processes the CLI (a.k.a. managed code) from one or more assemblies to generate the machine code necessary to execute the instructions on the computers platform. This processes is referred to as **Just-in-time (JIT)** compiling.
+During the execution of a .NET application, the CLR processes the CLI (a.k.a. managed code) from one or more assemblies to generate the machine code necessary to execute the instructions on the computers platform. This process is referred to as **Just-in-time (JIT)** compiling.
 
 # Developing .NET Framework Apps
 
 To develop a .NET Framework Application, you will need:
 
-- A code editor that supports development of the .NET applications. The most common of which are [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/){:target="_blank"} and [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}.
-- A compiler for the .NET supported programming language of choice.
+* A code editor that supports development of the .NET applications. The most common of which are [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/){:target="_blank"} and [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}.
+* A compiler for the .NET supported programming language of choice.
 
 # Executing .NET Framework Apps
 
-Whether you are a developer or not, executing programs written in .NET requires a Common Language Runtime for the platform of computer you running. If you are using the Windows operating system, it is very likely you already have a version of the framework installed.
+Whether you are a developer or not, executing programs written in .NET requires a Common Language Runtime for the platform of computer you are running. If you are using the Windows operating system, it is very likely you already have a version of the framework installed.
 
 # Further Reading
 {: .no_toc}
 
-- [.NET Framework - Overview](https://docs.microsoft.com/en-us/dotnet/framework/get-started/overview){:target="_blank"}
-- [.NET Framework - Get Started](https://docs.microsoft.com/en-us/dotnet/framework/get-started/)
+* [.NET Framework - Overview](https://docs.microsoft.com/en-us/dotnet/framework/get-started/overview){:target="_blank"}
+* [.NET Framework - Get Started](https://docs.microsoft.com/en-us/dotnet/framework/get-started/)
 
 **References**
 {: .mt-8 }
 
-- [Video: What is .NET?](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet){:target="_blank"}
-- [Figure 1: What is the .NET Framework?](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet-framework){:target="_blank"}
+* [Video: What is .NET?](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet){:target="_blank"}
+* [Figure 1: What is the .NET Framework?](https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet-framework){:target="_blank"}

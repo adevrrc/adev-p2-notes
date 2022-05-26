@@ -18,14 +18,15 @@ nav_order: 3
 
 The **Test Explorer** is a panel within Visual Studio. It is used to run unit tests. The Test Explorer is not usually visible by default. To open the panel, go to **View > Test Explorer** on the menu strip or use the keyboard shortcut <kbd>Ctrl + E, T</kbd>. While you are unit testing, you may want to pin the Test Explorer panel so it is always visible.
 
-![Blank Test Explorer](../images/running-tests/blank-test-explorer.png){: .large }
+[![Blank Test Explorer](../images/running-tests/blank-test-explorer.png "Blank Test Explorer"){: .large }](../images/running-tests/blank-test-explorer.png)
 
 Like the Solution Explorer, the Test Explorer is populated with nodes. The first node represents a test project. All the namespaces within the test project will be child nodes of the test project. Test class nodes are child nodes of the namespace nodes. Unit test nodes are child nodes of test class nodes.
 {: .d-block }
 
-![Populated Test Explorer](../images/running-tests/populated-test-explorer.png){: .large .inline }
+[![Populated Test Explorer](../images/running-tests/populated-test-explorer.png "Populated Test Explorer"){: .large }](../images/running-tests/populated-test-explorer.png)
 
-Test Explorer Hierarchy
+### Test Explorer Hierarchy
+{: .no_toc}
 
 - Project
     - Namespace
@@ -39,19 +40,19 @@ If the Test Explorer is not populating with your Unit Test Class or Unit Test Me
 
 It is recommended that after completing a unit test method you will run it. To run a unit test, right-click the unit test method node in the Test Explorer and choose **Run** from the context menu.
 
-![Run Unit Test](../images/running-tests/run-unit-test.png){: .large }
+[![Run Unit Test](../images/running-tests/run-unit-test.png "Run Unit Test"){: .large }](../images/running-tests/run-unit-test.png)
 
 You can execute all tests or a grouping of tests. It is recommended to execute tests individually. When a test fails, you will want to fix the defect until the test passes before moving on with your testing.
 
 ## Test Results
 
-After running a test, the icons next to the Project, Namespace, Class, and Method will show you the result of tests in that grouping.
+After running a test, the icons next to the Project, Namespace, Class, and Method nodes will show you the result of tests in that grouping.
 
-![Test Explorer Icons](https://docs.microsoft.com/en-us/visualstudio/test/media/testex-hierarchy-icons.png?view=vs-2022){: .large }
+[![Test Explorer Icons](https://docs.microsoft.com/en-us/visualstudio/test/media/testex-hierarchy-icons.png?view=vs-2022 "Test Explorer Icons"){: .large }](https://docs.microsoft.com/en-us/visualstudio/test/media/testex-hierarchy-icons.png?view=vs-2022)
 
-If you select a unit test node in the Test Explorer, the **Test Detail Summary** panel will populate information about the results of the test. It is important to read this information carefully when a test fails. It is this information that will help you figure out why the test if failing.
+If you select a unit test node in the Test Explorer, the **Test Detail Summary** panel will populate information about the results of the test. It is important to read this information carefully when a test fails. It is this information that will help you figure out why the test is failing.
 
-![Test Detail Summary](../images/running-tests/test-detail-summary.png){: .large }
+[![Test Detail Summary](../images/running-tests/test-detail-summary.png "Test Detail Summary"){: .large }](../images/running-tests/test-detail-summary.png)
 
 ## Tests That Fail
 
@@ -60,7 +61,7 @@ A unit test method results in a Failed status when an exception occurs during th
 1. The `Assert` method used to evaluate the result of the test throws an `AssertFailedException`.
 2. An unexpected exception of any other type is thrown.
 
-You should not handle exceptions you are not intentionally throwing in your test just to make the test pass. An exception is telling you something is wrong.
+You should not handle exceptions you are not intentionally throwing in your test just to make the test pass. An unexpected exception is telling you something is wrong.
 {: .alert .alert-error }
 
 When a unit test method fails, it doesn't necessarily mean the unit you are testing has a defect. If you wrote a statement in your unit test that is causing an exception, it will cause the unit test method to fail.
@@ -78,7 +79,7 @@ If you are not able to solve a failed test, reach out to your instructor for ass
 
 A unit test method that completes successfully will result an a Passed status.
 
-![Test Passed](../images/running-tests/test-passed.png){: .large }
+[![Test Passed](../images/running-tests/test-passed.png "Test Passed"){: .large }](../images/running-tests/test-passed.png)
 
 Writing a unit test method and getting a Passed status after running it is a great feeling. You want to also be mindful that a Passed status does not necessarily mean the unit doesn't have a defect.
 
@@ -101,4 +102,4 @@ namespace ADEV.UnitTesting
 
 Remember that the only criteria for producing a Passed status is for the unit test method to complete successfully. The unit test method above contains no code and will result in a Passed status.
 
-![Poor Test Passed Status](../images/running-tests/test-passed-no-code.png){: .large }
+[![Poor Test Passed Status](../images/running-tests/test-passed-no-code.png "Poor Test Passed Status"){: .large }](../images/running-tests/test-passed-no-code.png)
