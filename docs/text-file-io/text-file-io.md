@@ -330,3 +330,16 @@ fileReader.Close();
 foreach (Student s in students)
     Console.WriteLine(s);
 ```
+
+## Further Reading
+
+* [File and Stream I/0](https://docs.microsoft.com/en-us/dotnet/standard/io/){: target="_blank"}
+* [Stream Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.stream){: target="_blank"}
+* [File Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.file){: target="_blank"}
+* [FileInfo Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.fileinfo){: target="_blank"}
+* [Directory Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.directory){: target="_blank"}
+* [DirectoryInfo Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.directoryinfo){: target="_blank"}
+* [FileStream Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.filestream){: target="_blank"}
+* [StreamWriter](https://docs.microsoft.com/en-us/dotnet/api/system.io.streamwriter){: target="_blank"}
+* [FileAccess Enumeration](https://docs.microsoft.com/en-us/dotnet/api/system.io.fileaccess){: target="_blank"}
+* [StreamReader Class](https://docs.microsoft.com/en-us/dotnet/api/system.io.streamreader){: target="_blank"}
