@@ -43,9 +43,9 @@ nav_order: 1
 | # | Test Case | Test Data | Expected |
 |:-:|:--------|:---------|:---------|
 | 1 | Exception when the value is a negative value | Value: -1 | ArgumentOutOfRangeException, Parameter: value, Message: The value must be zero or greater., State is not updated. |
-| 3 | Sets the amount of money to zero | Initial amount of money: 100, Value: 0 | 0 |
-| 4 | Sets the amount of money to positive value | Initial amount of money: 0, Value: 100 | 100 |
-| 5 | Gets the amount of money | Initial amount of money: 100 | 100 |
+| 2 | Sets the amount of money to zero | Initial amount of money: 100, Value: 0 | 0 |
+| 3 | Sets the amount of money to positive value | Initial amount of money: 0, Value: 100 | 100 |
+| 4 | Gets the amount of money | Initial amount of money: 100 | 100 |
 
 ### <<Property>> Name : string
 
