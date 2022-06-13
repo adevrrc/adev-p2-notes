@@ -21,4 +21,4 @@ permalink: /
 
 ## Other Resources
 
-- Check out the course on [Learn](https://learn.rrc.ca){ target="_blank" } for projects, assignments and other learning material.
+* Check out the course on [Learn](https://learn.rrc.ca){: target="_blank" } for projects, assignments and other learning material.
