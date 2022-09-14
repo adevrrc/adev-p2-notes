@@ -86,6 +86,9 @@ public override string ToString()
 }
 ```
 
+Check out the [Sample Documentation]({{ site.url}}{{ site.baseurl }}/docs/appendixes/documentation-samples), for examples of how you should document your code.
+{: .alert .alert-note}
+
 ## Code Commenting
 
 Comments are a way of annotating your source code in plain English that assists others in determining what a statement or set of statements is doing.
