@@ -93,12 +93,9 @@ The `Console` class can also be used for reading input from the console using th
 ```csharp
 Console.Write("(Y/N)? ");
 
-char choice = (char)Console.Read();
+char choice = Console.ReadLine()[0];
 
 Console.WriteLine(choice);
-
-// flush output buffer
-Console.WriteLine(); 
 
 Console.Write("Enter your full name: ");
 
