@@ -22,7 +22,7 @@ Creating a Class Library project follows the [same steps as a Console Applicatio
 
 When you get to the **Create a new project** window, the project type you want to choose is called "Class Library (.NET Framework)". You can use the search to filter the list.
 
-[![Create Class Library Project](../images/class-libraries/create-class-library-project.png Create Class Library Project""){: .large }](../images/class-libraries/create-class-library-project.png)
+[![Create Class Library Project](../images/class-libraries/create-class-library-project.png "Create Class Library Project"){: .large }](../images/class-libraries/create-class-library-project.png)
 
 ## Solution File Structure
 
