@@ -23,6 +23,7 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 * **Increment** - Gets or sets the value to increment or decrement the spin box (also known as an up-down control) when the up or down buttons are clicked.
 * **Maximum** - Gets or sets the maximum value for the spin box (also known as an up-down control).
 * **Minimum** - Gets or sets the minimum allowed value for the spin box (also known as an up-down control).
+* **ReadOnly** - Gets or sets a value indicating whether the text can be changed by the use of the up or down buttons only.
 * **TextAlign** - Gets or sets the alignment of the text in the spin box (also known as an up-down control).
 * **ThousandsSeparator** - Gets or sets a value indicating whether a thousands separator is displayed in the spin box (also known as an up-down control) when appropriate.
 * **Value** - Gets or sets the value assigned to the spin box (also known as an up-down control).
