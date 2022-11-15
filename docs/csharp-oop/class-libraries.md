@@ -52,7 +52,7 @@ The project directory contains:
 
 * **bin Directory** - Contains binary files. These are the application or library assemblies generated during a successful project build.
 * **obj Directory** - Contains compiled binary files that haven't been linked yet and will later be combined to produce the assembly file stored in the _bin_ directory.
-* **Properties Directory** - Contains information about the project. This information can viewed and edited in Visual Studio.
+* **Properties Directory** - Contains information about the project. This information can be viewed and edited in Visual Studio.
 * **MS Build File (.csproj) File** - The MSBuild file for the Visual Studio project.
 * **Class1.cs** - This file contains a class called `Class1` and is created by default because of the project template that was chosen when creating the project.
 
