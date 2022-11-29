@@ -50,6 +50,16 @@ To set your project to compile as 64-bit:
 If you are experiencing exceptions connecting to the database, ensure you've set the project as 64-bit.
 {: .alert .alert-error }
 
+### Provider Not Registered Message
+
+If a dialog appears with the message "The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.', try installing [Microsoft Access Database Engine 2016 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=54920){: target="_blank"}.
+
+After installing the Access Database Engine, reboot your machine to ensure the changes take effect.
+{: .alert .alert-warning }
+
+If you are still not able to connect to the provided database, speak with your instructor immediately.
+{: .alert .alert-error }
+
 ## SQL SELECT Query
 
 The `CommandText` of the `SelectCommand` must be a valid SQL `SELECT` statement. If you are unfamiliar with the SQL `SELECT` statement, check out these guides:
