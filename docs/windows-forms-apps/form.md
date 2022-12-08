@@ -75,6 +75,17 @@ To set focus to a child Form:
 form.Activate();
 ```
 
+#### Menu Merging
+
+When a child form contains a `MenuStrip`, the items from the `MenuStrip` can be merged to the `MenuStrip` of the parent form (MDI Container). For this to happen properly, the following must happen:
+
+* The parent `Form` must be an MDI container.
+* The parent `Form`'s `MainMenuStrip` property must be set.
+* The child form must be opened within an MDI container.
+
+The `MainMenuStrip` property defaults to `null`. When you add a `MenuStrip` to your `Form` using Form Designer, the `MainMenuStrip` property is set to the instance of the `MenuStrip`. In some cases, like when removing the `MenuStrip` after adding it, this property can be set back to `null`. This will prevent menu merging from happening.
+{: .alert .alert-warning}
+
 ### Events
 
 After a form is constructed or closed, a series of events are raised.
@@ -111,6 +122,7 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 * **Height** - Gets or sets the height of the control.
 * **IsMdiChild** - Gets a value indicating whether the form is a multiple-document interface (MDI) child form.
 * **IsMdiContainer** - Gets or sets a value indicating whether the form is a container for multiple-document interface (MDI) child forms.
+* **MainMenuStrip** - Gets or sets the primary menu container for the form.
 * **MaximizeBox** - Gets or sets a value indicating whether the Maximize button is displayed in the caption bar of the form.
 * **MdiChildren** - Gets an array of forms that represent the multiple-document interface (MDI) child forms that are parented to this form.
 * **MdiParent** - Gets or sets the current multiple-document interface (MDI) parent form of this form.

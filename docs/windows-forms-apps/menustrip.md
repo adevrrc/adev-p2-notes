@@ -41,7 +41,7 @@ For more information, see [How to: Create Access Keys for Windows Forms Controls
 
 A separator bar represents a line used to group related items in a menu strip.  In the image below, the separator bar is the gray line between the "Open" and "Exit" menu items.
 
-[![Menu Item With Ellipsis](images/menustrip/menustrip-item-ellipsis.png "Menu Item With Ellipsis"){:.large}](images/menustrip/menustrip-item-ellipsis.png)
+[![Menu Item With Ellipsis](../images/menustrip/menustrip-item-ellipsis.png "Menu Item With Ellipsis"){:.large}](../images/menustrip/menustrip-item-ellipsis.png)
 
 You can add a separator bar in design view by choosing it from the drop-down list or by typing a hyphen (-) in the "Type Here" input area.  By doing this, an instance of the [ToolStripSeparator](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.toolstripseparator){: target="_blank"} class is added to the form.
 
@@ -78,6 +78,12 @@ There are also standards for accessor keys. For example, using <kbd>Alt + F</kbd
 Menu items that open a modal dialog window will always include a "..." (ellipsis) at the end of their text. This is a visual cue to the user that they should expect a modal window to appear.
 
 [![Menu Item With Ellipsis](../images/menustrip/menustrip-item-ellipsis.png "Menu Item With Ellipsis"){:.large}](../images/menustrip/menustrip-item-ellipsis.png)
+
+### Menu Merging
+
+Menu merging takes place when a `Form` with a `MenuStrip` control is opened as a child form within an MDI container `Form`. The `MenuStrip` of the child form is merged with the `MenuStrip` of its parent form.
+
+For more information about menu merging, check out [this section of the Form class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/form/#formclosed-event).
 
 ## Notable MenuStrip Class Members
 
