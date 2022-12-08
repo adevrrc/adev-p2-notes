@@ -83,7 +83,7 @@ Menu items that open a modal dialog window will always include a "..." (ellipsis
 
 Menu merging takes place when a `Form` with a `MenuStrip` control is opened as a child form within an MDI container `Form`. The `MenuStrip` of the child form is merged with the `MenuStrip` of its parent form.
 
-For more information about menu merging, check out [this section of the Form class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/form/#formclosed-event).
+For more information about menu merging, check out [this section of the Form class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/form/#menu-merging).
 
 ## Notable MenuStrip Class Members
 
