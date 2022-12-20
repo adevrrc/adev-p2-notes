@@ -37,7 +37,7 @@ search:
   # Supports true or false (default)
   button: false
 
-footer_content: "Copyright &copy; 2022 RRCP (ThirstyCoder)."
+footer_content: "Copyright &copy; 2022 TC"
 
 kramdown:
   toc_levels: 1..2
@@ -47,7 +47,7 @@ back_to_top: true
 back_to_top_text: "Back to top"
 
 # Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
+gh_edit_link: false # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
 gh_edit_repository: "https://github.com/adevrrc/adevrrc.github.io" # the github URL for your repo
 gh_edit_branch: "master" # the branch that your docs is served from

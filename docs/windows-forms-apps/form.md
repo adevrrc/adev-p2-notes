@@ -42,7 +42,7 @@ To open a form as a modal form:
 form.ShowDialog();
 ```
 
-### Closing A Form
+### Closing a Form
 
 A `Form` instance is closed in three ways:
 
@@ -54,7 +54,7 @@ Forms are closed programmatically by using the object's `Close()` method. Closin
 
 ## Single-Document Interface
 
-A _Single-document Interface_ (SDI) is a graphical user interface, typically made up of single window (`Form` instance). SDI applications can contain more windows, but the windows are independent of each other. 
+A _Single-document Interface_ (SDI) is a graphical user interface, typically made up of a single window (`Form` instance). SDI applications can contain more windows, but the windows are independent of each other. 
 
 ## Multiple-Document Interface
 
@@ -62,9 +62,9 @@ A _Multiple-document Interface_ (MDI) is a graphical user interface where one or
 
 By default, a `Form` instance is not set to be an MDI container. To set a `Form` as an MDI container, the form's `IsMdiContainer` property is set to `true`. An MDI container `Form` is shown and closed like any other non-modal form.
 
-MDI container windows are almost always the first document to be opened in the application. This windows is the parent window for all other windows in the application.
+MDI container windows are almost always the first document to be opened in the application. This form will the parent window for all other windows in the application.
 
-### Child Forms
+## MDI Child Forms
 
 To open a `Form` within the MDI container, also referred to as a _Child Form_, the `MdiParent` property of the form must be set to reference a `Form` instance that is set as an MDI container.
 
@@ -87,7 +87,7 @@ The MDI container form contains references to each child form shown within it. T
 When closing an MDI container form, all of the child forms will be closed.
 {: .alert .alert-note}
 
-#### Activating
+### Activating
 
 An MDI container has the potential to contain many child forms. The active form is the child form which has focus. The user can activate any form by clicking it with their cursor. In certain situations, you may be required to programmatically activate a form. This can be accomplished by invoking its `Activate()` method.
 
@@ -95,7 +95,7 @@ An MDI container has the potential to contain many child forms. The active form 
 form.Activate();
 ```
 
-#### Menu Merging
+### Menu Merging
 
 When a child form contains a `MenuStrip`, the items from the menu can be merged with the menu of the parent form (MDI Container). Merging can happen manually or automatically. To automatically menu merge, the following must happen:
 
@@ -106,35 +106,51 @@ When a child form contains a `MenuStrip`, the items from the menu can be merged 
 The `MainMenuStrip` property of a `Form` defaults to `null`. When you add a menu to a form using Form Designer, the `MainMenuStrip` property is set to the instance of the `MenuStrip`. In some cases, like when removing the menu after adding it, this property can be set back to `null`. This will prevent menu merging from happening.
 {: .alert .alert-warning}
 
-There are several ways menu items can be merged to a parent form's menu. The type of merge is defined by the value of the `ToolStripMenuItem` instances' `MergeAction` property. For some merge action types, the value of the items `Text` property must match the `Text` property of the menu item in the parent form.
+There are several ways menu items can be merged to a parent form's menu. The type of merge is defined by the value of the `ToolStripMenuItem` instance's' `MergeAction` property. For some merge action types, the value of the items `Text` property must match the `Text` property of the menu item in the parent form.
 
 For example, let's say a child form contains a `MenuStrip` which needs to merge items as sub-items under "File" in the parent form.  To do this, the child form menu would need to contain a menu item with the `Text` "File".
 
 "File" and "&File" are not considered to be equal, and would not allow menu merging to work properly.
 {: .alert .alert-warning}
 
-### Events
+## Events
 
-When a form is initialized or closed, a series of events are raised.
+When a form is shown or closed, a series of events are raised.
 
-#### Load Event
+### Load Event
 
-The `Load` event occurs before the form is shown for the first time. This event can be used to prepare the data that is used on the form. It can also be used to set the form's control's initial state.
+The `Load` event occurs before the form is shown for the first time. This event can be used to prepare the data that is used on the form and to set the control's initial state.
 
-The `Load` event is too early to perform some form tasks, as the form is not been displayed on the screen yet. For example, closing a form during the `Load` event will often cause an `InvalidOperationException`. In these types of cases, perform these tasks in the constructor of the form class.
-{: .alert .alert-note}
-
-#### Shown Event
+### Shown Event
 
 The `Shown` event occurs after the form is first displayed. This event can be used to perform tasks that were too early to do during the `Load` event.
 
-#### FormClosing Event
+### FormClosing Event
 
 When a form is closed (using the UI close button or `Close()` method) the `FormClosing` event is raised before the form is removed from the screen. This is event is used for last second tasks before the form actually closes. An example would be to display a `MessageBox` to ask the user to save changes. During the `FormClosing` event, you can cancel the closing of the form by using the event's `FormClosingEventArgs` parameter. Cancelling the close will prevent the `FormClosed` event from taking place.
 
-#### FormClosed Event
+### FormClosed Event
 
 The `FormClosed` event occurs after the form is closed and removed from the screen. This event can be used to dispose of resources, like file streams.
+
+## Handling Errors
+
+Handling errors for a form can be a tricky thing.  Often, you will need to handle errors generated during the initialization of the `Form` or during the `Load` event. If a form fails to instantiate, it cannot be shown, because the instance won't exist. If an error occurs while the form is loading, the form shouldn't be shown (in most cases), since its likely there will be vital data missing for the form's functionality.
+
+The goal should be to encapsulate the handling of errors within the form itself. Take the approach that the form should be self sufficient, able to work as if it was the only form in the application.
+
+### Prevent a Form From Showing
+
+You may think that invoking the `Close()` method before the form is shown would be the easiest way to handle a form from being shown when there is an error. Closing a `Form` during the execution of the constructor or `Load` event will often cause an `InvalidOperationException`.  To avoid this exception, invoke the following code in a `Load` event handler.
+
+```csharp
+this.BeginInvoke(new MethodInvoker(this.Close));
+```
+
+The `BeginInvoke` method of the `Form` class invokes the specified Delegate at a later point in the form's life cycle, preventing the `InvalidOperationException` from being thrown. The `MethodInvoker` is the Delegate type object which is invoked, which references the `Close()` method of the `Form` class.
+
+Because the form's `Show` method is still invoked, the form might be momentarily visible in the application, but will disappear instantly once the `Close` method is invoked during the `BeginInvoke` method.
+{: .alert .alert-warning}
 
 ## Notable Class Members
 
