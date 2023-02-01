@@ -69,7 +69,7 @@ The purpose of every constructor is to set the initial state of an instance of t
 The `Person` class contains the following constructor:
 
 ```text
-+ Person(name : string, amountOfMoney : name)
++ Person(name : string, amountOfMoney : decimal)
 ```
 
 The requirement of the method is:
