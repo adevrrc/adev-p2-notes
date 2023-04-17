@@ -45,7 +45,7 @@ The rows in the DataGridView are stored in a collection (`DataGridViewRowCollect
 
 ### Accessing Data
 
-Data is stored in a `DataGridView` in objects of `DataGridViewRow` type. A `DataGridViewRow` stores data in a collection (`DataGridViewCellCollection`) accessible through its `Cells` property. Accessing a specific cell can be accomplished using a key (column name) or index.
+A `DataGridViewRow` object stores data in a collection of cells (`DataGridViewCellCollection`) accessible through its `Cells` property. Accessing a specific cell can be accomplished using a key (column name) or index.
 
 ## Notable Class Members
 
