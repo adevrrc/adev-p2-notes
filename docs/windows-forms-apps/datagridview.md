@@ -39,6 +39,14 @@ To exit edit mode, one of the following things must happen:
 * User clicks another cell.
 * A call to the `EndEdit()` method of the `DataGridView`.
 
+#### Deleting a Row
+
+The rows in the DataGridView are stored in a collection (`DataGridViewRowCollection`) accessible through its `Rows` property. To remove a row from the collection, you would use the appropriate collection method.
+
+### Accessing Data
+
+Data is stored in a `DataGridView` in objects of `DataGridViewRow` type. A `DataGridViewRow` stores data in a collection (`DataGridViewCellCollection`) accessible through its `Cells` property. Accessing a specific cell can be accomplished using a key (column name) or index.
+
 ## Notable Class Members
 
 Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/windows-forms-apps/control/).
@@ -69,9 +77,20 @@ Inherits members from the [Control Class]({{ site.url }}{{ site.baseurl }}/docs/
 
 #### Properties
 
+* **Cells** - Gets the collection of cells that populate the row.
 * **IsNewRow** - Gets a value indicating whether the row is the row for new records.
+
+## DataGridViewRowCollection Class
+
+### Notable Class Members
+
+#### Methods
+
+* **Remove(DataGridViewRow)** - Removes the row from the collection.
+* **Remove(Int32)** - Removes the row at the specified position from the collection.
 
 ## Further Reading
 
 * [DataGridView Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridview){: target="_blank"}
 * [DataGridViewRow Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridviewrow){: target="_blank"}
+* [DataGridViewRowCollection Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridviewrowcollection){: target="_blank"}
