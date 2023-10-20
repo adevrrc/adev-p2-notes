@@ -19,7 +19,7 @@ nav_order: 1
 
 A program in C# is defined with a class containing a `Main` method. The code sample below is the starting point for a console application.
 
-```csharp linenos
+```csharp
 using System;
 
 namespace ADEV.BIT.RRC
